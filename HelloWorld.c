@@ -1,13 +1,21 @@
-#include <stdio.h>
-// <stdio.h>: contains useful function related to input and output
-// std: standard
-// i: input
-// 0: output
+#include <stdio.h> //txt --> 1.0
 
-// Aynting in our "main" function is read procedurally, i.e top to bottom.
-int main()
-{
+
+void main01() {
     printf("I like pizza!\n");
-    printf("It's really good!\n");
-    return 0; //Done also to check for errors.
+    printf("\"It's really good shampoo\" -Jacob Thadeus\n");
+    printf("\\Print backslashes\\\n");
+}
+
+void main02() {
+    //txt --> 2.0
+    printf("1\n2\n3\n");
+    printf("1tab\t2tab\t3tab\n");
+    printf("1\t2\t3\n4\t5\t6\n7\t8\t9\n");
+}
+
+int main() {
+    main01();
+    main02();
+    return 0; //txt --> 3.1
 }

@@ -8,3 +8,28 @@ To name the file yourself --> gcc HelloWorld.c -o helloWorld
 To define the file & type --> gcc HelloWorld.c -o helloWorld(.exe/.out)
 
 To run compiled file --> helloWorld.exe-- (linux)./helloWorld.exe
+
+
+index 1.0
+<stdio.h>: contains useful function related to input and output
+- std: standard
+- i: input
+- 0: output
+
+index 2.0
+Escape Sequence = Character combo consisting of a backslash "\" followed by a letter or combo. of digits.
+They Specify diff. actions.
+    \n = newline
+    \t = new tab
+
+index 3.0
+C only allows one main() function; 
+C expects the entry point to be: int main()
+Aynting in our "main" function is read procedurally, i.e top to bottom.
+main() is the real entry point, and it calls your two other "helper" functions.
+
+if you want to keep them separate functions for practice:
+You can make them "normal helper functions" and call them from main() like this. ex "main01" & "main02"
+
+i-3.1 Done also to check for errors.
+
