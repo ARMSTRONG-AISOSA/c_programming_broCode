@@ -33,3 +33,28 @@ You can make them "normal helper functions" and call them from main() like this.
 
 i-3.1 Done also to check for errors.
 
+index 4.0
+variable = Allocated space in memory to store a value|
+    We refer to a variable’s nane to access the stored value.
+    That variable now behaves as if it was the value it contains.
+    But we need to declare what type of data we are storing.
+    Step 1: Declaration(integer) = int x;
+    Step 2: Initialisation = x = 123;
+
+*===== data type =====*
+int age = 123; //Integer
+float gpa = 3.02; //Decimal point
+char grade = 'c'; //single character 
+    --> use single quote;
+
+char name[] = "Benson";//Array of characters 
+    --> double quotes --> you emulate a sting
+    -NB: C is not object oriented and "strings" are technically objects so you have to use an array to store multiple chracters
+
+% ==> Format specifier/placeholder
+In C programming, format specifiers are used with functions like printf() and scanf() to specify the type of data that is being input or output. Here’s a list of common format specifiers in C:
+%d or %i: Signed decimal integer
+%f: Decimal floating-point
+%c: Single character
+%s: String (array of characters)
+

@@ -14,8 +14,29 @@ void main02() {
     printf("1\t2\t3\n4\t5\t6\n7\t8\t9\n");
 }
 
+
+// === Lesson 4 Variables
+
+void main03() {
+//txt --> 4.0
+int age = 23;
+float gpa = 3.02; 
+char grade = 'c';
+char name[] = "Benson";
+
+printf("Hello %s\n", name);
+printf("I am %d years old.\n",age);
+printf("Her English grade is %c.\n", grade);
+printf("His gpa is %f.\n", gpa);
+}
+
+
+
+
+
 int main() {
     main01();
     main02();
+    main03();
     return 0; //txt --> 3.1
 }
