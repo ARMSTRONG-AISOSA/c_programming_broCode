@@ -5,6 +5,9 @@
 // 0: output
 
 // Aynting in our "main" function is read procedurally, i.e top to bottom.
-int main() {
-    
+int main()
+{
+    printf("I like pizza!\n");
+    printf("It's really good!\n");
+    return 0; //Done also to check for errors.
 }
