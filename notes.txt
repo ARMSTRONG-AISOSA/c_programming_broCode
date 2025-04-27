@@ -1,0 +1,10 @@
+To comile the C file via terminal 
+-cd into the folder and run
+gcc 'filename' in the commandline
+    --> gcc HelloWorld.c
+
+To name the file yourself --> gcc HelloWorld.c -o helloWorld
+
+To define the file & type --> gcc HelloWorld.c -o helloWorld(.exe/.out)
+
+To run compiled file --> helloWorld.exe-- (linux)./helloWorld.exe
