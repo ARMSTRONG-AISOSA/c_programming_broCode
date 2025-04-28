@@ -142,10 +142,11 @@ printf("I am %f years old.", age);
 
 Here’s a list of some format specifiers in C:
 Specifier	Data Type	                Example Value
-%d	        int (decimal integer)	    5
 %i	        int (integer)	            10
+%d	        int (decimal integer)	    5
 %u	        unsigned int	            20
 %f	        float or double	            3.14
+%.(n)f	    decimal precision   	    5.5
 %lf         double	                    3.14159
 %c	        char (character)	        'A'
 %s	        string (char array)	        "Hello"
