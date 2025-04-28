@@ -62,7 +62,8 @@ void main04()
     printf("The value of stored PI is %f.\n", PI);
 }
 
-void main05() {
+void main05()
+{
     // Arithmetic
     int x = 5;
     int y = 2;
@@ -70,7 +71,7 @@ void main05() {
     int multi = x * y;
     int add = x + y;
     int sub = x - y;
-    float div = x / (float) y;
+    float div = x / (float)y;
     int modulus = x % y;
     int incre = x++;
     int decre = y--;
@@ -85,6 +86,27 @@ void main05() {
     printf("The decremented number of y is %d.\n", y);
 }
 
+void main06()
+{
+    // Augumented assignment operator
+    // x = x+1
+    // x+=1 
+    int a = 10;
+    int b = 15;
+    int c = 8;
+    int d = 13;
+
+    a+=2;
+    b-=5;
+    c/=4;
+    d%=2;
+    
+    printf("\nFunction main04\n\n");
+    printf("Print% d.\n", a);
+    printf("Print% d.\n", b);
+    printf("Print% d.\n", c);
+    printf("Print% d.\n", d);
+}
 
 int main()
 {
@@ -92,6 +114,7 @@ int main()
     // main02();
     // main03();
     // main04();
-    main05();
+    // main05();
+    main06();
     return 0; // txt --> 3.1
 }
