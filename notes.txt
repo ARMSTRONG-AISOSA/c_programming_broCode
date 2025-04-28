@@ -157,5 +157,10 @@ Specifier	Data Type	                Example Value
 %e / %E	    scientific notation     	1.23e+02
             (float/double)
 
+i-5.3
+% ==> constantsThese are values and variables that cannot be altered by the program. Name conventions are all caps.
+ex.
+const float PI = 3.14159
+
 
 

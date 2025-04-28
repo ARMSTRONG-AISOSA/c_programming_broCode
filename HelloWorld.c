@@ -53,9 +53,13 @@ void main04()
     float item2 = 10.75;
     float item3 = 200.75;
 
+    const float PI = 3.14159;
+
     printf("\nFunction main04\n\n");
     printf("Item 1: $%.2f.\n", item1);
     printf("Item 1: $%.2f, Item 2: $%.2f, Item 3: $%.2f.\n", item1, item2, item3);
+
+    printf("The value of stored PI is %f.\n", PI);
 }
 
 
