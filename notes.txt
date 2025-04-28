@@ -9,19 +9,30 @@ To define the file & type --> gcc HelloWorld.c -o helloWorld(.exe/.out)
 
 To run compiled file --> helloWorld.exe-- (linux)./helloWorld.exe
 
-
+||
+||
+||
 index 1.0
 <stdio.h>: contains useful function related to input and output
 - std: standard
 - i: input
 - 0: output
 
+<stdbool.h>: added to work with booleans
+
+||
+||
+||
 index 2.0
 Escape Sequence = Character combo consisting of a backslash "\" followed by a letter or combo. of digits.
 They Specify diff. actions.
     \n = newline
     \t = new tab
 
+
+||
+||
+||
 index 3.0
 C only allows one main() function; 
 C expects the entry point to be: int main()
@@ -33,6 +44,9 @@ You can make them "normal helper functions" and call them from main() like this.
 
 i-3.1 Done also to check for errors.
 
+||
+||
+||
 index 4.0
 variable = Allocated space in memory to store a value|
     We refer to a variable’s nane to access the stored value.
@@ -41,20 +55,106 @@ variable = Allocated space in memory to store a value|
     Step 1: Declaration(integer) = int x;
     Step 2: Initialisation = x = 123;
 
-*===== data type =====*
+||
+||
+||
+index 5.0
+*===== data types =====*
+In C, data types define what kind of data a variable can hold — for example, integers, floating-point numbers, characters, etc.
 int age = 123; //Integer
 float gpa = 3.02; //Decimal point
+double pie = 3.14159265; //Double-precision floating point 
+    --> (more precise)	
 char grade = 'c'; //single character 
     --> use single quote;
 
+i-5-1
+*===== derived data types =====*
+
+*Type --> *Purpose
+Array --> Collection of similar data types
+Pointer --> Stores memory addresses
+Structure(struct) --> Groups different types together
+Union --> Like structure but shares memory
+Function --> Block of code performing a task
+
+ex.
 char name[] = "Benson";//Array of characters 
     --> double quotes --> you emulate a sting
     -NB: C is not object oriented and "strings" are technically objects so you have to use an array to store multiple chracters
 
+*===== enumeration type =====*
+enum : Defines a set of named integer constants.
+Ex.
+enum days {Sunday, Monday, Tuesday}; 
+
+*===== void type =====*
+void : Means no value.
+Used for functions that don't return anything.
+Ex.
+void sayHello() {
+    printf("Hello!");
+}
+
+Size (Typical, but depends on system)
+(Table)
+Type	                      Size/memory
+char	                      1 byte
+short int                     2 bytes
+int                           4 bytes
+long long int                 8 bytes
+float	                      4 bytes
+double	                      8 bytes
+bool                          1 byte
+
+*===== modifiers =====*
+You can further modify base types:
+    -short, long (changes storage size)
+    -signed, unsigned (whether it allows negative numbers)
+
+
+
+*===== signed & unsigned data types =====*
+In C, the difference between signed and unsigned data types is mainly about whether they can represent negative numbers.
+    signed store Neg. and pos. numbers	-10 to 10
+    unsigned only store pos. numbers (and zero)	0 to 20
+
+Internally, the first bit (most significant bit) is used to indicate sign:
+0 = positive
+1 = negative
+
+NB: 
+    -Default for types like int, char (sometimes depends on compiler).
+    -Since no bit is used for the sign, it can store larger positive values compared to signed types of the same size.
+
+Signed types (e.g., signed int, signed char)
+Unsigned types (e.g., unsigned int, unsigned char)
+
+
+i-5.2
 % ==> Format specifier/placeholder
-In C programming, format specifiers are used with functions like printf() and scanf() to specify the type of data that is being input or output. Here’s a list of common format specifiers in C:
-%d or %i: Signed decimal integer
-%f: Decimal floating-point
-%c: Single character
-%s: String (array of characters)
+In C programming, format specifiers are special symbols used with functions like printf() and scanf() to tell the compiler the type of data you're working with-like whether it’s an integer, a float, a character, etc.
+
+NB: When you print or scan variables, you must match the right specifier with the data type, or you’ll get wrong output(garbage) or crashes.
+ex.
+int age = 25;
+printf("I am %f years old.", age);
+
+Here’s a list of some format specifiers in C:
+Specifier	Data Type	                Example Value
+%d	        int (decimal integer)	    5
+%i	        int (integer)	            10
+%u	        unsigned int	            20
+%f	        float or double	            3.14
+%lf         double	                    3.14159
+%c	        char (character)	        'A'
+%s	        string (char array)	        "Hello"
+%p	        pointer address	            0x7ffeefbff5c0
+%x / %X	    hexadecimal int         	0x1a
+            (lowercase/uppercase)
+%o	        octal integer	            0757
+%e / %E	    scientific notation     	1.23e+02
+            (float/double)
+
+
 
