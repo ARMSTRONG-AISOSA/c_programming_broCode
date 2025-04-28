@@ -62,12 +62,36 @@ void main04()
     printf("The value of stored PI is %f.\n", PI);
 }
 
+void main05() {
+    // Arithmetic
+    int x = 5;
+    int y = 2;
+
+    int multi = x * y;
+    int add = x + y;
+    int sub = x - y;
+    float div = x / (float) y;
+    int modulus = x % y;
+    int incre = x++;
+    int decre = y--;
+
+    printf("\nFunction main04\n\n");
+    printf("The mutipled figure is %d.\n", multi);
+    printf("The added figure is %d.\n", add);
+    printf("The subtracted figure is %d.\n", sub);
+    printf("The divided figure is %f.\n", div);
+    printf("The modulus figure is %d.\n", modulus);
+    printf("The incremented number of x is %d.\n", x);
+    printf("The decremented number of y is %d.\n", y);
+}
+
 
 int main()
 {
-    main01();
-    main02();
-    main03();
-    main04();
+    // main01();
+    // main02();
+    // main03();
+    // main04();
+    main05();
     return 0; // txt --> 3.1
 }
