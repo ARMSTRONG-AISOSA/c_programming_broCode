@@ -170,14 +170,20 @@ void main09() {
     const double PI = 3.14159;
     double radius;
     double circumference;
+    double area;
 
     printf("\nFunction main09\n\n");
     printf("Enter the radius of a circle:");
     scanf("%lf", &radius);
 
+    // Cirumference Formula -> C = 2*π*r 
     circumference = 2 * PI * radius;
 
-    printf("circumference: %lf\n", circumference);
+    // Area Formula -> C = π*r(2)
+    area = PI * radius * radius;
+
+    printf("Circumference: %lf\n", circumference);
+    printf("Area: %lf\n", area);
 }
 
 int main()
