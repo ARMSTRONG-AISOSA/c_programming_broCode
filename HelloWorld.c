@@ -1,6 +1,7 @@
 #include <stdio.h> //txt --> 1.0
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
 
 void main01()
 {
@@ -120,12 +121,13 @@ void main07()
     printf("\nFunction main07\n\n");
 
     printf("What is your first name?\n");
-    scanf("%s", firstName); // Cannot handle white space 
+    scanf("%s", firstName); // Cannot handle white space
 
     printf("What is your age?\n");
-    scanf("%d", &age);// txt --> 6.01
+    scanf("%d", &age); // txt --> 6.01
     int ch;
-    while ((ch = getchar()) != '\n' && ch != EOF); // Clear the input buffer //txt --> 6.1
+    while ((ch = getchar()) != '\n' && ch != EOF)
+        ; // Clear the input buffer //txt --> 6.1
 
     printf("What are your hobbies?\n");
     fgets(hobbies, 100, stdin);          // txt --> 6.2
@@ -134,7 +136,34 @@ void main07()
     printf("My name is %s and I am %d years old. My hobbies include %s.\n", firstName, age, hobbies);
 }
 
-void main08() {}
+void main08()
+{
+    // Math functions
+
+    printf("\nFunction main08\n\n");
+
+    double A = sqrt(9);
+    double B = pow(2, 4);
+    int C = round(3.14);
+    int D = ceil(3.14);
+    int E = floor(3.99);
+    double F = fabs(-100);
+    double G = log(3);
+    double H = sin(45);
+    double I = cos(45);
+    double J = tan(45);
+
+    printf("Square root math function = %lf.\n", A);
+    printf("Raise to power math function = %lf.\n", B);
+    printf("Round number math function = %d.\n", C);
+    printf("Round up math function = %d.\n", D);
+    printf("Round down math function = %d.\n", E);
+    printf("Absolute number math function = %0.3lf.\n", F);
+    printf("Log math function = %lf.\n", G);
+    printf("Log math function = %lf.\n", H);
+    printf("Log math function = %lf.\n", I);
+    printf("Log math function = %lf.\n", J);
+}
 
 int main()
 {
@@ -144,7 +173,7 @@ int main()
     // main04();
     // main05();
     // main06();
-    main07();
+    // main07();
     main08();
     return 0; // txt --> 3.1
 }

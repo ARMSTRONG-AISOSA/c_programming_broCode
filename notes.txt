@@ -22,7 +22,8 @@ index 1.0
 - 0: output
 
 <stdbool.h>: allows us work with booleans
- <string.h>: allows us work with strings
+<string.h>: allows us work with strings
+<math.h>: allows us to use math functions
 
 ||
 ||
