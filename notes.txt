@@ -10,6 +10,7 @@ To define the file & type --> gcc HelloWorld.c -o helloWorld(.exe/.out)
 To run compiled file --> helloWorld.exe-- (linux)./helloWorld.exe
 
 To run c in the terminal of vscode instead of the output, install "code runner", search for in settings and tick good to "run in terminal"
+This is done because output doesn't accept user input.
 
 ||
 ||
@@ -20,7 +21,8 @@ index 1.0
 - i: input
 - 0: output
 
-<stdbool.h>: added to work with booleans
+<stdbool.h>: allows us work with booleans
+ <string.h>: allows us work with strings
 
 ||
 ||
@@ -171,22 +173,43 @@ index 6.0
 // printf(): used for output display
 // Scanf(): used to read input; cannot handle white space
 
+i-6.01
+why in scanf(), age is preceeded by an "&" and firstname is not.
+    -scanf("%d", &age);
+    -scanf("%s", firstName);
+
+age is an int (a single number).
+firstName is a string (an array of characters).
+
+Why "&" for age?
+scanf() needs the address of where to store the user's input in memory.
+age is just a simple variable (a box), so you must give scanf() the address of that box by writing "&age."
+
+Why no & for firstName?
+firstName is already an address — it’s an array!
+In C, the name of an array (like firstName) automatically acts as the address of its first element.
+
+NB:
+    -If it's a normal variable (like an int, float), you add &.
+    -If it's an array (like char firstName[50]), you don't add & because the array itself acts as a pointer as the name is already an address.
+
 i-6.1
 code:
     int ch;
     while ((ch = getchar()) != '\n' && ch != EOF);
-Purpose: It clears the input buffer — specifically, it discards any leftover characters in the buffer after using scanf().
+Purpose: It clears the input buffer — specifically, it discards any leftover characters (like the newline \n) in the buffer after using scanf().
 
-scanf() reads 25 but leaves the newline character (\n) in the input buffer.
-That leftover newline would be picked up immediately by fgets() afterward, causing it to read an empty line.
+When you use scanf() to read an int (like age), and the user presses Enter, a newline character (\n) remains in the input buffer. If you then use fgets() immediately afterward, it will read that leftover \n instead of the actual user input.
 
     -int ch;// Declare a variable to store characters.
     -while ((ch = getchar()) != '\n' //Keep reading characters until a newline is found
     -&& ch != EOF); //or end-of-file (just in case)
 
-getchar() reads one character at a time from stdin.
+getchar() reads one character at a time from input buffer/stdin.
+    -It assigns the character to ch.
     -It loops until it finds the newline character \n (user pressing Enter).
-    -It does not store the characters — it just consumes and discards them.
+    -or it reaches end-of-file (EOF, typically when input is redirected or closed).
+    -PS: getchar(), does not store the characters — it just consumes and discards them.
 
 
 i-6.2

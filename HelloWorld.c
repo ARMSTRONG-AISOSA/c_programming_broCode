@@ -1,6 +1,6 @@
 #include <stdio.h> //txt --> 1.0
 #include <stdbool.h>
-#include <string.h> //helps remove new line
+#include <string.h>
 
 void main01()
 {
@@ -91,17 +91,17 @@ void main06()
 {
     // Augumented assignment operator
     // x = x+1
-    // x+=1 
+    // x+=1
     int a = 10;
     int b = 15;
     int c = 8;
     int d = 13;
 
-    a+=2;
-    b-=5;
-    c/=4;
-    d%=2;
-    
+    a += 2;
+    b -= 5;
+    c /= 4;
+    d %= 2;
+
     printf("\nFunction main06\n\n");
     printf("Print% d.\n", a);
     printf("Print% d.\n", b);
@@ -109,30 +109,32 @@ void main06()
     printf("Print% d.\n", d);
 }
 
-void main07() {
-    //txt --> 6.0
+void main07()
+{
+    // txt --> 6.0
 
-    char firstName[50];//bytes
+    char firstName[50]; // bytes
     int age;
-    char hobbies[100];//bytes
-
+    char hobbies[100]; // bytes
 
     printf("\nFunction main07\n\n");
 
     printf("What is your first name?\n");
-    scanf("%s", firstName);//Cannot handle white space
+    scanf("%s", firstName); // Cannot handle white space 
 
     printf("What is your age?\n");
-    scanf("%d", &age);
+    scanf("%d", &age);// txt --> 6.01
     int ch;
     while ((ch = getchar()) != '\n' && ch != EOF); // Clear the input buffer //txt --> 6.1
 
     printf("What are your hobbies?\n");
-    fgets(hobbies, 100, stdin);//txt --> 6.2
-    hobbies[strlen(hobbies)-1] = '\0';//txt --> 6.3 
-    
+    fgets(hobbies, 100, stdin);          // txt --> 6.2
+    hobbies[strlen(hobbies) - 1] = '\0'; // txt --> 6.3
+
     printf("My name is %s and I am %d years old. My hobbies include %s.\n", firstName, age, hobbies);
 }
+
+void main08() {}
 
 int main()
 {
@@ -143,5 +145,6 @@ int main()
     // main05();
     // main06();
     main07();
+    main08();
     return 0; // txt --> 3.1
 }
