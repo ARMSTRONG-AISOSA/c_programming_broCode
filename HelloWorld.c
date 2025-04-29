@@ -160,9 +160,24 @@ void main08()
     printf("Round down math function = %d.\n", E);
     printf("Absolute number math function = %0.3lf.\n", F);
     printf("Log math function = %lf.\n", G);
-    printf("Log math function = %lf.\n", H);
-    printf("Log math function = %lf.\n", I);
-    printf("Log math function = %lf.\n", J);
+    printf("Sine math function = %lf.\n", H);
+    printf("Cosine math function = %lf.\n", I);
+    printf("Tan math function = %lf.\n", J);
+}
+
+void main09() {
+
+    const double PI = 3.14159;
+    double radius;
+    double circumference;
+
+    printf("\nFunction main09\n\n");
+    printf("Enter the radius of a circle:");
+    scanf("%lf", &radius);
+
+    circumference = 2 * PI * radius;
+
+    printf("circumference: %lf\n", circumference);
 }
 
 int main()
@@ -174,6 +189,7 @@ int main()
     // main05();
     // main06();
     // main07();
-    main08();
+    // main08();
+    main09();
     return 0; // txt --> 3.1
 }
