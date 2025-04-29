@@ -9,6 +9,8 @@ To define the file & type --> gcc HelloWorld.c -o helloWorld(.exe/.out)
 
 To run compiled file --> helloWorld.exe-- (linux)./helloWorld.exe
 
+To run c in the terminal of vscode instead of the output, install "code runner", search for in settings and tick good to "run in terminal"
+
 ||
 ||
 ||
@@ -68,7 +70,7 @@ double pie = 3.14159265; //Double-precision floating point
 char grade = 'c'; //single character 
     --> use single quote;
 
-i-5-1
+i-5.1
 *===== derived data types =====*
 
 *Type --> *Purpose
@@ -162,5 +164,54 @@ i-5.3
 ex.
 const float PI = 3.14159
 
+||
+||
+||
+index 6.0
+// printf(): used for output display
+// Scanf(): used to read input; cannot handle white space
+
+i-6.1
+code:
+    int ch;
+    while ((ch = getchar()) != '\n' && ch != EOF);
+Purpose: It clears the input buffer — specifically, it discards any leftover characters in the buffer after using scanf().
+
+scanf() reads 25 but leaves the newline character (\n) in the input buffer.
+That leftover newline would be picked up immediately by fgets() afterward, causing it to read an empty line.
+
+    -int ch;// Declare a variable to store characters.
+    -while ((ch = getchar()) != '\n' //Keep reading characters until a newline is found
+    -&& ch != EOF); //or end-of-file (just in case)
+
+getchar() reads one character at a time from stdin.
+    -It loops until it finds the newline character \n (user pressing Enter).
+    -It does not store the characters — it just consumes and discards them.
 
 
+i-6.2
+fgets(hobbies, 100, stdin);
+fgets() is a C function used to read a line of text with spaces from an input stream.
+    -fgets --> "file get string"
+    -stdin – standard input (typically the keyboard).
+
+Why use fgets() instead of scanf()?
+    -scanf("%s", ...) stops reading at the first whitespace, so it won’t capture full names or phrases like "reading books".
+    -fgets() reads the entire line (until Enter is pressed), including spaces.
+
+ex.
+If user types: Playing football and reading
+fgets() will store the whole sentence, whereas scanf("%s", ...) would only store "Playing".
+
+i-6.3
+hobbies[strlen(hobbies)-1] = '\0';
+This gets the length and removes the trailing newline character (\n) that fgets() usually stores at the end of the input string.
+    -fgets() reads until a newline (\n) or the character limit is reached.
+    -It includes the newline (\n) in the string, unless the user hits the exact character limit (rare).
+    -strlen(hobbies) gets the length excluding the null terminator (\0)
+    -This replaces the \n at the end with a null terminator, effectively trimming the newline.
+
+From:
+    -"Reading books\n\0"
+To:
+    -"Reading books\0"

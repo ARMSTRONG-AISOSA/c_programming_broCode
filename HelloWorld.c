@@ -1,5 +1,6 @@
 #include <stdio.h> //txt --> 1.0
 #include <stdbool.h>
+#include <string.h> //helps remove new line
 
 void main01()
 {
@@ -76,7 +77,7 @@ void main05()
     int incre = x++;
     int decre = y--;
 
-    printf("\nFunction main04\n\n");
+    printf("\nFunction main05\n\n");
     printf("The mutipled figure is %d.\n", multi);
     printf("The added figure is %d.\n", add);
     printf("The subtracted figure is %d.\n", sub);
@@ -101,11 +102,36 @@ void main06()
     c/=4;
     d%=2;
     
-    printf("\nFunction main04\n\n");
+    printf("\nFunction main06\n\n");
     printf("Print% d.\n", a);
     printf("Print% d.\n", b);
     printf("Print% d.\n", c);
     printf("Print% d.\n", d);
+}
+
+void main07() {
+    //txt --> 6.0
+
+    char firstName[50];//bytes
+    int age;
+    char hobbies[100];//bytes
+
+
+    printf("\nFunction main07\n\n");
+
+    printf("What is your first name?\n");
+    scanf("%s", firstName);//Cannot handle white space
+
+    printf("What is your age?\n");
+    scanf("%d", &age);
+    int ch;
+    while ((ch = getchar()) != '\n' && ch != EOF); // Clear the input buffer //txt --> 6.1
+
+    printf("What are your hobbies?\n");
+    fgets(hobbies, 100, stdin);//txt --> 6.2
+    hobbies[strlen(hobbies)-1] = '\0';//txt --> 6.3 
+    
+    printf("My name is %s and I am %d years old. My hobbies include %s.\n", firstName, age, hobbies);
 }
 
 int main()
@@ -115,6 +141,7 @@ int main()
     // main03();
     // main04();
     // main05();
-    main06();
+    // main06();
+    main07();
     return 0; // txt --> 3.1
 }
