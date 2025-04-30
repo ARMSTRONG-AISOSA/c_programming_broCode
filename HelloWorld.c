@@ -298,8 +298,45 @@ void main12()
 
 void main13()
 {
-
+    // Calulator Program
     printf("\nFunction main13\n\n");
+
+    double num1;
+    double num2;
+    double result;
+    char operator;
+
+    printf("Enter the first number: ");
+    scanf("%lf", &num1);
+
+    printf("Enter an operator (+ - / *): ");
+    scanf(" %c", &operator); // Added a space before %c to consume the newline
+
+    printf("Enter the second number: ");
+    scanf("%lf", &num2);
+
+    switch (operator)
+    {
+    case '+':
+        result = num1 + num2;
+        printf("The answer is %.3lf.\n", result);
+        break;
+    case '-':
+        result = num1 - num2;
+        printf("The answer is %.3lf.\n", result);
+        break;
+    case '/':
+        result = num1 / num2;
+        printf("The answer is %.3lf.\n", result);
+        break;
+    case '*':
+        result = num1 * num2;
+        printf("The answer is %.3lf.\n", result);
+        break;
+    default:
+        printf("Enter a valid operator.\n");
+        break;
+    }
 }
 
 void main14()
@@ -333,6 +370,7 @@ int main()
     // main09();
     // main10();
     // main11();
-    main12();
+    // main12();
+    main13();
     return 0; // txt --> 3.1
 }
