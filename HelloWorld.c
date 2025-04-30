@@ -216,15 +216,40 @@ void main11()
     scanf("%d", &age);
 
     if (age >= 18) {
-
         printf("You are old enough to sign up.\n");
-
     } else if (age < 0) {
-
         printf("You haven't been born yet.\n");
-
     } else {
         printf("You are too young to sign up.\n");
+    }
+
+    // Switch = Asimiliar to "if else" and allows a value to be tested for equality against many cases.
+
+    char grade;
+
+    printf("Enter your grade:");
+    scanf("%c", &grade);
+
+    switch (grade)
+    {
+    case 'A':
+        printf("Perfect Score.\n");
+        break;
+    case 'B':
+        printf("You did well.\n");
+        break;
+    case 'C':
+        printf("You did okay.\n");
+        break;
+    case 'D':
+        printf("You barely passed.\n");
+        break;
+    case 'F':
+        printf("You failed this course.\n");
+        break;
+    default:
+        printf("Enter a valid grade.\n");
+        break;
     }
 }
 
