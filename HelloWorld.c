@@ -192,6 +192,7 @@ void main10()
     double B;
     double C;
 
+    printf("\nFunction main10\n\n");
     printf("Enter side A:");
     scanf("%lf", &A);
 
@@ -199,11 +200,62 @@ void main10()
     scanf("%lf", &B);
 
     // Hypotenuse formula --> c(2) = a(2)+b(2)
-    C = sqrt(A*A + B*B);
-
+    C = sqrt(A * A + B * B);
 
     printf("The hypothenuse is %lf\n.", C);
+}
 
+void main11()
+{
+    // If statements
+    printf("\nFunction main11\n\n");
+
+    int age;
+
+    printf("Enter your age:");
+    scanf("%d", &age);
+
+    if (age >= 18) {
+
+        printf("You are old enough to sign up.\n");
+
+    } else if (age < 0) {
+
+        printf("You haven't been born yet.\n");
+
+    } else {
+        printf("You are too young to sign up.\n");
+    }
+}
+
+void main12()
+{
+
+    printf("\nFunction main12\n\n");
+}
+
+void main13()
+{
+
+    printf("\nFunction main13\n\n");
+}
+
+void main14()
+{
+
+    printf("\nFunction main14\n\n");
+}
+
+void main15()
+{
+
+    printf("\nFunction main15\n\n");
+}
+
+void main16()
+{
+
+    printf("\nFunction main16\n\n");
 }
 
 int main()
@@ -217,6 +269,7 @@ int main()
     // main07();
     // main08();
     // main09();
-    main10();
+    // main10();
+    main11();
     return 0; // txt --> 3.1
 }
