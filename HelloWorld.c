@@ -165,8 +165,8 @@ void main08()
     printf("Tan math function = %lf.\n", J);
 }
 
-void main09() {
-
+void main09()
+{
     const double PI = 3.14159;
     double radius;
     double circumference;
@@ -176,7 +176,7 @@ void main09() {
     printf("Enter the radius of a circle:");
     scanf("%lf", &radius);
 
-    // Cirumference Formula -> C = 2*π*r 
+    // Cirumference Formula -> C = 2*π*r
     circumference = 2 * PI * radius;
 
     // Area Formula -> C = π*r(2)
@@ -184,6 +184,26 @@ void main09() {
 
     printf("Circumference: %lf\n", circumference);
     printf("Area: %lf\n", area);
+}
+
+void main10()
+{
+    double A;
+    double B;
+    double C;
+
+    printf("Enter side A:");
+    scanf("%lf", &A);
+
+    printf("Enter side B:");
+    scanf("%lf", &B);
+
+    // Hypotenuse formula --> c(2) = a(2)+b(2)
+    C = sqrt(A*A + B*B);
+
+
+    printf("The hypothenuse is %lf\n.", C);
+
 }
 
 int main()
@@ -196,6 +216,7 @@ int main()
     // main06();
     // main07();
     // main08();
-    main09();
+    // main09();
+    main10();
     return 0; // txt --> 3.1
 }

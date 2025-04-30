@@ -1,0 +1,47 @@
+*==== Compile C ====*
+To comile the C file via terminal 
+-cd into the folder and run
+gcc 'filename' in the commandline
+    --> gcc HelloWorld.c
+
+To name the file yourself --> gcc HelloWorld.c -o helloWorld
+
+To define the file & type --> gcc HelloWorld.c -o helloWorld(.exe/.out)
+
+To run compiled file --> helloWorld.exe-- (linux)./helloWorld.exe
+
+To run c in the terminal of vscode instead of the output, install "code runner", search for in settings and tick good to "run in terminal"
+This is done because output doesn't accept user input.
+
+
+
+*==== Math Functions in linux ====*
+On Linux systems, mathematical functions like sqrt() are stored in a separate library called libm (the math library). Unlike some other operating systems, Linux doesn't automatically link this library when you compile programs.
+
+When you call gcc without the -lm flag on any Linux system, the compiler can compile your code, but the linker can't find the implementation for sqrt() and similar math functions.
+
+#Solution 1
+
+The solution is the same regardless of which Linux distribution you're using - you need to explicitly tell the linker to include the math library by adding -lm to your compile command:
+    Code:
+    bashgcc test.c -o test -lm
+
+#Solution 2
+To implement the -lm flag in Code Runner (assuming you're using Visual Studio Code with the Code Runner extension), you need to modify the extension's settings. 
+
+    -Open VS Code
+    -Go to File > Preferences > Settings (or press Ctrl+,)
+    -Search for "code-runner.executorMap"
+    -Click on "Edit in settings.json"
+    -Find the entry for "c" in the executorMap and modify it to include the "-lm" flag
+
+Here's what the modification should look like:
+    code:
+    json"code-runner.executorMap": {
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt -lm && $dir$fileNameWithoutExt"
+    }
+
+If you have other languages configured, make sure to keep those configurations and only modify the "c" entry.
+After saving these changes, Code Runner will automatically include the -lm flag when compiling and running your C programs that use math functions.
+This change will affect all C programs you run with Code Runner, which is generally what you want since it's harmless to include the math library even when you're not using it.
+
