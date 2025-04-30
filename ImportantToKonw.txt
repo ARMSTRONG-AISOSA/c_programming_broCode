@@ -1,4 +1,6 @@
 *==== Compile C ====*
+The C programming language do not support classes and objects.
+ps: C++ doesn
 To comile the C file via terminal 
 -cd into the folder and run
 gcc 'filename' in the commandline

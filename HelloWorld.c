@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <math.h>
+#include <ctype.h>
 
 void main01()
 {
@@ -215,11 +216,16 @@ void main11()
     printf("Enter your age:");
     scanf("%d", &age);
 
-    if (age >= 18) {
+    if (age >= 18)
+    {
         printf("You are old enough to sign up.\n");
-    } else if (age < 0) {
+    }
+    else if (age < 0)
+    {
         printf("You haven't been born yet.\n");
-    } else {
+    }
+    else
+    {
         printf("You are too young to sign up.\n");
     }
 
@@ -255,8 +261,39 @@ void main11()
 
 void main12()
 {
-
+    // Temperature Conversion Program
     printf("\nFunction main12\n\n");
+
+    float tempValue;
+    char unit;
+    float ansTemp;
+
+    printf("Enter the temperature unit (C or F): ");
+    scanf("%c", &unit);
+
+    // Change the input to uppercase
+    // unit = toupper(unit);
+
+    printf("Enter the temperature value: ");
+    scanf("%f", &tempValue);
+
+    if (unit == 'C' || unit == 'c')
+    {
+        // C° to F°
+        // added .0 to make the numbers floating and value accepted
+        ansTemp = (tempValue * (9.0 / 5.0)) + 32;
+        printf("The value %.2f°%c is %.2f°F.\n", tempValue, unit, ansTemp);
+    }
+    else if (unit == 'F' || unit == 'f')
+    {
+        // F° to C°
+        ansTemp = (5.0 / 9.0) * (tempValue - 32);
+        printf("The value %.2f°%c is %.2f°C.\n", tempValue, unit, ansTemp);
+    }
+    else
+    {
+        printf("Enter a valid unit.\n");
+    }
 }
 
 void main13()
@@ -295,6 +332,7 @@ int main()
     // main08();
     // main09();
     // main10();
-    main11();
+    // main11();
+    main12();
     return 0; // txt --> 3.1
 }

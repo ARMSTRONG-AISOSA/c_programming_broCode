@@ -11,6 +11,7 @@ index 1.0
 <stdbool.h>: allows us work with booleans
 <string.h>: allows us work with strings
 <math.h>: allows us to use math functions
+<ctype.h>: allows us to work with string functions
 
 ||
 ||
@@ -162,6 +163,7 @@ index 6.0
 // Scanf(): used to read input; cannot handle white space
 
 i-6.01
+& : this is an "address-of-operator"
 why in scanf(), age is preceeded by an "&" and firstname is not.
     -scanf("%d", &age);
     -scanf("%s", firstName);
