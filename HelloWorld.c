@@ -440,10 +440,49 @@ void main16()
     printf("The returned answer is %.2lf.\n", ans);
 }
 
+int findMax(int x, int y) {
+    return (x > y) ? x : y;
+}
+
 void main17()
 {
-
+    // Ternary Operator
     printf("\nFunction main17\n\n");
+
+    int value1;
+    int value2;
+    int X;
+
+    printf("Enter an integer: ");
+    scanf("%d", &value1);
+
+    printf("Enter an integer: ");
+    scanf("%d", &value2);
+
+    X = findMax(value1, value2);
+    printf("The maximum number is %d.\n", X);
+}
+
+int main()
+{
+    // main01();
+    // main02();
+    // main03();
+    // main04();
+    // main05();
+    // main06();
+    // main07();
+    // main08();
+    // main09();
+    // main10();
+    // main11();
+    // main12();
+    // main13();
+    // main14();
+    // main15();
+    // main16();
+    main17();
+    return 0; // txt --> 3.1
 }
 
 void main18()
@@ -498,25 +537,4 @@ void main26()
 {
 
     printf("\nFunction main26\n\n");
-}
-
-int main()
-{
-    // main01();
-    // main02();
-    // main03();
-    // main04();
-    // main05();
-    // main06();
-    // main07();
-    // main08();
-    // main09();
-    // main10();
-    // main11();
-    // main12();
-    // main13();
-    // main14();
-    // main15();
-    main16();
-    return 0; // txt --> 3.1
 }

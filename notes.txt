@@ -258,7 +258,7 @@ ex. void birthday(char name[], int age) { //code }
 These communicate with each other across functions.
 
 
-i-7.2 Return statemenArguments vs Parameters
+i-7.2 Return statement
 When used it returns a value at the exact spot/call the function was called.
 
 ps: also called functions define the data type being returned
@@ -269,3 +269,7 @@ ps: also called functions define the data type being returned
     return result;
 }
 
+i-7.3 Ternary operator
+This is a shortcut to if/else statement when assigning/returning a value
+    Syntax/Structure:
+    (condition) ? value(if true) : value(if false)
