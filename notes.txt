@@ -273,3 +273,26 @@ i-7.3 Ternary operator
 This is a shortcut to if/else statement when assigning/returning a value
     Syntax/Structure:
     (condition) ? value(if true) : value(if false)
+
+i-7.3 Function prototype
+A function prototype in C is a declaration of a function that tells the compiler:
+    -The function's name
+    -Its return type
+    -The types of its parameters
+It does not contain the body of the function — just the signature.
+
+Syntax:
+    return_type function_name(type1 param1, type2 param2, ...);
+Code ex.
+    void greetUser(char name[], int age);
+
+Use?
+-Ensures that calls to functions are made with the correct arguments
+-Let the compiler know about the function before it's used. This avoids "implicit declaration" errors.
+-Helps with type checking, ensuring you're passing correct argument types.
+-Easier to navigate a program/multiple functions
+
+Always place your prototypes above main() or in a header file (.h) when organizing larger projects.
+
+i-7.3.1
+OK to call before function(body) is defined: compiler already knows the function signature

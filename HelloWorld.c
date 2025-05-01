@@ -440,7 +440,9 @@ void main16()
     printf("The returned answer is %.2lf.\n", ans);
 }
 
-int findMax(int x, int y) {
+int findMax(int x, int y)
+{
+    // txt --> 7.2
     return (x > y) ? x : y;
 }
 
@@ -463,6 +465,22 @@ void main17()
     printf("The maximum number is %d.\n", X);
 }
 
+// Function prototype
+void greetUser(char name[], int age);
+
+void main18() // txt --> 7.3 
+{
+    printf("\nFunction main18\n\n");
+
+    greetUser("Armstrong", 26); // txt --> 7.3.1
+}
+
+// Function defination
+void greetUser(char name[], int age)
+{
+    printf("Hello %s,\nYou are %d years old today.\n", name, age);
+}
+
 int main()
 {
     // main01();
@@ -481,14 +499,9 @@ int main()
     // main14();
     // main15();
     // main16();
-    main17();
+    // main17();
+    main18();
     return 0; // txt --> 3.1
-}
-
-void main18()
-{
-
-    printf("\nFunction main18\n\n");
 }
 
 void main19()
