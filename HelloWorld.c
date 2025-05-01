@@ -418,10 +418,86 @@ void main15()
     birthday(name, age); // txt --> 7.1
 }
 
+double square(double x)
+{
+    double result;
+    result = x * x;
+    return result;
+}
+
 void main16()
 {
-
+    // The return function // txt --> 7.2
     printf("\nFunction main16\n\n");
+
+    double value;
+    double ans;
+
+    printf("Enter the number you want squared: ");
+    scanf("%lf", &value);
+
+    ans = square(value);
+    printf("The returned answer is %.2lf.\n", ans);
+}
+
+void main17()
+{
+
+    printf("\nFunction main17\n\n");
+}
+
+void main18()
+{
+
+    printf("\nFunction main18\n\n");
+}
+
+void main19()
+{
+
+    printf("\nFunction main19\n\n");
+}
+
+void main20()
+{
+
+    printf("\nFunction main20\n\n");
+}
+
+void main21()
+{
+
+    printf("\nFunction main21\n\n");
+}
+
+void main22()
+{
+
+    printf("\nFunction main22\n\n");
+}
+
+void main23()
+{
+
+    printf("\nFunction main23\n\n");
+}
+
+void main24()
+{
+
+    printf("\nFunction main24\n\n");
+}
+
+void main25()
+{
+
+    printf("\nFunction main25\n\n");
+}
+
+void main26()
+{
+
+    printf("\nFunction main26\n\n");
 }
 
 int main()
@@ -440,6 +516,7 @@ int main()
     // main12();
     // main13();
     // main14();
-    main15();
+    // main15();
+    main16();
     return 0; // txt --> 3.1
 }

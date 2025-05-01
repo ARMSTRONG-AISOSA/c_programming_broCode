@@ -256,3 +256,16 @@ Ps: parameters are what the function expects.
 ex. void birthday(char name[], int age) { //code }
 
 These communicate with each other across functions.
+
+
+i-7.2 Return statemenArguments vs Parameters
+When used it returns a value at the exact spot/call the function was called.
+
+ps: also called functions define the data type being returned
+
+"double" square(double x)
+{
+    double result x * x;
+    return result;
+}
+
