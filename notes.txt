@@ -228,3 +228,31 @@ From:
     -"Reading books\n\0"
 To:
     -"Reading books\0"
+
+||
+||
+||
+index 7.0
+Whats the major difference between both
+    *code:
+    -void birthday(const char *name, int age) { //code }
+    -void birthday(char name[], int age) { //code }
+
+1. "const char *name"(Preferred for Read-Only Use)
+const means "do not modify this string" inside the function.
+This is safer and more expressive when your function is only supposed to use the name, not change it.
+
+2. "char name[]" (Mutable)
+Without const, the function is allowed to modify the contents of the name.
+It's usually used when the function might change or update the string.
+
+
+i-7.1 Arguments vs Parameters
+When you call functions you can pass in arguments.
+ex. birthday(name, age);
+
+The involked(called) functions accept the arguments as paramenters.
+Ps: parameters are what the function expects.
+ex. void birthday(char name[], int age) { //code }
+
+These communicate with each other across functions.

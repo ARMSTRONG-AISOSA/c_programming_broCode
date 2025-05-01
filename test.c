@@ -1,20 +1,27 @@
 #include <stdio.h>
-#include <math.h>
 
-int main() {
-    double a;
-    double b;
-    double c;
+void birthday(const char *name, int age)
+{
+    for (int i = 0; i < 3; i++) {
+        printf("Happy Birthday to %s!\n", name);
+    }
 
-    printf("Enter side A: ");
-    scanf("%lf", &a);
+    printf("You are now %d years old!\n", age);
+    printf("Wishing you a wonderful year ahead, %s!\n", name);
+}
 
-    printf("Enter side B: ");
-    scanf("%lf", &b);
+int main()
+{
+    char name[50];
+    int age;
 
-    c = sqrt(a*a + b*b);
+    printf("Enter your name: ");
+    scanf("%s", name);  // Note: this reads one word only (no spaces)
 
-    printf("The hypotenuse is %lf\n", c);
+    printf("Enter your age: ");
+    scanf("%d", &age);
+
+    birthday(name, age);
 
     return 0;
 }

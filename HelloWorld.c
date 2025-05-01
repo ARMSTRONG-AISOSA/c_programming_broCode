@@ -341,18 +341,23 @@ void main13()
 
 void main14()
 {
-    //Logical operators
-    // && (AND) true-true
+    // Logical operators
+    //  && (AND) true-true
     printf("\nFunction main14\n\n");
 
     float temp1 = 30;
     bool sunny1 = true;
 
-    if (temp1 >= 0 && temp1 <= 30 && sunny1 == true) {
+    if (temp1 >= 0 && temp1 <= 30 && sunny1 == true)
+    {
         printf("The weather is warm and sunny.\n");
-    } else if (temp1 < 0 && temp1 > -15) {
+    }
+    else if (temp1 < 0 && temp1 > -15)
+    {
         printf("The weather is quite cold.\n");
-    } else {
+    }
+    else
+    {
         printf("The weather is quite bad.\n");
     }
 
@@ -360,9 +365,12 @@ void main14()
 
     float temp2 = -10;
 
-    if (temp2 >= 0 || temp2 <= 30 ) {
+    if (temp2 >= 0 || temp2 <= 30)
+    {
         printf("The weather is good\n");
-    } else {
+    }
+    else
+    {
         printf("The weather is quite bad.\n");
     }
 
@@ -370,18 +378,44 @@ void main14()
 
     bool sunny = false;
 
-    if (!sunny) {
+    if (!sunny)
+    {
         printf("It is cloudy outside.\n");
-    } else {
+    }
+    else
+    {
         printf("It is sunny outside.\n");
     }
+}
 
+void birthday(char name[], int age) // txt --> 7.0 & 7.1
+{
+    printf("\nFunction Print Happy Birthday\n\n");
+
+    for (int i = 0; i < 3; i++)
+    {
+        printf("Happy Birthday to %s.🎉\n", name);
+    }
+
+    printf("You are now %d years old.\n", age);
+    printf("Wishing you a wonderful year ahead, %s!\n", name);
 }
 
 void main15()
 {
-
+    // Function
     printf("\nFunction main15\n\n");
+
+    char name[50];
+    int age;
+
+    printf("Enter your name: ");
+    scanf("%s", name);
+
+    printf("Enter your age: ");
+    scanf("%d", &age);
+
+    birthday(name, age); // txt --> 7.1
 }
 
 void main16()
@@ -405,6 +439,7 @@ int main()
     // main11();
     // main12();
     // main13();
-    main14();
+    // main14();
+    main15();
     return 0; // txt --> 3.1
 }
