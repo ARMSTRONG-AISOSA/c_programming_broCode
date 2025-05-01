@@ -341,8 +341,41 @@ void main13()
 
 void main14()
 {
-
+    //Logical operators
+    // && (AND) true-true
     printf("\nFunction main14\n\n");
+
+    float temp1 = 30;
+    bool sunny1 = true;
+
+    if (temp1 >= 0 && temp1 <= 30 && sunny1 == true) {
+        printf("The weather is warm and sunny.\n");
+    } else if (temp1 < 0 && temp1 > -15) {
+        printf("The weather is quite cold.\n");
+    } else {
+        printf("The weather is quite bad.\n");
+    }
+
+    // || (OR) Checks for atleast one true condition
+
+    float temp2 = -10;
+
+    if (temp2 >= 0 || temp2 <= 30 ) {
+        printf("The weather is good\n");
+    } else {
+        printf("The weather is quite bad.\n");
+    }
+
+    // != (NOT) reverses the state of a condition
+
+    bool sunny = false;
+
+    if (!sunny) {
+        printf("It is cloudy outside.\n");
+    } else {
+        printf("It is sunny outside.\n");
+    }
+
 }
 
 void main15()
@@ -371,6 +404,7 @@ int main()
     // main10();
     // main11();
     // main12();
-    main13();
+    // main13();
+    main14();
     return 0; // txt --> 3.1
 }
