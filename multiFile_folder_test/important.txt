@@ -1,0 +1,36 @@
+// How to run the multicodefile in multifolder
+
+gcc phoneMain.c phoneFunction/phoneFunction.c -Iheader -o phoneProgram
+// -"Iheader" tells the compiler to look in the header/ folder for headers.
+
+/* === Folder Architecture ===*/
+    multiFile_folder_test/
+    ├── header/
+    │   └── phoneHeader.h
+    ├── phoneFunction/
+    │   └── phoneFunction.c
+    ├── phoneMain.c
+
+
+||
+||
+||
+index 1.0
+#ifndef PHONE_H
+This stands for "if not defined".
+-It's checking if the macro PHONE_H has not been defined yet.
+-It prevents the contents of the file from being included multiple times, which can cause errors like duplicate declarations.
+
+#define PHONE_H
+-If PHONE_H was not previously defined, this line defines it.
+-After this, any further #include of this file will know it's already been included.
+
+void phoneFunction(char name[], char memory[], int price, int releaseYear);
+This is a function prototype (also called a declaration).
+-It tells the compiler that a function named phoneFunction exists elsewhere.
+-This allows other .c files (like your main program) to use phoneFunction() even before the compiler sees its full definition.
+
+#endif
+This closes the conditional started by #ifndef.
+-Everything between #ifndef and #endif will only be included once, even if the header is used multiple times.
+

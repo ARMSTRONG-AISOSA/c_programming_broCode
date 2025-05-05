@@ -1,0 +1,7 @@
+// How to run the multicode
+// gcc main.c birthday.c -o birthdayApp
+// ./birthdayApp
+
+// If the files are in folders, for example:
+// gcc src/main.c src/birthday.c -Iinclude -o birthdayApp
+// -"Iinclude" tells the compiler to look in the include/ folder for headers.

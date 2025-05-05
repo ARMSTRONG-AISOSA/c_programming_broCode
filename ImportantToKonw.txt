@@ -15,6 +15,15 @@ To run compiled file --> helloWorld.exe-- (linux)./helloWorld.exe
 To run c in the terminal of vscode instead of the output, install "code runner", search for in settings and tick good to "run in terminal"
 This is done because output doesn't accept user input.
 
+*==== Compile C Multiple Files ====*
+// How to run the multicode
+// gcc name1.c name2.c -o fileName
+// ./fileNmae
+
+// If the files are in folders, for example:
+// gcc src/name1.c src/name2.c -Iinclude -o fileName
+// -"Iinclude" tells the compiler to look in the include/ folder for headers.
+
 
 
 *==== Math Functions in linux ====*
