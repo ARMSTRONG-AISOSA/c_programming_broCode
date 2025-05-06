@@ -25,7 +25,6 @@ This is done because output doesn't accept user input.
 // -"Iinclude" tells the compiler to look in the include/ folder for headers.
 
 
-
 *==== Math Functions in linux ====*
 On Linux systems, mathematical functions like sqrt() are stored in a separate library called libm (the math library). Unlike some other operating systems, Linux doesn't automatically link this library when you compile programs.
 
@@ -56,3 +55,16 @@ If you have other languages configured, make sure to keep those configurations a
 After saving these changes, Code Runner will automatically include the -lm flag when compiling and running your C programs that use math functions.
 This change will affect all C programs you run with Code Runner, which is generally what you want since it's harmless to include the math library even when you're not using it.
 
+
+
+
+*==== Custom String Extensions ====*
+
+Functions like strlwr(), strupr(), and others (like itoa(), strrev()) are not part of the standard C library — especially on POSIX-compliant systems like Linux. They are available in non-standard or platform-specific libraries (like Microsoft's <string.h> extensions on Windows), but Linux does not include them by default.
+
+On Linux, you shouldn't rely on non-standard functions like strlwr() unless you're writing platform-specific code. Always prefer writing small, portable equivalents.
+
+The most reliable way is to Manually implement them
+
+ps:char* strlwr(char* str) { }
+    Declares a function strlwr that takes a pointer to a char (i.e., a string) and returns a pointer to a char (the same string).

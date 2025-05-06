@@ -3,6 +3,7 @@
 #include <string.h>
 #include <math.h>
 #include <ctype.h>
+#include "string_ext.h"
 
 void main01()
 {
@@ -481,6 +482,23 @@ void greetUser(char name[], int age)
     printf("Hello %s,\nYou are %d years old today.\n", name, age);
 }
 
+void main19()
+{
+    // String Functions
+    // Check @ "ImportantToKnow" Custom String Extensions
+    printf("\nFunction main19\n\n");
+
+    char string1[] = "Bro";
+    char string2[] = "Code";
+    char string3[] = "Apple";
+
+    strlwr(string1);               // convert string to lowercase
+
+    printf("lower: %s\n", string1);
+    printf("upper: %s\n", strupr(string2));
+    printf("Reverse: %s\n", strrev(string3));
+}
+
 int main()
 {
     // main01();
@@ -500,15 +518,11 @@ int main()
     // main15();
     // main16();
     // main17();
-    main18();
+    // main18();
+    main19();
     return 0; // txt --> 3.1
 }
 
-void main19()
-{
-
-    printf("\nFunction main19\n\n");
-}
 
 void main20()
 {

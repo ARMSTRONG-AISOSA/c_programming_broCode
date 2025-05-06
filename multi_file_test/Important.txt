@@ -5,3 +5,6 @@
 // If the files are in folders, for example:
 // gcc src/main.c src/birthday.c -Iinclude -o birthdayApp
 // -"Iinclude" tells the compiler to look in the include/ folder for headers.
+// -o stands for output
+    -It tells the compiler what name to give to the output executable file.
+    "gcc main.c birthday.c -o birthdayApp"
