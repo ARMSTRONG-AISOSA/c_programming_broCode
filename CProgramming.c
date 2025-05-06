@@ -128,7 +128,8 @@ void main07()
     printf("What is your age?\n");
     scanf("%d", &age); // txt --> 6.01
     int ch;
-    while ((ch = getchar()) != '\n' && ch != EOF); // Clear the input buffer //txt --> 6.1
+    while ((ch = getchar()) != '\n' && ch != EOF)
+        ; // Clear the input buffer //txt --> 6.1
 
     printf("What are your hobbies?\n");
     fgets(hobbies, 100, stdin);          // txt --> 6.2
@@ -577,11 +578,41 @@ void main21()
     printf("Program Completed!\n");
 }
 
-
 void main22()
 {
     // Break vs Continue
     printf("\nFunction main22\n\n");
+
+    // continue = skips an iteration (code) and moves on to the next iteration of a loop
+    printf("Continue Statement\n");
+    for (int i = 1; i <= 20; i++)
+    {
+        if (i == 3 || i == 10 || i == 13)
+        {
+            printf("We skipped %d\n", i);
+            continue;
+        }
+        else if (i == 18)
+        {
+            printf("We skipped %d\n", i);
+            continue;
+        }
+        else
+        {
+            printf("The current iteration is %d\n", i);
+        }
+    }
+
+    // break = exit a loop/switch
+    printf("\nBreak Statement\n");
+    for (int i = 1; i <= 8; i++)
+    {
+        if (i == 3)
+        {
+            printf("\nWe exit the loop at %d iteration\n", i);
+            break;
+        }
+    }
 }
 
 int main()
@@ -592,7 +623,7 @@ int main()
     // main04();
     // main05();
     // main06();
-    main07();
+    // main07();
     // main08();
     // main09();
     // main10();
