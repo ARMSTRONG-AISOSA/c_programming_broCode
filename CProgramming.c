@@ -469,7 +469,7 @@ void main17()
 // Function prototype
 void greetUser(char name[], int age);
 
-void main18() // txt --> 7.3 
+void main18() // txt --> 7.3
 {
     printf("\nFunction main18\n\n");
 
@@ -492,11 +492,61 @@ void main19()
     char string2[] = "Code";
     char string3[] = "Apple";
 
-    strlwr(string1);               // convert string to lowercase
+    strlwr(string1); // convert string to lowercase
 
     printf("lower: %s\n", string1);
     printf("upper: %s\n", strupr(string2));
     printf("Reverse: %s\n", strrev(string3));
+}
+
+void main20()
+{
+    // Loops
+    printf("\nFunction main20\n\n");
+
+    // for loop
+    for (int i = 1; i <= 5 && i > 0; i++)
+    {
+        printf("1st test %d\n", i);
+    };
+
+    printf("\n");
+
+    for (int i = 50; i >= 0; i = i - 10)
+    {
+        printf("2nd test %d\n", i);
+    };
+
+    // while loop 
+    char name[25];
+
+    printf("\nWhat's your name?: ");
+    fgets(name, 25, stdin);
+    name[strlen(name) - 1] = '\0';
+
+    while (strlen(name) == 0)
+    {
+        printf("\nEnter your name");
+        printf("\nWhat's your name?: ");
+        fgets(name, 25, stdin);
+        name[strlen(name) - 1] = '\0';
+    }
+
+    printf("Hello %s\n", name);
+
+    // do while loop 
+    int number = 0;
+    int sum = 0;
+
+    do {
+        printf("\nEnter a number above 0: ");
+        scanf("%d", &number);
+        if (number > 0) {
+            sum = sum + number;
+        }
+    } while (number > 0);
+
+    printf("\nThe sum total is %d.\n", sum);
 }
 
 int main()
@@ -519,15 +569,9 @@ int main()
     // main16();
     // main17();
     // main18();
-    main19();
+    // main19();
+    main20();
     return 0; // txt --> 3.1
-}
-
-
-void main20()
-{
-
-    printf("\nFunction main20\n\n");
 }
 
 void main21()

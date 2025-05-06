@@ -217,7 +217,10 @@ If user types: Playing football and reading
 fgets() will store the whole sentence, whereas scanf("%s", ...) would only store "Playing".
 
 i-6.3
-hobbies[strlen(hobbies)-1] = '\0';
+code:
+    fgets(hobbies, 100, stdin);
+    hobbies[strlen(hobbies)-1] = '\0';
+
 This gets the length and removes the trailing newline character (\n) that fgets() usually stores at the end of the input string.
     -fgets() reads until a newline (\n) or the character limit is reached.
     -It includes the newline (\n) in the string, unless the user hits the exact character limit (rare).
@@ -296,3 +299,16 @@ Always place your prototypes above main() or in a header file (.h) when organizi
 
 i-7.3.1
 OK to call before function(body) is defined: compiler already knows the function signature
+
+||
+||
+||
+index 8.0
+for loop = repeats a section of code a limited amount of times
+
+while loop = checks a condition, THEN executes a code if codition is true
+    while loop = repeats a section of code possibly unlimited times
+    Whiles some conditions are true
+    a while loop might not execute
+
+do while loop = always executes a block of code once, THEN checks a condition 
