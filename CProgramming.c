@@ -128,8 +128,7 @@ void main07()
     printf("What is your age?\n");
     scanf("%d", &age); // txt --> 6.01
     int ch;
-    while ((ch = getchar()) != '\n' && ch != EOF)
-        ; // Clear the input buffer //txt --> 6.1
+    while ((ch = getchar()) != '\n' && ch != EOF); // Clear the input buffer //txt --> 6.1
 
     printf("What are your hobbies?\n");
     fgets(hobbies, 100, stdin);          // txt --> 6.2
@@ -501,7 +500,7 @@ void main19()
 
 void main20()
 {
-    // Loops
+    // Loops == txt --> 8.0
     printf("\nFunction main20\n\n");
 
     // for loop
@@ -517,7 +516,7 @@ void main20()
         printf("2nd test %d\n", i);
     };
 
-    // while loop 
+    // while loop
     char name[25];
 
     printf("\nWhat's your name?: ");
@@ -534,19 +533,55 @@ void main20()
 
     printf("Hello %s\n", name);
 
-    // do while loop 
+    // do while loop
     int number = 0;
     int sum = 0;
 
-    do {
+    do
+    {
         printf("\nEnter a number above 0: ");
         scanf("%d", &number);
-        if (number > 0) {
+        if (number > 0)
+        {
             sum = sum + number;
         }
     } while (number > 0);
 
     printf("\nThe sum total is %d.\n", sum);
+}
+
+void main21()
+{
+    // nested loops: a loop inside of another
+    printf("\nFunction main21\n\n");
+
+    int rows;
+    int columns;
+
+    printf("Enter a # of rows: ");
+    scanf("%d", &rows);
+
+    printf("Enter a # of columns: ");
+    scanf("%d", &columns);
+
+    for (int i = 1; i <= rows; i++)
+    {
+        printf("Row %d: ", i);
+        for (int j = 1; j <= columns; j++)
+        {
+            printf("col:%d ", j);
+        };
+        printf("\n");
+    }
+
+    printf("Program Completed!\n");
+}
+
+
+void main22()
+{
+    // Break vs Continue
+    printf("\nFunction main22\n\n");
 }
 
 int main()
@@ -557,7 +592,7 @@ int main()
     // main04();
     // main05();
     // main06();
-    // main07();
+    main07();
     // main08();
     // main09();
     // main10();
@@ -570,20 +605,10 @@ int main()
     // main17();
     // main18();
     // main19();
-    main20();
+    // main20();
+    // main21();
+    main22();
     return 0; // txt --> 3.1
-}
-
-void main21()
-{
-
-    printf("\nFunction main21\n\n");
-}
-
-void main22()
-{
-
-    printf("\nFunction main22\n\n");
 }
 
 void main23()
