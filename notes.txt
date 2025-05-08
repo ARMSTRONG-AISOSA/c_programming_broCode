@@ -12,6 +12,7 @@ index 1.0
 <string.h>: allows us work with strings
 <math.h>: allows us to use math functions
 <ctype.h>: allows us to work with string functions
+<stdlib.h>: allows memory allocation & deallocation
 
 ||
 ||
@@ -216,7 +217,9 @@ ex.
 If user types: Playing football and reading
 fgets() will store the whole sentence, whereas scanf("%s", ...) would only store "Playing".
 
-i-6.3
+i-6.3 
+Remove Trailing newline from fgets
+#1
 code:
     fgets(hobbies, 100, stdin);
     hobbies[strlen(hobbies)-1] = '\0';
@@ -231,6 +234,20 @@ From:
     -"Reading books\n\0"
 To:
     -"Reading books\0"
+
+For arrays
+code:
+    char fullNames[3][50]; 
+    for (int i = 0; i < 3; i++)
+    {
+        fgets(fullNames[i], sizeof(fullNames[i]), stdin);
+        // Remove trailing newline from fgets
+        fullNames[i][strcspn(fullNames[i], "\n")] = '\0';
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        printf("%s.\n",fullNames[i]);
+    }
 
 ||
 ||
@@ -312,3 +329,69 @@ while loop = checks a condition, THEN executes a code if codition is true
     a while loop might not execute
 
 do while loop = always executes a block of code once, THEN checks a condition 
+
+
+||
+||
+||
+index 9.0
+Array = a data structure that stores many value of the same data type
+Arrays in C are stored CONTIGUOUSLY(side by side) in memory. 
+
+/* code: */
+    int numbers[5];
+Array of 5 integers; this declares an array named numbers that can hold 5 integers.
+
+Initializing Arrays
+    int numbers[5] = {1, 2, 3, 4, 5};
+
+You can also leave the size out and let the compiler count:
+    int numbers[] = {1, 2, 3, 4, 5};
+
+Accessing Elements
+Array indexing starts at 0:
+    printf("%d", numbers[0]);  // prints 1
+    numbers[2] = 99;           // changes the third element
+
+Array Types
+-Integer array	        int nums[10];
+-Float array	        float prices[5];
+-Char array	char        name[20];
+-2D array (matrix)	    int matrix[3][4];
+
+Strings as Arrays
+Strings in C are just arrays of characters ending with a null character \0.
+    char name[] = "Ben";
+is equivalent to:
+    char name[] = {'B', 'e', 'n', '\0'};
+
+Key Characteristics
+Fixed size	            Cannot be resized once declared.
+Homogeneous data	    All elements must be of the same type.
+Continuous memory	    Stored in consecutive memory locations.
+Indexing starts at 0	Always remember: first element is at index 0.
+No bounds checking	    C does not warn you if you go out of bounds (can cause bugs).
+
+Printing Arrays
+C doesn't have a built-in way to print entire arrays at once.
+So to print the entire array of prices in your code, you’ll need to loop through each element using a for loop
+
+i-8.1
+String Array (2D Array of Strings)
+    const char *names[] = {"James", "Ken", "Tony"};
+    printf("%s\n", names[0]);
+
+const char *names[] is an array of string pointers (char *), each pointing to a string literal.
+
+Another Example (Using a 2D Character Array)
+    char names[3][10] = {
+        "James",
+        "Ken",
+        "Tony"
+    };
+    printf("%s\n", names[0]);
+
+Explanation:
+char names[3][10]: A 2D array that holds 3 strings, each with a maximum of 9 characters (+1 for the null terminator \0).
+
+

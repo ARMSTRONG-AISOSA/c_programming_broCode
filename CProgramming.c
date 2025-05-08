@@ -3,6 +3,7 @@
 #include <string.h>
 #include <math.h>
 #include <ctype.h>
+#include <stdlib.h>
 #include "string_ext.h"
 
 void main01()
@@ -130,6 +131,7 @@ void main07()
     int ch;
     while ((ch = getchar()) != '\n' && ch != EOF)
         ; // Clear the input buffer //txt --> 6.1
+        // Search "getchar();" to see how for string array
 
     printf("What are your hobbies?\n");
     fgets(hobbies, 100, stdin);          // txt --> 6.2
@@ -615,6 +617,129 @@ void main22()
     }
 }
 
+void main23()
+{
+    // Array == txt --> 8.0
+    printf("\nFunction main23\n\n");
+
+    // Initialize & declaar size
+    double prices[10] = {5.05, 11.22, 14.48, 7.65, 6.78};
+
+    // print specific
+    printf("$%.2lf\n\n", prices[2]);
+
+    // print all
+    for (int i = 0; i < 10; i++)
+    {
+        printf("The price at index no. %d is $%.2lf.\n", i, prices[i]);
+    }
+
+    // add to array
+    prices[6] = 4.08;
+    printf("\nThe newly added price is $%.2lf\n\n", prices[6]);
+
+    // update array
+    prices[0] = 51.08;
+    printf("\nThe updated price is $%.2lf\n\n", prices[0]);
+
+    // String Array == txt --> 8.1
+    char letters[] = {'J', 'K', 'T'};
+    printf("The letter %c\n\n", letters[0]);
+
+    // String Array (indirect - 2D Array of Strings)
+    char *names[] = {"James", "Ken", "Tony"};
+    printf("%s\n", names[0]);
+
+    // String Array (2D Array of Strings)
+    char nameList[3][10] = {
+        "James",
+        "Ken",
+        "Tony"};
+    printf("%s\n\n", nameList[1]);
+    // print all name
+    for (int i = 0; i < 3; i++)
+    {
+        printf("%s\n", nameList[i]);
+    }
+}
+
+void main24()
+{
+    // Array Strings with inputs
+    printf("\nFunction main24\n\n");
+
+    // Example #1
+    char fruits[4][20]; // Store 3 names, max 19 characters each (+1 for '\0')
+
+    printf("Enter 4 fruit names.\n");
+
+    for (int i = 0; i < 4; i++)
+    {
+        printf("#%d is: ", i + 1);
+        scanf("%19s", fruits[i]); // Limit input size to avoid buffer overflow
+    }
+
+    printf("\nYou entered:\n");
+    for (int i = 0; i < 4; i++)
+    {
+        printf("Fruit %d: %s.\n", i + 1, fruits[i]);
+    }
+
+    // Example #2: accept spaces in name
+    char fullNames[3][50]; // Array to store 3 names, each up to 49 characters
+
+    printf("Enter 3 full names:\n");
+
+    for (int i = 0; i < 3; i++)
+    {
+        printf("Fullname %d: ", i + 1);
+        fgets(fullNames[i], sizeof(fullNames[i]), stdin);
+
+        // Remove trailing newline from fgets
+        fullNames[i][strcspn(fullNames[i], "\n")] = '\0';
+    }
+
+    printf("\nYou entered:\n");
+    for (int i = 0; i < 3; i++)
+    {
+        printf("Name %d : %s.\n", i + 1, fullNames[i]);
+    }
+}
+
+void main25()
+{
+    // Dynamic Array of Names (User Chooses How Many)
+    printf("\nFunction main25\n\n");
+
+    int count;
+    printf("How many items do you want to enter? :");
+    scanf("%d", &count);
+    getchar(); // Clear leftover newline from input buffer
+
+    //Allocate array of string pointers
+    char **items = malloc(count * sizeof(char*));
+
+    for (int i = 0; i < count; i++)
+    {
+        items[i] = malloc(100 * sizeof(char)); //Allocate 100 chars for each item name
+
+        printf("Enter item name %d: ", i + 1);
+        fgets(items[i], 100, stdin);
+        items[i][strcspn(items[i], "\n")] = '\0'; //Remove trailing newline
+    }
+
+    printf("\nYou entered:\n");
+    for (int i = 0; i < count; i++)
+    {
+        printf("    Item %d: %s.\n", i + 1, items[i]);
+        free(items[i]); // Free memory for each item name
+    }
+
+    free(items); //free the array of pointers
+    
+    
+}
+
 int main()
 {
     // main01();
@@ -638,26 +763,11 @@ int main()
     // main19();
     // main20();
     // main21();
-    main22();
+    // main22();
+    // main23();
+    // main24();
+    main25();
     return 0; // txt --> 3.1
-}
-
-void main23()
-{
-
-    printf("\nFunction main23\n\n");
-}
-
-void main24()
-{
-
-    printf("\nFunction main24\n\n");
-}
-
-void main25()
-{
-
-    printf("\nFunction main25\n\n");
 }
 
 void main26()

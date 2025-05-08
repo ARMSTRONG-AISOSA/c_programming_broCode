@@ -68,3 +68,35 @@ The most reliable way is to Manually implement them
 
 ps:char* strlwr(char* str) { }
     Declares a function strlwr that takes a pointer to a char (i.e., a string) and returns a pointer to a char (the same string).
+
+    
+ 
+
+*==== 🧩 malloc() — Memory Allocation ====*
+malloc() (short for memory allocation) is used to dynamically allocate memory at runtime.
+Syntax:
+    void *malloc(size_t size);
+-It allocates size bytes of memory and returns a pointer to the beginning of the block.
+-If memory allocation fails, it returns NULL.
+
+Example Code:
+    int *arr = (int*)malloc(5 * sizeof(int));  // Allocates memory for 5 integers
+-5 * sizeof(int) calculates the total bytes needed.
+-(int*) casts the returned void* to an int*(data type) so it can be used properly.
+
+
+
+
+
+*==== 🚮 free() — Free Allocated Memory ====*
+
+free() deallocates (frees) memory previously allocated with malloc(), calloc(), or realloc().
+Syntax:
+    void free(void *ptr);
+-It takes the pointer to the previously allocated memory and returns it (the memory back) to the system.
+-After calling free(), that memory should not be used again unless reallocated.
+example code:
+    free(arr);  // Frees the memory block previously allocated
+-Always use free() for every successful malloc() to prevent memory leaks.
+-Don't free() a pointer twice.
+-Don’t use memory after it’s been freed (this is called dangling pointer access).

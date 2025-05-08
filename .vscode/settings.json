@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "phoneheader.h": "c"
+        "phoneheader.h": "c",
+        "stdlib.h": "c"
     }
 }
