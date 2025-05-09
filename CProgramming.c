@@ -818,6 +818,42 @@ void main28()
     printf("\nThe update item %d is %s.\n", 1, luxuryBrands[0]);
 }
 
+void main29()
+{
+    //Swap values of two variables - useful for sorting algorithms
+    printf("\nFunction main29\n\n");
+
+    // Ex. 1
+    char x = 'X';
+    char y = 'Y';
+    char tempHolder ;
+
+    printf("The value of x = %c and the value of y = %c.\n", x, y);
+
+    tempHolder = x;
+    x = y;
+    y = tempHolder;
+
+    printf("After the swap the value of x = %c and the value of y = %c.\n\n", x, y);
+
+    // Ex. 2
+    char drink1[10] = "Coke";
+    char drink2[10] = "Fanta";
+    char temporaryCup[10];
+
+
+    printf("The first cup drink is %s and the second cup drink is %s.\n", drink1, drink2);
+
+    // For arrays you have to use the string-copy-function(strcpy)
+    //Ps: Make all arrays same size to prevent some issues
+    strcpy(temporaryCup, drink1);
+    strcpy(drink1, drink2);
+    strcpy(drink2, temporaryCup);
+
+    printf("After the stwitch, the first cup drink is %s and the second cup drink is %s.\n", drink1, drink2);
+}
+
+
 int main()
 {
     // main01();
@@ -847,14 +883,9 @@ int main()
     // main25();
     // main26();
     // main27();
-    main28();
+    // main28();
+    main29();
     return 0; // txt --> 3.1
-}
-
-void main29()
-{
-
-    printf("\nFunction main29\n\n");
 }
 
 void main30()
