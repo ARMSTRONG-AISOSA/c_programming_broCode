@@ -391,6 +391,8 @@ Another Example (Using a 2D Character Array)
     };
     printf("%s\n", names[0]);
 
+Nb: The row size can be optional but the column size in important.
+
 Explanation:
 char names[3][10]: A 2D array that holds 3 strings, each with a maximum of 9 characters (+1 for the null terminator \0).
 

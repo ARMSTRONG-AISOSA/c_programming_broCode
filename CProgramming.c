@@ -765,13 +765,36 @@ void main26()
     printf("\n\nThe size of the array %zu is and the size of each element is %zu.\nThe number of elements is then %zu.\n",
            sizeof(ingredients),
            sizeof(ingredients[0]),
-           sizeof(ingredients)/sizeof(ingredients[0])
-        );
+           sizeof(ingredients) / sizeof(ingredients[0]));
 
     for (int i = 0; i < sizeof(ingredients) / sizeof(ingredients[0]); i++)
     {
         printf("Ingredient %d, :%s.\n", i + 1, ingredients[i]);
     }
+}
+
+void main27()
+{
+    // 2D array =an array where each element ia an entire array, useful for matrix, grid or table of data
+    printf("\nFunction main27\n\n");
+
+    // Ex. 1
+    int numbers[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}}; // 2 rows by 3 columns array
+
+    // print all element in a 2d array
+    for (int i = 0; i < sizeof(numbers) / sizeof(numbers[0]); i++) // loop through rows
+    {
+        for (int j = 0; j < sizeof(numbers[2]) / sizeof(numbers[0][0]); j++) // loop through columns
+        {
+            printf("Row index[%d] of column index[%d] = %d\n", i, j, numbers[i][j]);
+        }
+    }
+
+    // to change
+    numbers[0][0] = 33;  // first row by frist column
+    numbers[1][2] = 110; // second row by third column
 }
 
 int main()
@@ -801,14 +824,9 @@ int main()
     // main23();
     // main24();
     // main25();
-    main26();
+    // main26();
+    main27();
     return 0; // txt --> 3.1
-}
-
-void main27()
-{
-
-    printf("\nFunction main27\n\n");
 }
 
 void main28()
