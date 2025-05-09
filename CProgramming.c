@@ -797,6 +797,27 @@ void main27()
     numbers[1][2] = 110; // second row by third column
 }
 
+void main28()
+{
+    // Array of strings - is actually a 2d array
+    printf("\nFunction main28\n\n");
+     
+    
+    char luxuryBrands[][20] = {"Gucci", "Lamborghini", "Channel", "Corvette"};
+
+    for (int i = 0; i < sizeof(luxuryBrands)/sizeof(luxuryBrands[0]); i++)
+    {
+        printf("The %d item is %s.\n", i + 1, luxuryBrands[i] );
+    }
+
+    // You cannot directly change values in the array but you can use the string copy function to solve this.
+    // ❌luxuryBrand[0] = "Tesla";
+
+    strcpy(luxuryBrands[0], "Gabana");
+
+    printf("\nThe update item %d is %s.\n", 1, luxuryBrands[0]);
+}
+
 int main()
 {
     // main01();
@@ -825,14 +846,9 @@ int main()
     // main24();
     // main25();
     // main26();
-    main27();
+    // main27();
+    main28();
     return 0; // txt --> 3.1
-}
-
-void main28()
-{
-
-    printf("\nFunction main28\n\n");
 }
 
 void main29()
