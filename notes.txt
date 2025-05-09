@@ -395,3 +395,12 @@ Explanation:
 char names[3][10]: A 2D array that holds 3 strings, each with a maximum of 9 characters (+1 for the null terminator \0).
 
 
+||
+||
+||
+index 10.0
+
+To make the for loop iteration condition dynamically update based on the number of items in the array, we calculate the amount of element in the array and loop that many times.
+
+One way is to use the sizeof operator(It returns the size of an operand in bytes). 
+NB: sizeof() returns a value of type size_t, which is an unsigned integer, not a floating-point number. Use "%zu" instead of %.1lf when printing values returned by sizeof.

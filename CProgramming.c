@@ -131,7 +131,7 @@ void main07()
     int ch;
     while ((ch = getchar()) != '\n' && ch != EOF)
         ; // Clear the input buffer //txt --> 6.1
-        // Search "getchar();" to see how for string array
+    // Search "getchar();" to see how for string array
 
     printf("What are your hobbies?\n");
     fgets(hobbies, 100, stdin);          // txt --> 6.2
@@ -716,16 +716,16 @@ void main25()
     scanf("%d", &count);
     getchar(); // Clear leftover newline from input buffer
 
-    //Allocate array of string pointers
-    char **items = malloc(count * sizeof(char*));
+    // Allocate array of string pointers
+    char **items = malloc(count * sizeof(char *));
 
     for (int i = 0; i < count; i++)
     {
-        items[i] = malloc(100 * sizeof(char)); //Allocate 100 chars for each item name
+        items[i] = malloc(100 * sizeof(char)); // Allocate 100 chars for each item name
 
         printf("Enter item name %d: ", i + 1);
         fgets(items[i], 100, stdin);
-        items[i][strcspn(items[i], "\n")] = '\0'; //Remove trailing newline
+        items[i][strcspn(items[i], "\n")] = '\0'; // Remove trailing newline
     }
 
     printf("\nYou entered:\n");
@@ -735,9 +735,43 @@ void main25()
         free(items[i]); // Free memory for each item name
     }
 
-    free(items); //free the array of pointers
-    
-    
+    free(items); // free the array of pointers
+}
+
+void main26()
+{
+    // Loop through the elements of an array(intuiive condition)
+    printf("\nFunction main26\n\n");
+
+    // Ex. 1
+    double priceTags[] = {2.50, 8.75, 4.55, 7.35, 6.05};
+
+    // check @ txt --> 10.0 for full explanation
+    printf("The size of the array is %zu bytes and size of each element in the array is %zu.\nDivide the former by the latter and you have %zu elements.\n",
+           sizeof(priceTags),
+           sizeof(priceTags[0]),
+           sizeof(priceTags) / sizeof(priceTags[0]));
+
+    for (int i = 0; i < sizeof(priceTags) / sizeof(priceTags[0]); i++)
+    {
+        printf("#%d price: %.2lf.\n", i + 1, priceTags[i]);
+    }
+
+    // Ex. 2
+    // NB: char *ingredients[] is an array of pointers to string literals.
+    // Since i can't write char[3][10] here.
+    char *ingredients[] = {"Tomatoes", "Spaghetti", "Spices", "Oil", "Vegitable", "Meat", "Maggi"};
+
+    printf("\n\nThe size of the array %zu is and the size of each element is %zu.\nThe number of elements is then %zu.\n",
+           sizeof(ingredients),
+           sizeof(ingredients[0]),
+           sizeof(ingredients)/sizeof(ingredients[0])
+        );
+
+    for (int i = 0; i < sizeof(ingredients) / sizeof(ingredients[0]); i++)
+    {
+        printf("Ingredient %d, :%s.\n", i + 1, ingredients[i]);
+    }
 }
 
 int main()
@@ -766,12 +800,91 @@ int main()
     // main22();
     // main23();
     // main24();
-    main25();
+    // main25();
+    main26();
     return 0; // txt --> 3.1
 }
 
-void main26()
+void main27()
 {
 
-    printf("\nFunction main26\n\n");
+    printf("\nFunction main27\n\n");
+}
+
+void main28()
+{
+
+    printf("\nFunction main28\n\n");
+}
+
+void main29()
+{
+
+    printf("\nFunction main29\n\n");
+}
+
+void main30()
+{
+
+    printf("\nFunction main30\n\n");
+}
+
+void main31()
+{
+
+    printf("\nFunction main31\n\n");
+}
+
+void main32()
+{
+
+    printf("\nFunction main32\n\n");
+}
+
+void main33()
+{
+
+    printf("\nFunction main33\n\n");
+}
+
+void main34()
+{
+
+    printf("\nFunction main34\n\n");
+}
+
+void main35()
+{
+
+    printf("\nFunction main35\n\n");
+}
+
+void main36()
+{
+
+    printf("\nFunction main36\n\n");
+}
+
+void main37()
+{
+
+    printf("\nFunction main37\n\n");
+}
+
+void main38()
+{
+
+    printf("\nFunction main38\n\n");
+}
+
+void main39()
+{
+
+    printf("\nFunction main39\n\n");
+}
+
+void main40()
+{
+
+    printf("\nFunction main40\n\n");
 }
