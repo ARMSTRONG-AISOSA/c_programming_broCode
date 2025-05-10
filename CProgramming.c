@@ -801,13 +801,12 @@ void main28()
 {
     // Array of strings - is actually a 2d array
     printf("\nFunction main28\n\n");
-     
-    
+
     char luxuryBrands[][20] = {"Gucci", "Lamborghini", "Channel", "Corvette"};
 
-    for (int i = 0; i < sizeof(luxuryBrands)/sizeof(luxuryBrands[0]); i++)
+    for (int i = 0; i < sizeof(luxuryBrands) / sizeof(luxuryBrands[0]); i++)
     {
-        printf("The %d item is %s.\n", i + 1, luxuryBrands[i] );
+        printf("The %d item is %s.\n", i + 1, luxuryBrands[i]);
     }
 
     // You cannot directly change values in the array but you can use the string copy function to solve this.
@@ -820,13 +819,13 @@ void main28()
 
 void main29()
 {
-    //Swap values of two variables - useful for sorting algorithms
+    // Swap values of two variables - useful for sorting algorithms
     printf("\nFunction main29\n\n");
 
     // Ex. 1
     char x = 'X';
     char y = 'Y';
-    char tempHolder ;
+    char tempHolder;
 
     printf("The value of x = %c and the value of y = %c.\n", x, y);
 
@@ -841,18 +840,109 @@ void main29()
     char drink2[10] = "Fanta";
     char temporaryCup[10];
 
-
     printf("The first cup drink is %s and the second cup drink is %s.\n", drink1, drink2);
 
     // For arrays you have to use the string-copy-function(strcpy)
-    //Ps: Make all arrays same size to prevent some issues
-    strcpy(temporaryCup, drink1);
-    strcpy(drink1, drink2);
-    strcpy(drink2, temporaryCup);
+    // Ps: Make all arrays same size to prevent some issues
+    strcpy(temporaryCup, drink1); // pour coke into temporary cup
+    strcpy(drink1, drink2);       // pour fanta into the first drink cup
+    strcpy(drink2, temporaryCup); // pour the coke from the temporary cup into the second cup
 
     printf("After the stwitch, the first cup drink is %s and the second cup drink is %s.\n", drink1, drink2);
 }
 
+void bubbleSortInt(int array[], int sizeOfArray)
+{
+    // PS: Bubble Sort is not efficient for large datasets.
+    for (int i = 0; i < sizeOfArray - 1; i++)
+    {
+        // Controls how many passes through the array you make. 
+        // Check @ txt --> 11.0
+        // printf("pass %d (i = %d)\n", i + 1, i);
+        for (int j = 0; j < sizeOfArray - 1; j++)
+        {
+            // printf("  ~Compare %d and %d\n", array[j], array[j + 1]);
+            // If element on left is greater than the right swap them
+            if (array[j] > array[j + 1])
+            {
+                int tempHolder = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = tempHolder;
+            }
+            
+        }
+        
+    }
+    
+}
+
+void printNumArray(int array[], int sizeOfArray) {
+    for (int i = 0; i < sizeOfArray; i++)
+    {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+}
+
+void main30()
+{
+    // Sort an Array of Integers
+    printf("\nFunction main30\n\n");
+
+    int numArray[] = {2, 7, 1, 8, 4, 5, 6, 9, 0, 3};
+    int numArraySize = sizeof(numArray) / sizeof(numArray[0]);
+
+    // Bubble Sort Array
+    bubbleSortInt(numArray, numArraySize);
+
+    // Print (Sorted )Array
+    printNumArray(numArray, numArraySize);
+}
+
+void bubbleSortLetter(char array[], int sizeOfArray) {
+    for (int i = 0; i < sizeOfArray - 1; i++)
+    {
+        for (int j = 0; j < sizeOfArray - 1; j++)
+        {
+            if (array[j] > array[j + 1]) {
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+        
+    }
+    
+}
+
+
+void printLetterArray(char array[], int sizeOfArray) {
+    for (int i = 0; i < sizeOfArray; i++)
+    {
+        printf("%c ", array[i]);
+    }
+    printf("\n");
+}
+
+void main31()
+{
+    // Sort an Array of Letters
+    printf("\nFunction main31\n\n");
+
+    char letterArray[] = {'C', 'F', 'Y', 'H', 'M', 'G', 'A', 'a', 'B'};
+    int letterArraySize = sizeof(letterArray)/sizeof(letterArray[0]);
+
+    // Bubble Sort
+    bubbleSortLetter(letterArray, letterArraySize);
+
+    // Print Array
+    printLetterArray(letterArray, letterArraySize);
+}
+
+void main32()
+{
+    printf("\nFunction main32\n\n");
+}
 
 int main()
 {
@@ -884,26 +974,10 @@ int main()
     // main26();
     // main27();
     // main28();
-    main29();
+    // main29();
+    // main30();
+    main31();
     return 0; // txt --> 3.1
-}
-
-void main30()
-{
-
-    printf("\nFunction main30\n\n");
-}
-
-void main31()
-{
-
-    printf("\nFunction main31\n\n");
-}
-
-void main32()
-{
-
-    printf("\nFunction main32\n\n");
 }
 
 void main33()
@@ -952,4 +1026,10 @@ void main40()
 {
 
     printf("\nFunction main40\n\n");
+}
+
+void main41()
+{
+
+    printf("\nFunction main41\n\n");
 }

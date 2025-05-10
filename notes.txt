@@ -406,3 +406,31 @@ To make the for loop iteration condition dynamically update based on the number 
 
 One way is to use the sizeof operator(It returns the size of an operand in bytes). 
 NB: sizeof() returns a value of type size_t, which is an unsigned integer, not a floating-point number. Use "%zu" instead of %.1lf when printing values returned by sizeof.
+
+
+||
+||
+||
+index 11.0
+Bubble Sort
+code:
+    for (int i = 0; i < sizeOfArray - 1; i++)
+    { code }
+📦 What does the outer loop do?
+In bubble sort, each pass through the array pushes the largest unsorted element to its correct position at the end of the array — like a bubble rising to the top of water. The outer loop controls how many of these passes we make.
+
+code:
+    int arr[] = {4, 3, 2, 1};
+
+Pass 1 (i = 0):
+    -Compare 4 and 3 → swap → [3, 4, 2, 1]
+    -Compare 4 and 2 → swap → [3, 2, 4, 1]
+    -Compare 4 and 1 → swap → [3, 2, 1, 4] ✅ Largest (4) is now in place
+
+Pass 2 (i = 1):
+    -Compare 3 and 2 → swap → [2, 3, 1, 4]
+    -Compare 3 and 1 → swap → [2, 1, 3, 4] ✅ Second-largest (3) in place
+
+Pass 3 (i = 2):
+    -Compare 2 and 1 → swap → [1, 2, 3, 4] ✅ Done!
+Now everything is sorted. That took exactly n - 1 = 3 passes.
