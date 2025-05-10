@@ -939,9 +939,66 @@ void main31()
     printLetterArray(letterArray, letterArraySize);
 }
 
+struct Player {
+    char name[30];
+    int score;
+};
+
+struct PhoneData
+{
+    char name[40];
+    char model[25];
+    int price;
+    int releaseYear;
+};
+
+
 void main32()
 {
+    // Struct -- Check @ txt --> 12
     printf("\nFunction main32\n\n");
+
+    // Ex. 1
+    struct Player player1;
+    struct Player player2;
+    
+    strcpy(player1.name, "Omoregie Armstrong");// Use string copy for arrays
+    player1.score = 7; //you can write to string directly
+
+    strcpy(player2.name, "Omoregie Harmony");
+    player2.score = 8;
+
+    printf("Player 1 name: %s and score: %d.\n", player1.name, player1.score);
+    printf("Player 2 name: %s and score: %d.\n\n", player2.name, player2.score);
+
+    // Ex. 2
+    struct PhoneData phone1;
+    struct PhoneData phone2;
+    struct PhoneData phone3;
+
+    strcpy(phone1.name, "iPhone 15 Pro Max");
+    strcpy(phone1.model, "A2849");
+    phone1.price = 1199;
+    phone1.releaseYear = 2023;
+
+    strcpy(phone2.name, "Google Pixel 8 Pro");
+    strcpy(phone2.model, "GC3VE");
+    phone2.price = 999;
+    phone2.releaseYear = 2023;
+
+    strcpy(phone3.name, "Samsung Galaxy S24 Ultra");
+    strcpy(phone3.model, "SM-S928B ");
+    phone3.price = 1199;
+    phone3.releaseYear = 2024;
+
+    // Phone 1
+    printf("The brand is a %s, model %s.\nIt has a price tag of $%d and the release year is %d.\n\n", phone1.name, phone1.model, phone1.price, phone1.releaseYear);
+    // Phone 2
+    printf("The brand is a %s, model %s.\nIt has a price tag of $%d and the release year is %d.\n\n", phone2.name, phone2.model, phone2.price, phone2.releaseYear);
+    // Phone 3
+    printf("The brand is a %s, model %s.\nIt has a price tag of $%d and the release year is %d.\n\n", phone3.name, phone3.model, phone3.price, phone3.releaseYear);
+    
+
 }
 
 int main()
@@ -976,7 +1033,8 @@ int main()
     // main28();
     // main29();
     // main30();
-    main31();
+    // main31();
+    main32();
     return 0; // txt --> 3.1
 }
 

@@ -434,3 +434,13 @@ Pass 2 (i = 1):
 Pass 3 (i = 2):
     -Compare 2 and 1 → swap → [1, 2, 3, 4] ✅ Done!
 Now everything is sorted. That took exactly n - 1 = 3 passes.
+
+
+||
+||
+||
+index 12.0
+Struct = collection of related members ("variables/data")
+        can be of different data types
+        listed under one name in a block of memory
+        Very similar to CLASSES in other languages (but with no methods)
