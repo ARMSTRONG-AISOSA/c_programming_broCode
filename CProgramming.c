@@ -856,7 +856,7 @@ void bubbleSortInt(int array[], int sizeOfArray)
     // PS: Bubble Sort is not efficient for large datasets.
     for (int i = 0; i < sizeOfArray - 1; i++)
     {
-        // Controls how many passes through the array you make. 
+        // Controls how many passes through the array you make.
         // Check @ txt --> 11.0
         // printf("pass %d (i = %d)\n", i + 1, i);
         for (int j = 0; j < sizeOfArray - 1; j++)
@@ -869,14 +869,12 @@ void bubbleSortInt(int array[], int sizeOfArray)
                 array[j] = array[j + 1];
                 array[j + 1] = tempHolder;
             }
-            
         }
-        
     }
-    
 }
 
-void printNumArray(int array[], int sizeOfArray) {
+void printNumArray(int array[], int sizeOfArray)
+{
     for (int i = 0; i < sizeOfArray; i++)
     {
         printf("%d ", array[i]);
@@ -899,24 +897,24 @@ void main30()
     printNumArray(numArray, numArraySize);
 }
 
-void bubbleSortLetter(char array[], int sizeOfArray) {
+void bubbleSortLetter(char array[], int sizeOfArray)
+{
     for (int i = 0; i < sizeOfArray - 1; i++)
     {
         for (int j = 0; j < sizeOfArray - 1; j++)
         {
-            if (array[j] > array[j + 1]) {
+            if (array[j] > array[j + 1])
+            {
                 int temp = array[j];
                 array[j] = array[j + 1];
                 array[j + 1] = temp;
             }
         }
-        
     }
-    
 }
 
-
-void printLetterArray(char array[], int sizeOfArray) {
+void printLetterArray(char array[], int sizeOfArray)
+{
     for (int i = 0; i < sizeOfArray; i++)
     {
         printf("%c ", array[i]);
@@ -930,7 +928,7 @@ void main31()
     printf("\nFunction main31\n\n");
 
     char letterArray[] = {'C', 'F', 'Y', 'H', 'M', 'G', 'A', 'a', 'B'};
-    int letterArraySize = sizeof(letterArray)/sizeof(letterArray[0]);
+    int letterArraySize = sizeof(letterArray) / sizeof(letterArray[0]);
 
     // Bubble Sort
     bubbleSortLetter(letterArray, letterArraySize);
@@ -939,7 +937,8 @@ void main31()
     printLetterArray(letterArray, letterArraySize);
 }
 
-struct Player {
+struct Player
+{
     char name[30];
     int score;
 };
@@ -952,7 +951,6 @@ struct PhoneData
     int releaseYear;
 };
 
-
 void main32()
 {
     // Struct -- Check @ txt --> 12
@@ -961,20 +959,26 @@ void main32()
     // Ex. 1
     struct Player player1;
     struct Player player2;
-    
-    strcpy(player1.name, "Omoregie Armstrong");// Use string copy for arrays
-    player1.score = 7; //you can write to string directly
+    struct Player player3 = {"Ovie James", 9};
+
+    strcpy(player1.name, "Omoregie Armstrong"); // Use string copy for arrays
+    player1.score = 7;                          // you can write to string directly
 
     strcpy(player2.name, "Omoregie Harmony");
     player2.score = 8;
 
     printf("Player 1 name: %s and score: %d.\n", player1.name, player1.score);
-    printf("Player 2 name: %s and score: %d.\n\n", player2.name, player2.score);
+    printf("Player 2 name: %s and score: %d.\n", player2.name, player2.score);
+    printf("Player 3 name: %s and score: %d.\n\n", player3.name, player3.score);
 
     // Ex. 2
     struct PhoneData phone1;
     struct PhoneData phone2;
-    struct PhoneData phone3;
+    struct PhoneData phone3 = {
+        "Samsung Galaxy S24 Ultra",
+        "SM-S928B",
+        1199,
+        2014};
 
     strcpy(phone1.name, "iPhone 15 Pro Max");
     strcpy(phone1.model, "A2849");
@@ -986,19 +990,80 @@ void main32()
     phone2.price = 999;
     phone2.releaseYear = 2023;
 
-    strcpy(phone3.name, "Samsung Galaxy S24 Ultra");
-    strcpy(phone3.model, "SM-S928B ");
-    phone3.price = 1199;
-    phone3.releaseYear = 2024;
-
     // Phone 1
     printf("The brand is a %s, model %s.\nIt has a price tag of $%d and the release year is %d.\n\n", phone1.name, phone1.model, phone1.price, phone1.releaseYear);
     // Phone 2
     printf("The brand is a %s, model %s.\nIt has a price tag of $%d and the release year is %d.\n\n", phone2.name, phone2.model, phone2.price, phone2.releaseYear);
     // Phone 3
     printf("The brand is a %s, model %s.\nIt has a price tag of $%d and the release year is %d.\n\n", phone3.name, phone3.model, phone3.price, phone3.releaseYear);
-    
+}
 
+// learn step #1
+typedef char user[25]; // A character array of 25bytes nicknamed user
+
+// learn step #2 (without typedef)
+struct UserData
+{
+    char name[25];
+    char password[12];
+    int id;
+};
+
+// learn step #2 (with typedef)
+typedef struct
+{
+    char name[30];
+    char password[12];
+    int id;
+    char gender[7];
+    char role[25];
+} StaffData;
+
+void main33()
+{
+    // typedef = (reserved keyword that) gives an existing datatype a "nickname"
+    printf("\nFunction main33\n\n");
+
+    // learn step #1
+    // Array variable without typedef
+    char user1[25] = "Montana"; // A chracter array of 25 bytes
+
+    // with typedef
+    user user2 = "Kilogram"; // A character array of 25 bytes assigned with the typedef nickname user; variable name "user2"
+
+    user user3 = "Canada";
+
+    printf("Two character array of 25 bytes called %s & %s.\n\n", user2, user3);
+
+    // learn step #2
+    // struct without typedef
+    struct UserData person1 = {"Churchill Jekkins", "#P@ssw0rds", 123000};
+    struct UserData person2 = {"Jamal Jekkins", "@Sw0rdSw0rd", 123100};
+
+    printf("A person1 data of \nName: %s\nPassword: %s\nId: %d.\n\n", person1.name, person1.password, person1.id);
+
+    // struct with typedef
+    StaffData employee1 = {
+        "Charles Babage",
+        "password456",
+        123450,
+        "Male",
+        "I.T Assitant"};
+
+    StaffData employee2 = {
+        "James Babage",
+        "passwo678456",
+        123449,
+        "Male",
+        "I.T Lead"};
+
+    printf("An employee1 data of \nName: %s\nPassword: %s\nId: %d\nGender: %s\nRole: %s\n\n", employee1.name, employee1.password, employee1.id, employee1.gender, employee1.role);
+}
+
+void main34()
+{
+    // Array of struct
+    printf("\nFunction main34\n\n");
 }
 
 int main()
@@ -1034,20 +1099,10 @@ int main()
     // main29();
     // main30();
     // main31();
-    main32();
+    // main32();
+    // main33();
+    main34();
     return 0; // txt --> 3.1
-}
-
-void main33()
-{
-
-    printf("\nFunction main33\n\n");
-}
-
-void main34()
-{
-
-    printf("\nFunction main34\n\n");
 }
 
 void main35()
