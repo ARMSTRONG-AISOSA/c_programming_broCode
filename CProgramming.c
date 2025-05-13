@@ -1066,7 +1066,6 @@ struct Student
     float gpa;
 };
 
-
 void main34()
 {
     // Array of struct
@@ -1082,11 +1081,68 @@ void main34()
     // array name == students
     struct Student students[] = {student1, student2, student3, student4, student5};
 
-    for (int i = 0; i < sizeof(students)/sizeof(students[0]); i++)
+    for (int i = 0; i < sizeof(students) / sizeof(students[0]); i++)
     {
         printf("The student %s has a gpa of %0.2lf.\n", students[i].name, students[i].gpa); //"." is called an access operator
     }
-    
+}
+
+// To declear enum
+// type enum then an identifier and give/assign constants
+enum Day
+{
+    Sun = 1,
+    Mon = 2,
+    Tue = 3,
+    Wed = 4,
+    Thu = 5,
+    Fri = 6,
+    Sat = 7
+};
+
+// Custom Values
+enum StatusCode
+{
+    Success = 100,
+    Warning = 200,
+    Error = 300,
+    Fatal = 400
+};
+
+void main35()
+{
+    // enum = a user defined type of named integer identifiers
+    // helps to make a program more readable
+    // Enums are constants
+    // They are not strings but they can be treated as integers
+    printf("\nFunction main35\n\n");
+
+    enum Day today = Sat;
+
+    printf("Sunaday is = %d\nMonday is %d\nTuesday is %d\n\n", Sun, Mon, Tue);
+
+    if (today == Sun || today == Sat) // I.e today equal to 1 or 7
+    {
+        printf("It's the weekend we can relax.\n\n");
+    }
+    else
+    {
+        printf("The weekend isn't here yet, we continue the grind.\n\n");
+    }
+
+    // Ex. 2
+    enum StatusCode feedback = Warning;
+
+    if (feedback == Success)
+    {
+        printf("Success: 100\n");
+    } else if (feedback == Warning){
+        printf("Warning: 200\n");
+    } else if (feedback == Error) {
+        printf("Error: 300\n");
+    } else {
+        printf("Fatal: 400\n");
+    }
     
 }
 
@@ -1125,14 +1181,9 @@ int main()
     // main31();
     // main32();
     // main33();
-    main34();
+    // main34();
+    main35();
     return 0; // txt --> 3.1
-}
-
-void main35()
-{
-
-    printf("\nFunction main35\n\n");
 }
 
 void main36()
