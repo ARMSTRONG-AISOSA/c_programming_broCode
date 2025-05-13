@@ -1060,10 +1060,34 @@ void main33()
     printf("An employee1 data of \nName: %s\nPassword: %s\nId: %d\nGender: %s\nRole: %s\n\n", employee1.name, employee1.password, employee1.id, employee1.gender, employee1.role);
 }
 
+struct Student
+{
+    char name[40];
+    float gpa;
+};
+
+
 void main34()
 {
     // Array of struct
     printf("\nFunction main34\n\n");
+
+    struct Student student1 = {"Itadori Yuji", 2.85};
+    struct Student student2 = {"Naruto Uzamaki", 1.35};
+    struct Student student3 = {"Ichigo Kurosaki", 3.45};
+    struct Student student4 = {"Asta Staria", 2.01};
+    struct Student student5 = {"Light Yagami", 4.0};
+
+    // Array: data type == struct Student
+    // array name == students
+    struct Student students[] = {student1, student2, student3, student4, student5};
+
+    for (int i = 0; i < sizeof(students)/sizeof(students[0]); i++)
+    {
+        printf("The student %s has a gpa of %0.2lf.\n", students[i].name, students[i].gpa); //"." is called an access operator
+    }
+    
+    
 }
 
 int main()
