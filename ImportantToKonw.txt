@@ -100,3 +100,39 @@ example code:
 -Always use free() for every successful malloc() to prevent memory leaks.
 -Don't free() a pointer twice.
 -Don’t use memory after it’s been freed (this is called dangling pointer access).
+
+
+
+*==== General Naming Rules in C ====*
+Element Type	        Convention	                        Example
+Variables	            Lowercase words, snake_case	        total_sum, user_age
+Constants / Macros	    ALL_CAPS, underscores	            MAX_LENGTH, PI_VALUE
+Functions	            snake_case or camelCase	            print_message(), addUser()
+Structs	                Capitalized or PascalCase	        struct Person, struct CarInfo
+Enum types	            PascalCase for enum name,	        enum UserRole { ADMIN, USER }
+                        CAPS for values
+Pointers	            Use p prefix or _ptr suffix	        pNode, data_ptr
+Global variables	    Prefix with g_ or all lowercase	    g_count, global_flag
+Static variables	    Prefix with s_	                    s_temp_value
+
+
+*What to Avoid
+    -Avoid overly short names like x, y (unless in loops).
+    -Avoid camelCase for macros/constants (use UPPER_CASE instead).
+    -Don't mix naming styles inconsistently in one project.
+
+*Best Practices
+Be descriptive but concise:
+code:
+    int count; // good  
+    int c;     // too vague  
+
+Use nouns for variables, verbs for functions:
+code:
+    int user_age;
+    void print_report();
+
+Use prefixes/suffixes when needed for clarity:
+code:
+    int* user_ptr; // or pUser
+Stick to one convention throughout your project (e.g., snake_case for all variables and functions).

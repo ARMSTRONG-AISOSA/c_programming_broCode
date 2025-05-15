@@ -1222,12 +1222,18 @@ void main37()
     int number1 = (rand() % 6) + 1; // range btw 0~5 boosted to 1~6
     int number2 = (rand() % 10) + 1;
     int number3 = (rand() % 20) + 1;
-    int number4 = (rand() %7); // range btw 0~6 
+    int number4 = (rand() % 7); // range btw 0~6
 
     printf("%d\n", number1);
     printf("%d\n", number2);
     printf("%d\n", number3);
     printf("%d\n", number4);
+}
+
+void main38()
+{
+
+    printf("\nFunction main38\n\n");
 }
 
 int main()
@@ -1268,14 +1274,9 @@ int main()
     // main34();
     // main35();
     // main36();
-    main37();
+    // main37();
+    main38();
     return 0; // txt --> 3.1
-}
-
-void main38()
-{
-
-    printf("\nFunction main38\n\n");
 }
 
 void main39()
