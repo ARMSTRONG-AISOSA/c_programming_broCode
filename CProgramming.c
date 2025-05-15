@@ -1136,14 +1136,75 @@ void main35()
     if (feedback == Success)
     {
         printf("Success: 100\n");
-    } else if (feedback == Warning){
+    }
+    else if (feedback == Warning)
+    {
         printf("Warning: 200\n");
-    } else if (feedback == Error) {
+    }
+    else if (feedback == Error)
+    {
         printf("Error: 300\n");
-    } else {
+    }
+    else
+    {
         printf("Fatal: 400\n");
     }
-    
+}
+
+// Define enum for user roles
+enum Role
+{
+    ADMIN,
+    EDITOR,
+    VIEWER
+};
+
+// Define a struct for a user
+struct UserInfo
+{
+    char name[30];
+    enum Role role;
+};
+
+// Function to print role name
+void printUserRole(enum Role role)
+{
+    switch (role)
+    {
+    case ADMIN:
+        printf("Admin");
+        break;
+    case EDITOR:
+        printf("Editor");
+        break;
+    case VIEWER:
+        printf("Viewer");
+        break;
+    default:
+        printf("Unknown");
+    }
+};
+
+// Function to display user info
+void displayUserInfo(struct UserInfo user)
+{
+    printf("User: %s | Role: ", user.name);
+    printUserRole(user.role);//Function to run/print user(s) role
+    printf("\n");
+}
+
+void main36()
+{
+// Example: Enum for User Roles
+    printf("\nFunction main36\n\n");
+
+    struct UserInfo user1 = {"Armstrong", ADMIN};
+    struct UserInfo user2 = {"William", EDITOR};
+    struct UserInfo user3 = {"Samson", VIEWER};
+
+    displayUserInfo(user1);
+    displayUserInfo(user2);
+    displayUserInfo(user3);
 }
 
 int main()
@@ -1182,14 +1243,9 @@ int main()
     // main32();
     // main33();
     // main34();
-    main35();
+    // main35();
+    main36();
     return 0; // txt --> 3.1
-}
-
-void main36()
-{
-
-    printf("\nFunction main36\n\n");
 }
 
 void main37()
