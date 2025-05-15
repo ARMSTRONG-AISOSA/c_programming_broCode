@@ -4,7 +4,8 @@
 #include <math.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include "string_ext.h"
+#include <time.h>
+#include "string_ext.h" // To import self-written header functions
 
 void main01()
 {
@@ -1159,7 +1160,7 @@ enum Role
     VIEWER
 };
 
-// Define a struct for a user
+// Define a struct for a user (data)
 struct UserInfo
 {
     char name[30];
@@ -1189,22 +1190,44 @@ void printUserRole(enum Role role)
 void displayUserInfo(struct UserInfo user)
 {
     printf("User: %s | Role: ", user.name);
-    printUserRole(user.role);//Function to run/print user(s) role
+    printUserRole(user.role); // Function to run/print user(s) role
     printf("\n");
 }
 
 void main36()
 {
-// Example: Enum for User Roles
+    // Example: Enum for User Roles
     printf("\nFunction main36\n\n");
 
+    // struct data
     struct UserInfo user1 = {"Armstrong", ADMIN};
     struct UserInfo user2 = {"William", EDITOR};
     struct UserInfo user3 = {"Samson", VIEWER};
 
+    // display User Info Fuunction
     displayUserInfo(user1);
     displayUserInfo(user2);
     displayUserInfo(user3);
+}
+
+void main37()
+{
+    // Cheack @ txt --> 14.0
+    // psuedo Random Numbers =
+    printf("\nFunction main37\n\n");
+
+    srand(time(0));
+
+    // Use modulus to determine range
+    int number1 = (rand() % 6) + 1; // range btw 0~5 boosted to 1~6
+    int number2 = (rand() % 10) + 1;
+    int number3 = (rand() % 20) + 1;
+    int number4 = (rand() %7); // range btw 0~6 
+
+    printf("%d\n", number1);
+    printf("%d\n", number2);
+    printf("%d\n", number3);
+    printf("%d\n", number4);
 }
 
 int main()
@@ -1244,14 +1267,9 @@ int main()
     // main33();
     // main34();
     // main35();
-    main36();
+    // main36();
+    main37();
     return 0; // txt --> 3.1
-}
-
-void main37()
-{
-
-    printf("\nFunction main37\n\n");
 }
 
 void main38()

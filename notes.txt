@@ -13,6 +13,7 @@ index 1.0
 <math.h>: allows us to use math functions
 <ctype.h>: allows us to work with string functions
 <stdlib.h>: allows memory allocation & deallocation
+<time.h>: to get current time
 
 ||
 ||
@@ -462,3 +463,33 @@ code:
 
 You can assign specific values if you like:
     enum ErrorCode { SUCCESS = 0, WARNING = 1, ERROR = 100, FATAL = 200 };
+
+
+||
+||
+||
+index 14.0
+
+psuedo Random Numbers = a set of values or elements taht are statiscally random
+                        (don't use this for any sort of cryptographic security)
+
+Seed: In C, a seed is a starting value used by random number generators to initialize the sequence of random numbers.
+Random number generators in C (like rand()) aren’t truly random — they're pseudo-random, meaning they follow a predictable pattern based on an initial value (the seed).
+If you use the same seed, you get the same sequence of random numbers every time you run the program.
+
+Ex. without seed
+    printf("%d\n", rand());
+
+To make the sequence change with each run, you seed it with something that varies — typically the current time.
+Ex. Seeding with srand();
+    srand(time(0)); // Seed the random generator with the current time
+    printf("%d\n", rand());
+
+srand() = seed the random number generator.
+time(0) = returns the number of seconds since January 1, 1970 (UNIX epoch), so it's always changing.
+
+Summary:
+Term	        Meaning
+rand()	        Generates a pseudo-random number (btw 0 ~ 32,767)
+srand(seed)	    Seeds the generator with a starting point
+time(0)	        Commonly used as a changing seed value
