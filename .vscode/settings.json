@@ -3,6 +3,7 @@
         "stdio.h": "c",
         "phoneheader.h": "c",
         "stdlib.h": "c",
-        "string_ext.h": "c"
+        "string_ext.h": "c",
+        "algorithm": "c"
     }
 }

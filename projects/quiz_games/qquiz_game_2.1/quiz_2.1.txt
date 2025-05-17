@@ -1,0 +1,35 @@
+1. What year did the C language debut?
+A. 1969
+B. 1972
+C. 1975
+B
+
+2. Who is credited with creating C?
+A. Dennis Ritchie
+B. Nikola Tesla
+C. John Carmack
+A
+
+3. What is the predecessor of C?
+A. Objective C
+B. B
+C. C#
+B
+
+4. What does CPU stand for?
+A. Central Performance Unit
+B. Central Processing Unit
+C. Computer Program Unit
+B
+
+What is the standard header file in C used for input and output operations?
+A. <string.h>
+B. <stdio.h>
+C. <math.h>
+B
+
+Which keyword in C is used to define a function?
+A. class
+B. struct
+C. void 
+C

@@ -1,0 +1,14 @@
+perror() is a standard library function in C (and other POSIX-compliant systems) used to print an error message to the standard error stream (stderr) based on the current value of the global variable errno.
+
+In essence, perror() helps you understand why a system call or library function failed.
+
+Syntax: 
+    void perror(const char *s);
+
+--> Run "perror.c"
+
+In this example:
+
+fopen() fails because the file doesn't exist.
+It sets the global variable errno to indicate this "no such file or directory" error.
+perror("Error opening file") then prints the provided prefix "Error opening file:", followed by the system's description of the error associated with the current value of errno.

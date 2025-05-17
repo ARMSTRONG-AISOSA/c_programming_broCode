@@ -1,0 +1,32 @@
+The function strcspn in C programming stands for "string complement span".
+
+Here's a breakdown of what it does:
+
+It takes two null-terminated strings as input: string1 and string2.
+It searches string1 for the first occurrence of any character that is present in string2.
+It returns the length of the initial segment of string1 which consists entirely of characters not in string2. In other words, it returns the index of the first character in string1 that does match any character in string2.
+If no characters from string2 are found in string1, it returns the entire length of string1.
+So, the "cspn" part signifies finding the "span" (or length) of the initial part of the string that is the "complement" (i.e., not containing) the characters in the second string.
+
+
+--> Visit Strcspn.c
+
+
+Explanation of the output:
+
+strcspn("Hello, World!", ",!"):
+
+The function searches "Hello, World!" for the first occurrence of either , or !.
+The first such character is , at index 5.
+Therefore, strcspn returns 5. The initial segment of str1 that does not contain , or ! is "Hello" which has a length of 5.
+strcspn("Hello, World!", "xyz"):
+
+The function searches "Hello, World!" for the first occurrence of x, y, or z.
+None of these characters are found in "Hello, World!".
+Therefore, strcspn returns the entire length of "Hello, World!", which is 13.
+strcspn("Hello, World!", "abcdefghijklmnopqrstuvwxyz"):
+
+The function searches "Hello, World!" for the first occurrence of any lowercase letter.
+The first lowercase letter is 'e' at index 1.
+Therefore, strcspn returns 0. The initial segment of str1 that does not contain any lowercase letters is an empty string of length 0.
+Let me know if you'd like to see another example!
