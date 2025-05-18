@@ -1,0 +1,66 @@
+
+/*========  #ifndef and #ifdef  ==========*/
+Both #ifndef and #ifdef are preprocessor directives in C and C++ used for conditional compilation. They check whether a macro is or is not defined.
+
+#ifdef (if defined)
+    --"#ifdef MACRO" checks if the macro named "MACRO "has been defined previously using "#define".
+    --If "MACRO" is defined, the code block following "#ifdef MACRO" will be included in the compilation process.
+    --If "MACRO "is not defined, the code block will be excluded.
+
+#ifndef (if not defined)
+    --#ifndef MACRO checks if the macro named MACRO has not been defined.
+    --This is the logical negation of #ifdef.
+    --If MACRO is not defined, the code block following #ifndef MACRO will be included.
+    --If MACRO is defined, the code block will be excluded.
+
+
+Analogy
+Think of it like asking a question:
+    --"#ifdef MACRO": "Is "MACRO" defined?" (include/execute code block)
+    --"#ifndef MACRO": "Is "MACRO" not defined?" (exclude code block)
+
+Example
+code:
+    #include <stdio.h>
+
+    #define MY_MACRO  // Define MY_MACRO
+
+    int main() {
+        #ifdef MY_MACRO
+            printf("MY_MACRO is defined.\n");  // This will be printed
+        #endif
+
+        #ifndef ANOTHER_MACRO
+            printf("ANOTHER_MACRO is not defined.\n"); // This will be printed
+        #endif
+
+        #ifndef MY_MACRO
+            printf("This will not be printed.\n");
+        #endif
+
+        #ifdef ANOTHER_MACRO
+            printf("This will not be printed.\n");
+        #endif
+        return 0;
+    }
+
+
+Common Use Case: Header Guards
+
+A very common use of "#ifndef" is in header guards:
+code:
+    // myheader.h
+    #ifndef MYHEADER_H_  // Check if MYHEADER_H_ is NOT defined
+    #define MYHEADER_H_  // Define it now
+
+    // Header file content (declarations, etc.)
+    void myFunction(void);
+
+    #endif // End of #ifndef
+
+In this case,  "#ifndef" ensures that the contents of the header file are included only once in a compilation unit, even if the header file is #included multiple times.  This prevents errors like redefinitions.  "#ifdef "is not suitable for header guards.
+
+In Summary
+    --Use "#ifdef "to include code if a macro is defined.
+    --Use "#ifndef" to include code if a macro is not defined.
+    --"#ifndef" is crucial for header guards.
