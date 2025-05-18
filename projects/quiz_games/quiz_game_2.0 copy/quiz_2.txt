@@ -1,0 +1,27 @@
+1. What year did the C language debut?
+A. 1969
+B. 1972
+C. 1975
+D. 1999
+B
+
+2. Who is credited with creating C?
+A. Dennis Ritchie
+B. Nikola Tesla
+C. John Carmack
+D. Doc Brown
+A
+
+3. What is the predecessor of C?
+A. Objective C
+B. B
+C. C++
+D. C#
+B
+
+4. What does CPU stand for?
+A. Central Performance Unit
+B. Central Processing Unit
+C. Computer Program Unit
+D. Core Processing Unit
+B
