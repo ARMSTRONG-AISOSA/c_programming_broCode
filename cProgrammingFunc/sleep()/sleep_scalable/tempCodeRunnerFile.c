@@ -1,0 +1,1 @@
+gcc sleep_main.c sleep_function.c -o sleepProgram

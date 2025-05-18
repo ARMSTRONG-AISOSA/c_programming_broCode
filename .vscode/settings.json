@@ -4,6 +4,7 @@
         "phoneheader.h": "c",
         "stdlib.h": "c",
         "string_ext.h": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "pauseprogram.h": "c"
     }
 }

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <errno.h>
+#include <unistd.h>  
 
 int main() {
     FILE *fp = fopen("nonexistent_file.txt", "r");
