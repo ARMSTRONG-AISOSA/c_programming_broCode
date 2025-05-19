@@ -1,1 +1,1 @@
-total
+shuffle

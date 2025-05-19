@@ -1,0 +1,53 @@
+Let’s simulate the Fisher-Yates Shuffle using a simple example. We'll use a small array of quiz IDs for clarity:
+
+🧾 Initial Array
+Imagine we have 5 quiz questions identified by numbers:
+code:
+    quizzes[] = {1, 2, 3, 4, 5}
+    total = 5
+
+🎲 We run the loop:
+code:
+    for (int i = total - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        swap(quizzes[i], quizzes[j]);
+    }
+
+Let’s simulate with fake random values (to control the explanation).
+
+🧮 Step-by-step Simulation
+✅ Initial: quizzes[] = {1, 2, 3, 4, 5}
+🔁 First iteration:
+i = 4 (last index)
+rand() % (4 + 1) → let's say j = 2
+Swap quizzes[4] and quizzes[2]:
+Before: {1, 2, 3, 4, 5}
+After: {1, 2, 5, 4, 3}
+
+
+🔁 Second iteration:
+i = 3
+rand() % (3 + 1) → j = 1
+Swap quizzes[3] and quizzes[1]:
+Before: {1, 2, 5, 4, 3}
+After: {1, 4, 5, 2, 3}
+
+
+🔁 Third iteration:
+i = 2
+rand() % (2 + 1) → j = 0
+Swap quizzes[2] and quizzes[0]:
+Before: {1, 4, 5, 2, 3}
+After: {5, 4, 1, 2, 3}
+
+🔁 Fourth iteration:
+i = 1
+rand() % (1 + 1) → j = 1
+Swap quizzes[1] and quizzes[1]: no change
+Final: {5, 4, 1, 2, 3}
+
+🎉 Final Output:
+The array is now randomly shuffled: {5, 4, 1, 2, 3}
+
+
+Each time you run the program, the values of j will change, resulting in a different random order of questions.
