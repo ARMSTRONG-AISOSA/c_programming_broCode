@@ -1,0 +1,76 @@
+||
+||
+||
+Index 1.0
+/*======  Time Functions in C Use Ranking  =========*/
+Timers in C essentially involve using functions provided by the operating system or external libraries to measure time or trigger actions at specific time intervals.
+
+|
+|
+i-1.1
+1. "time()" and "difftime()" are the most fundamental because they provide the basic timekeeping mechanism in C.  Nearly every C program that deals with time in some way will use these.
+
+time() and difftime()
+These are the most fundamental and portable time functions in standard C.  
+    * "time()": is essential for getting the current time.
+    * "difftime()": makes it easy to calculate time intervals.
+
+Common Usage:
+    * Logging timestamps
+    * Measuring the duration of long-running operations
+    * Basic time calculations
+Portability: Standard C, so highly portable across machines & operating systems.
+Precision: Second-level precision; it means that the smallest unit of time that can be accurately distinguished or measured is one second.
+
+i-1.1.1
+"time(): " Gets the current calendar time as a time_t value, which is usually the number of seconds since the Unix epoch (January 1, 1970).
+
+"difftime():"  Calculates the difference between two time_t values as a double (in seconds).
+
+These are good for measuring relatively long time intervals.
+code:
+    run @ time_difftime.c
+
+
+
+
+|
+|
+i-1.2
+2.  clock()
+"clock()" is very common for performance measurement, which is a frequent task in software development.
+Provides a way to measure CPU time, which is useful for benchmarking the performance of specific code sections.
+Common Usage:
+    * Profiling code
+    * Comparing the efficiency of different algorithms
+    * Measuring the time spent in a function
+Portability:Standard C, so highly portable.
+Precision: Higher precision than `time()`, but depends on `CLOCKS_PER_SEC`.
+
+"clock():"  Returns the processor time consumed by the program since the program started.
+
+"CLOCKS_PER_SEC:"  A macro that defines the number of clock ticks per second(system/machine cpu specific).
+
+Useful for measuring the execution time of specific code sections.  It measures CPU time, not wall-clock time (which time() measures).
+
+code:
+    run @ clock.c
+
+
+i-1.2.1
+Subtracting start_clock from end_clock gives you the total number of clock ticks that elapsed during the execution of the code between the two calls to clock(). This difference represents the amount of CPU time your program used for the simulated work (the for loops).
+
+(double)(end_clock - start_clock):
+    * The result of the subtraction (end_clock - start_clock) is an integer (long).
+    * (double) is a type cast operator. It converts the integer result of the subtraction into a double (a double-precision floating-point number).
+    * Why is this casting necessary? We do this to ensure that the subsequent division by CLOCKS_PER_SEC performs floating-point division, giving us a more precise result in seconds (which can have fractional parts). If we didn't cast to double, integer division would be performed, potentially truncating any fractional part of the time.
+    
+CLOCKS_PER_SEC is a preprocessor macro (defined in <time.h>). It represents the number of clock ticks per second on your system.
+    * By dividing the total number of elapsed clock ticks{ticks} ((double)(end_clock - start_clock)) by the number of ticks per second (CLOCKS_PER_SEC){ticks per sec}, we convert the elapsed time from clock ticks into seconds.
+
+||
+||
+||
+Index 2.0
+Important Considerations:
+Real-time vs. Non-real-time: Standard C timers and even some POSIX timers are not "real-time." This means the delay might be slightly longer than specified, especially if the system is busy.  For very precise timing, you might need real-time operating systems or specialized libraries.
