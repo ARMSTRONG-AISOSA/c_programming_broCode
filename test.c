@@ -1,24 +1,36 @@
 #include <stdio.h>
-
-#define MY_MACRO // Define MY_MACRO
-// #define ANOTHER_MACRO // Define ANOTHER_MACRO
+#include <stdlib.h> // Added for system("cls") or system("clear")
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
 
 int main()
 {
-#ifdef MY_MACRO
-    printf("MY_MACRO is defined.\n"); // This will be printed
+// Clear the screen
+#ifdef _WIN32
+    system("cls"); // Clear screen on Windows
+#else
+    system("clear"); // Clear screen on Unix-like systems
 #endif
 
-#ifndef ANOTHER_MACRO
-    printf("ANOTHER_MACRO is not defined.\n"); // This will be printed
-#endif
+    printf("\n\033[1;36m🎮 QUIZ GAME STARTS NOW 🎮\033[0m\n");
+    printf("\033[34mGet ready...\033[0m\n");
 
-#ifndef MY_MACRO
-    printf("This will not be printed.\n");
-#endif
+    for (int i = 5; i > 0; i--)
+    {
+        printf("\r\033[33mStarting in %d...\033[0m", i);
+        fflush(stdout); //ensures output prints immediately.
 
-#ifdef ANOTHER_MACRO
-    printf("This will not be printed.\n");
+#ifdef _WIN32
+        Sleep(1000); // milliseconds
+#else
+        sleep(1); // seconds
 #endif
+    }
+
+    printf("\nRocket Launched 🚀\n"); // Added a newline before "Rocket Launched"
+
     return 0;
 }

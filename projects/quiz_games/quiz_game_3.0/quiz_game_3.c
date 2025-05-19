@@ -88,6 +88,7 @@ void runQuiz(Quiz quizzes[], int totalQuestions)
     printf("\033[1;36m\n🎮 QUIZ GAME STARTS NOW 🎮\n\033[0m");
     printf("\033[34m=============================\033[0m\n");
 
+
     // Loops through each quiz question loaded into the quizzes array.
     for (int i = 0; i < totalQuestions; i++)
     {
@@ -128,11 +129,10 @@ void runQuiz(Quiz quizzes[], int totalQuestions)
 int main()
 {
     Quiz quizzes[MAX_Q];
-    int total = loadQuestionsFromFile(quizzes, "quiz_2.txt");
+    int total = loadQuestionsFromFile(quizzes, "quiz_3.txt");
 
     if (total > 0)
     {
-        printf("QUIZ GAME STARTS NOW 🎮\n");
         runQuiz(quizzes, total);
     }
     else
