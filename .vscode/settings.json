@@ -6,6 +6,7 @@
         "string_ext.h": "c",
         "algorithm": "c",
         "pauseprogram.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "quiz_utils.h": "c"
     }
 }

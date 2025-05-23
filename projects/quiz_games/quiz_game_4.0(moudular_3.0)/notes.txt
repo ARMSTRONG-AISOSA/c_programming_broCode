@@ -1,0 +1,119 @@
+||
+||
+||
+Index 1.0
+
+code:
+    quizzes[count].question[strcspn(quizzes[count].question, "\n")] = '\0';
+
+
+🚀 Purpose:
+This line removes the trailing newline character (\n) from the question string that was read using fgets().
+
+🔍 Breakdown:
+quizzes[count].question
+→ This is the current question string inside the quizzes array of structs.
+
+strcspn(quizzes[count].question, "\n")
+→ This finds the index of the first occurrence of \n (newline character) in the string.
+
+strcspn() stands for "string complement span".
+
+It returns the number of characters before any of the characters in the second argument ("\n" in this case) appear.
+
+quizzes[count].question[...] = '\0'
+→ Once the position of \n is found, it replaces it with '\0', which is the null terminator that ends a C string.
+
+
+||
+||
+||
+Index 2.0
+
+void shuffle_quizzes(QuizStuct quizzes[], int total)
+{
+    srand(time(0)); // Seed the random generator
+
+    // Fisher–Yates shuffle algorithm.
+    // This is a for loop declaration, commonly used in C for reverse iteration — that is, looping from the end to the beginning of something (like an array).
+    for (int i = total - 1; i > 0; i--)
+    {
+        int j = rand() % (i + 1); // Get a random index
+        // First: int j = rand() % (i + 1);
+        // 📌 What it does:
+        // This line generates a random integer j between 0 and i (inclusive). Here's how:
+
+        // 💡 Explanation:
+        // rand() generates a pseudo-random integer between 0 and RAND_MAX (a large constant defined in stdlib.h).
+
+        // % (i + 1) takes the remainder when dividing that random number by i + 1.
+
+        // This effectively limits the range of values from 0 to i.
+
+        // 🧠 Why i + 1?
+        // Because % N returns values from 0 to N - 1. So to include i, you use i + 1.
+
+        // Example:
+        // If i = 4, then:
+        // j = rand() % (4 + 1) = rand() % 5
+
+        // Swap quizzes[i] and quizzes[j]
+        QuizStuct temp = quizzes[i];
+        quizzes[i] = quizzes[j];
+        quizzes[j] = temp;
+    }
+}
+
+check @ Fisher–Yates Shuffle folder for more info
+
+
+||
+||
+||
+Index 3.0
+load_questions_from_file:
+    -load_questions_from_file(...) opens the file at filename
+    -Reads quiz data line-by-line (or) in some format defined by struct
+    -Stores the data in the quizzes[] array
+    -Returns how many questions were successfully loaded or a status code
+
+The load_questions_from_file function in quiz_utils.c will open quiz_4.txt.
+It will read the questions, options, and answers line by line.
+For the first question:
+quizzes[0].question will be "What year did the C language debut?".
+quizzes[0].options will be ["A. 1969", "B. 1972", "C. 1975", "D. 1999"].
+quizzes[0].answer will be 'B'.
+This process will continue until the end of the file. The function will return the total number of questions loaded (which is 34 in this case).
+
+const char *filename
+char *filename means the function receives a string, which represents the path to the file.
+
+
+||
+||
+||
+Index 4.0
+main function:
+
+totalQuestions will be 34.
+The if (totalQuestions > 0) condition will be true.
+shuffle_quizzes(quizzes, 34) will be called to randomize the order of the questions.
+questionsToRun will be the minimum of totalQuestions (34) and NUM_OF_QUESTIONS_TO_ASK (7), so questionsToRun will be 7.
+run_quiz(quizzes, 7) will be called.
+
+
+||
+||
+||
+Index 5.0
+run_quiz function:
+
+The quiz will start, and you will be presented with 7 random questions (due to the shuffling).
+For each question:
+The question and its options will be displayed.
+You will be prompted to enter your answer.
+Your answer will be compared to the correct answer.
+Your score will be updated.
+After 7 questions, the final score and the total time taken will be displayed.
+The program will then read the high score from "highscore.txt" (if it exists), compare it with your current score, and update the high score file if necessary.
+

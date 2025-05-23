@@ -1,76 +1,66 @@
+// quiz_utils.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
 
-#define MAX_Q 100 //Question array size
-#define MAX_LEN 100 //Individual option array size
-#define QUESTIONS_TO_ASK 7 // This is a preprocessor directive in C. It tells the compiler: “Every time you see QUESTIONS_TO_ASK, replace it with 7 before compilation.”
+#include "quiz_utils.h" //decleared functions
 
-typedef struct
+// Check @ txt --> 3.0
+int load_questions_from_file(QuizStruct quizzes[], const char *filename)
 {
-    char question[MAX_LEN];
-    char options[4][MAX_LEN];
-    char answer;
-} Quiz;
-
-// Goal: Read quiz questions, options, and answers from a text file (e.g., "quiz.txt") and store them into an array of Quiz structs.
-// Returns: The number of quiz questions successfully loaded.
-int loadQuestionsFromFile(Quiz quizzes[], const char *filename)
-{
+    printf("Entering load_questions_from_file with filename: %s\n", filename); // Add this line to debug
 
     // Open the file
     FILE *file = fopen(filename, "r");
-    if (!file)
+
+    if (!file) // If file doesn't open
     {
         perror("Failed to open file");
         printf("Tried to open: %s\n", filename);
         return 0;
     }
 
-    // Set up the loop
+    // set up loop
     int count = 0;
 
     // Reads each question one at a time using fgets().
-    // fgets() stores one full line (including \n) into quizzes[count].question.
-    // Loop continues until the end of the file.
-    while (fgets(quizzes[count].question, MAX_LEN, file))
+    // Loop continues until the end of the file to remove trailing spaces from stored questions
+    while (fgets(quizzes[count].question, QUESTION_ARRAY_SIZE, file))
     {
-        // Remove newline from question
-        // This removes the trailing newline character (\n) that fgets() reads from the file.
         // Check @ txt --> 1.0
         quizzes[count].question[strcspn(quizzes[count].question, "\n")] = '\0'; // Remove newline
 
-        //  Read the 4 options
-
+        // Read the 4 options
+        // Loop continues until the end of the file to remove trailing spaces from stored options
         for (int i = 0; i < 4; i++)
         {
             // Reads the next 4 lines (each being one option: A, B, C, D). else?
-            if (!fgets(quizzes[count].options[i], MAX_LEN, file))
+            if (!fgets(quizzes[count].options[i], INDIVIDUAL_OPTION_ARRAY_SIZE, file))
             {
                 fclose(file);
                 return count; // Premature end
             }
-            // Also strips off the newline at the end of each line using the same trick as with the question.
+
+            // Remove new line
             quizzes[count].options[i][strcspn(quizzes[count].options[i], "\n")] = '\0';
         }
 
         // Read the answer
-        char ansLine[MAX_LEN];
-        // Reads the next line (e.g., B) which represents the correct answer. else?
-        if (!fgets(ansLine, MAX_LEN, file))
+        char answerLine[ANSWER_ARRAY_SIZE];
+        if (!fgets(answerLine, ANSWER_ARRAY_SIZE, file))
         {
             fclose(file);
             return count; // No answer line
         }
 
-        // Converts the answer to uppercase using toupper() for consistency.
-        quizzes[count].answer = toupper(ansLine[0]); // Get first char as answer
+        // Convert the answer from the file to uppercase
+        quizzes[count].answer = toupper(answerLine[0]); // Get first char as answer
         count++;
 
         // Skip blank line if any
-        fgets(ansLine, MAX_LEN, file);
+        fgets(answerLine, ANSWER_ARRAY_SIZE, file);
     }
 
     // After loop: close file and return count
@@ -83,7 +73,7 @@ int loadQuestionsFromFile(Quiz quizzes[], const char *filename)
 int readHighScore(const char *filename)
 {
     FILE *file = fopen(filename, "r");
-    int score = 0;
+    int score = 0; // initialize score variable
 
     // If file exist
     if (file)
@@ -107,46 +97,33 @@ void saveHighScore(const char *filename, int score)
     }
 }
 
-void shuffleQuestions(Quiz quizzes[], int total)
+// Check @ txt --> 4.0
+void shuffle_quizzes(QuizStruct quizzes[], int total)
 {
     srand(time(0)); // Seed the random generator
 
     // Fisher–Yates shuffle algorithm.
-    // This is a for loop declaration, commonly used in C for reverse iteration — that is, looping from the end to the beginning of something (like an array).
+    // This is a for loop declaration, for reverse iteration i.e from the end to the beginning of an array.
+    // Check @ txt --> 2.0
     for (int i = total - 1; i > 0; i--)
     {
         int j = rand() % (i + 1); // Get a random index
-        // First: int j = rand() % (i + 1);
-        // 📌 What it does:
-        // This line generates a random integer j between 0 and i (inclusive). Here's how:
-
-        // 💡 Explanation:
-        // rand() generates a pseudo-random integer between 0 and RAND_MAX (a large constant defined in stdlib.h).
-
-        // % (i + 1) takes the remainder when dividing that random number by i + 1.
-
-        // This effectively limits the range of values from 0 to i.
-
-        // 🧠 Why i + 1?
-        // Because % N returns values from 0 to N - 1. So to include i, you use i + 1.
-
-        // Example:
-        // If i = 4, then:
-        // j = rand() % (4 + 1) = rand() % 5
+        // This line generates a random integer j between 0 and i (inclusive).
+        // Check @ txt --> 2.0
 
         // Swap quizzes[i] and quizzes[j]
-        Quiz temp = quizzes[i];
+        QuizStruct temp = quizzes[i];
         quizzes[i] = quizzes[j];
         quizzes[j] = temp;
     }
 }
 
-void runQuiz(Quiz quizzes[], int totalQuestions)
+// Check @ txt --> 5.0
+void run_quiz(QuizStruct quizzes[], int totalQuestions)
 {
     // Initialize local variables
     int score = 0;
     char entry;
-    // char flush;
 
     // ⏱ Start timing
     time_t start_time, end_time;
@@ -173,9 +150,18 @@ void runQuiz(Quiz quizzes[], int totalQuestions)
 
         // Prompt for user input
         printf("\033[35mAnswer entry: \033[0m");
-        scanf(" %c", &entry);
-        // scanf("%c", &flush); // clear input buffer
+        scanf(" %c", &entry); // a space before %c which is good for consuming any leading whitespace (like newline characters from previous inputs).
         entry = toupper(entry);
+
+        // If entry is 'A', 'B', 'C', or 'D', the expression evaluates to false, meaning the input is valid.
+        if (entry < 'A' || entry > 'D')
+        {
+            printf("Invalid input. Please enter A, B, C, or D.\n");
+            i--;      // Repeat this question
+            continue; // skips the rest of the current iteration and restarts the loop.
+            // PS: Invalid inputs are caught before they're evaluated against the correct answer.
+            // If the user enters 'E', 'Z', '1', 'x', '#', or any other character outside the range 'A' to 'D', the condition becomes true.
+        }
 
         // Check if the answer is correct
         if (entry == quizzes[i].answer)
@@ -215,26 +201,4 @@ void runQuiz(Quiz quizzes[], int totalQuestions)
     {
         printf("\033[1;33mYou didn't beat the high score: %d. Try again!\033[0m\n\n", highScore);
     }
-}
-
-int main()
-{
-    Quiz quizzes[MAX_Q];
-    int total = loadQuestionsFromFile(quizzes, "quiz_3.txt");
-
-    if (total > 0)
-    {
-        shuffleQuestions(quizzes, total); // <--- Shuffle questions retrived
-
-        // Use the lesser of loaded questions or the fixed limit
-        int questionsToRun = (total < QUESTIONS_TO_ASK) ? total : QUESTIONS_TO_ASK;
-
-        runQuiz(quizzes, questionsToRun);
-    }
-    else
-    {
-        printf("No questions loaded.\n");
-    }
-
-    return 0;
 }

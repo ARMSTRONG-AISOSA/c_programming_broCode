@@ -1,0 +1,230 @@
+What year did the C language debut?
+A. 1969
+B. 1972
+C. 1975
+D. 1999
+B
+
+Who is credited with creating C?
+A. Dennis Ritchie
+B. Nikola Tesla
+C. John Carmack
+D. Doc Brown
+A
+
+What is the predecessor of C?
+A. Objective C
+B. B
+C. C++
+D. C#
+B
+
+What does CPU stand for?
+A. Central Performance Unit
+B. Central Processing Unit
+C. Computer Program Unit
+D. Core Processing Unit
+B
+
+Which header file is essential for standard input and output functions in C?
+A. stdlib.h
+B. stdio.h
+C. conio.h
+D. math.h
+B
+
+What is the correct syntax to print "Hello, World!" in C?
+A. print("Hello, World!");
+B. printf("Hello, World!");
+C. System.out.println("Hello, World!");
+D. cout << "Hello, World!";
+B
+
+What is a variable in C?
+A. A constant value
+B. A named storage location in memory
+C. A function
+D. A data type
+B
+
+Which data type is used to store whole numbers in C?
+A. float
+B. char
+C. int
+D. double
+C
+
+What is the range of values for an int?
+A. 0 to 255
+B. 0 to 65535
+C. Depends on the system
+D. -2147483648 to 2147483647
+C
+
+Which operator is used for assignment in C?
+A. ==
+B. =
+C. ===
+D. :=
+B
+
+What is the purpose of the scanf() function?
+A. To print output to the console
+B. To read input from the user
+C. To define a function
+D. To declare a variable
+B
+
+What is a pointer in C?
+A. A variable that stores a memory address
+B. A function that points to another function
+C. A data type that points to a file
+D. An operator
+A
+
+Which symbol is used to declare a pointer?
+A. &
+B. *
+C. ->
+D. .
+B
+
+What is an array in C?
+A. A collection of different data types
+B. A collection of similar data types stored in contiguous memory locations
+C. A function
+D. A pointer
+B
+
+How do you declare an integer array of size 10 in C?
+A. int array[10];
+B. int array = new int[10];
+C. int *array = malloc(10 * sizeof(int));
+D. array int[10];
+A
+
+What is the index of the first element in an array?
+A. 1
+B. 0
+C. -1
+D. Any number
+B
+
+What is a string in C?
+A. A character
+B. An array of characters terminated by a null character ('\0')
+C. A data type
+D. A function
+B
+
+Which function is used to concatenate two strings in C?
+A. concat()
+B. append()
+C. strcat()
+D. strjoin()
+C
+
+What is the purpose of the strlen() function?
+A. To reverse a string
+B. To find the length of a string
+C. To compare two strings
+D. To copy a string
+B
+
+What is a function in C?
+A. A variable
+B. A block of code that performs a specific task
+C. A data type
+D. An operator
+B
+
+What is the return type of a function that does not return any value?
+A. int
+B. void
+C. null
+D. char
+B
+
+What is recursion?
+A. A loop
+B. A function calling itself
+C. A data type
+D. An operator
+B
+
+What is a structure in C?
+A. A function
+B. A data type that can hold multiple variables of different data types
+C. An array
+D. A pointer
+B
+
+What is a union in C?
+A. Similar to a struct, but all members share the same memory location
+B. A function
+C. A pointer
+D. An array
+A
+
+What is dynamic memory allocation?
+A. Allocating memory at compile time
+B. Allocating memory at runtime
+C. Allocating memory for global variables
+D. Allocating memory for static variables
+B
+
+Which function is used to allocate memory dynamically in C?
+A. alloc()
+B. malloc()
+C. calloc()
+D. new()
+B
+
+Which function is used to free dynamically allocated memory?
+A. free()
+B. delete()
+C. release()
+D. dealloc()
+A
+
+What is a file pointer in C?
+A. A pointer to a function
+B. A pointer to a variable
+C. A pointer to a FILE structure
+D. A pointer to an array
+C
+
+Which function is used to open a file in C?
+A. open()
+B. fileopen()
+C. fopen()
+D. createfile()
+C
+
+Which mode is used to open a file for reading in C?
+A. "w"
+B. "r"
+C. "a"
+D. "rw"
+B
+
+Which function is used to write data to a file in C?
+A. read()
+B. fwrite()
+C. fprint()
+D. writedata()
+B
+
+Which function is used to read data from a file in C?
+A. write()
+B. fread()
+C. fscan()
+D. readdata()
+B
+
+Which function is used to close a file in C?
+A. fileclose()
+B. close()
+C. fclose()
+D. endfile()
+C

@@ -1,0 +1,1 @@
+gcc quiz_game_4.0.c quiz_utils.c -o quiz_game_4.0 -lm
