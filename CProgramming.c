@@ -1232,7 +1232,66 @@ void main37()
 
 void main38()
 {
+    // Bitwise Operator: you have to be familiar with binary for this topic
+    //                  (special operators used in bit level programming)
     printf("\nFunction main38\n\n");
+
+    // & = AND
+    // | = OR
+    // ^ = XOR
+    // << left shift
+    // >> right shift
+    // Complimentary operator: saved for later study
+
+    // AND
+    int x = 6;  // 6 = 00000110
+    int y = 12; // 12 = 00001100
+    int z = 0;  // 4 = 00000100 : binary number
+
+    z = x & y;
+    printf("AND = %d\n", z);
+
+    // OR
+    int u = 6;  // 6 = 00000110
+    int v = 12; // 12 = 00001100
+    int w = 0;  // 14 = 00001110 : binary number
+
+    w = u | v;
+    printf("OR = %d\n", w);
+
+    // XOR
+    int r = 6;  // 6 = 00000110
+    int s = 12; // 12 = 00001100
+    int t = 0;  // 10 = 00001010 : binary number
+
+    t = r ^ s;
+    printf("XOR = %d\n", t);
+
+    // left shift
+    int m = 6;      // 6 = 00000110
+    int n = m << 1; // 12 = 00001100 : binary number
+    int o = 12;     // 12 = 00001100
+    int p = o << 2;
+    ; // 48 = 00110000 : binary number
+
+    printf("Left Shift (once) = %d\n", n);
+    printf("Left Shift (twice) = %d\n", p);
+
+    // right shift
+    int i = 6;      // 6 = 00000110
+    int j = i >> 1; // 3 = 00000011  : binary number
+    int k = 12;     // 12 = 00001100
+    int l = k >> 3; // 3 = 00000001 : binary number
+
+    printf("Right Shift (once) = %d\n", j);
+    printf("Right Shift (thrice) = %d\n", l);
+}
+
+void main39()
+{
+    //Memory = an array of bytes within RAM (street)
+    // memory
+    printf("\nFunction main39\n\n");
 }
 
 int main()
@@ -1274,14 +1333,9 @@ int main()
     // main35();
     // main36();
     // main37();
-    main38();
+    // main38();
+    main39();
     return 0; // txt --> 3.1
-}
-
-void main39()
-{
-
-    printf("\nFunction main39\n\n");
 }
 
 void main40()
