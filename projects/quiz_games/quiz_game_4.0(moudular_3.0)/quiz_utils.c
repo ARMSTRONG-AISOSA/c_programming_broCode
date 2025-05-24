@@ -156,7 +156,9 @@ void run_quiz(QuizStruct quizzes[], int totalQuestions)
         // If entry is 'A', 'B', 'C', or 'D', the expression evaluates to false, meaning the input is valid.
         if (entry < 'A' || entry > 'D')
         {
-            printf("Invalid input. Please enter A, B, C, or D.\n");
+            printf("\033[1;33;41mInvalid input. Please enter A, B, C, or D.\33[0m\n");
+
+            // printf("\033[1;33;41mWarning!!!\33[0m\n");
             i--;      // Repeat this question
             continue; // skips the rest of the current iteration and restarts the loop.
             // PS: Invalid inputs are caught before they're evaluated against the correct answer.
