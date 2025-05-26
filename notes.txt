@@ -557,3 +557,31 @@ Syntax:
 
     --To declare an array of 3 such function pointers:
     int (*operations[3])(int, int);
+
+
+||
+||
+||
+index 16.0
+In C, when working with file I/O using functions like fopen(), you specify the file mode as a string argument. These modes tell the program how to open the file—whether for reading, writing, appending, and in what format (text or binary).
+
+All Standard File Modes in C:
+Mode   --  Meaning
+"r"    --  Open text file for reading. The file must exist.
+"w"    --  Open text file for writing. If the file exists,
+            its content is erased. If it doesn't, it is created.
+"a"    --  Open text file for appending. Writes are added to the end. File is created if it doesn’t exist.
+"r+"   --  Open text file for both reading and writing. The file must exist.
+"w+"   --  Open text file for reading and writing. Truncates existing file or creates a new one.
+"a+"   --  Open text file for reading and appending. File is created if it doesn’t exist.
+"rb"   --  Open0 binary file for reading. File must exist.
+"wb"   --  Open binary file for writing. Truncates or creates file.
+"ab"   --  Open binary file for appending. Creates file if it doesn’t exist.
+"rb+" or "r+b"    --  Open binary file for reading and writing. File must exist.
+"wb+" or "w+b"    --  Open binary file for reading and writing. Truncates or creates file.
+"ab+" or "a+b"    --  Open binary file for reading and appending. Creates file if it doesn’t exist.
+
+Notes:
+--"t" for text mode is optional and implicit (e.g., "rt" is same as "r"), but on Windows, it’s sometimes explicitly written.
+--Always close your files using fclose() after you’re done.
+--On Unix/Linux, text and binary modes behave the same, but they differ on Windows (newline translation, EOF handling, etc.).

@@ -1426,10 +1426,42 @@ void main42()
 
     int a = 10, b = 5;
 
-    printf("Add: %d\n", operations[0](a, b)); // Calls add_func(10, 5)
+    printf("Add: %d\n", operations[0](a, b));      // Calls add_func(10, 5)
     printf("Subtract: %d\n", operations[1](a, b)); // Calls subtract_func(10, 5)
     printf("Multiply: %d\n", operations[2](a, b)); // Calls multiply_func(10, 5)
 }
+
+void main43()
+{
+    // Writing files
+    printf("\nFunction main43\n\n");
+
+    FILE *ptrFile = fopen("test_1.txt", "a+"); // open stream; append mode
+
+    fprintf(ptrFile, "Sponge Bob Square Pants\n");
+
+    fclose(ptrFile); // close stream
+
+    // To delete a file
+    if (remove("test_2.txt") == 0)
+    {
+        printf("The file was deleted successfully\n");
+    }
+    else
+    {
+        printf("file not found!\n");
+    }
+}
+
+
+void main44()
+{
+    // Reading files
+    printf("\nFunction main44\n\n");
+
+
+}
+
 
 int main()
 {
@@ -1474,12 +1506,26 @@ int main()
     // main39();
     // main40();
     // main41();
-    main42();
+    // main42();
+    // main43();
+    main44();
     return 0; // txt --> 3.1
 }
 
-void main43()
+void main45()
 {
 
-    printf("\nFunction main41\n\n");
+    printf("\nFunction main45\n\n");
+}
+
+void main46()
+{
+
+    printf("\nFunction main46\n\n");
+}
+
+void main47()
+{
+
+    printf("\nFunction main47\n\n");
 }
