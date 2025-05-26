@@ -1289,9 +1289,53 @@ void main38()
 
 void main39()
 {
-    //Memory = an array of bytes within RAM (street)
-    // memory
+    // Memory : This refers to the storage your computer uses to store data; an array of byte within RAM.
+    // Memory Address : Every byte (or unit) in memory has a unique address, like a house number on a street.
+    // Memory Block : A memory block is a contiguous chunk of memory addresses — like booking 5 hotel rooms in a row.
+
+    // Concept -- Analogy -- What it is
+    // Memory -- Entire building -- The full RAM or allocated space
+    // Memory Block -- A group of adjacent rooms -- A continuous segment/block of memory addresses
+    // Memory Address -- Room number -- A specific location in memory
+
     printf("\nFunction main39\n\n");
+
+    // Test -- memory address
+    int x = 5;
+    printf("Memory address = %p\n\n", &x);
+
+    int arr[5];
+
+    printf("Array Memory Address of (int arr[]): %p\n", &arr);
+    printf("Memory Address of (arr[0]): %p\n\n", &arr[0]);
+
+    // Test -- memory size
+    int s = 5;
+    int t = 55;
+    char a = 'X';
+    double g = 5;
+    short h = 5;
+
+    // The sizeof operator returns a value of type size_t, which is typically an unsigned long or unsigned int, depending on the system.
+    printf("Size of Memory of \n");
+    printf("(int s = 5) = %zu bytes\n", sizeof(s));
+    printf("(int t = 55) = %zu bytes\n", sizeof(t));
+    printf("(char a = 'X') = %zu bytes\n\n", sizeof(a));
+    printf("(double g = 5) = %zu bytes\n", sizeof(g));
+    printf("(short h = 5) = %zu bytes\n", sizeof(h));
+
+    printf("Size of Memory Array of \n");
+    printf("Memory Size of (arr):  %zu bytes\n", sizeof(arr));
+    printf("Memory Size of (arr[0]): %zu bytes\n", sizeof(arr[0]));
+
+    // Memory uses hexadecimal values as against the familiar decimal values
+    // Decimal 1,2,3,4,5,6,7,8,9,0 (0-9)
+    // Hexadecimal 1,2,3,4,5,6,7,8,9,0, A, B, C, D, E, F (0-9 + A-F)
+
+    // char: use 1 byte of memory
+    // int: use 4 bytes of memory
+    // double: use 8 bytes of memory
+    // short: use 2 bytes of memory
 }
 
 int main()
