@@ -493,3 +493,67 @@ Term	        Meaning
 rand()	        Generates a pseudo-random number (btw 0 ~ 32,767)
 srand(seed)	    Seeds the generator with a starting point
 time(0)	        Commonly used as a changing seed value
+
+
+
+||
+||
+||
+index 15.0
+Pointers in C are variables that store the memory addresses of other variables.
+ &; address of operator
+ *; in direction operator
+
+Pointers allow you to:
+    * Directly access and modify memory
+    * Pass large structures or arrays efficiently to functions
+    * Implement dynamic memory allocation
+    * Build complex data structures like linked lists, trees, etc.
+
+code:
+    int x = 10;
+    int *p = &x;
+    printf("%p\n", p); // Correct format specifier to print a pointer address
+
+    - x is a regular integer variable.
+    - &x gives the address of x.
+    - p stores that address.
+    - *p (pointer) (dereferencing) accesses or modifies the value at that address.
+
+
+🔍 Key Terminology:
+Term            --  Meaning
+* (asterisk)    --  Declares a pointer and is also used to dereference (access value)
+& (ampersand)   --  Gets the address of a variable
+int *p          --  Declares a pointer to an integer
+*p = 5;         --  Assigns 5 to the value stored at the address p points to
+
+|
+|
+|
+i-15.1
+Function pointers in C are pointers that point to functions instead of data. Just like you can store the address of a variable in a pointer, you can store the address of a function in a function pointer.
+
+🔧 Why use function pointers?
+    * To call functions dynamically (e.g., callback mechanisms)
+    * To implement jump tables or plugin architectures
+    * To pass functions as arguments (e.g., in sorting or event handling)
+
+Syntax:
+    return_type (*pointer_name)(parameter_types);
+
+
+|
+|
+|
+i-15.2
+Arrays of Function Pointers
+In C, declaring arrays of function pointers allows you to store multiple functions and call them dynamically, like a menu or a command table.
+Syntax:
+    int add(int a, int b); (function)
+
+    --Then a pointer to that function is:
+    int (*func_ptr)(int, int);
+
+    --To declare an array of 3 such function pointers:
+    int (*operations[3])(int, int);

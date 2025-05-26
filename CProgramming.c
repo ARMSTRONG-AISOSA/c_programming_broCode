@@ -1338,6 +1338,99 @@ void main39()
     // short: use 2 bytes of memory
 }
 
+void main40()
+{
+    printf("\nFunction main40\n\n"); // txt --> 15.0
+
+    // Pointers in C are variables(reference) that store/hold the/a memory address(es) of other variable(s).
+    // &; address of operator
+    // *; in direction operator (value at address)
+
+    int x = 10;
+    int *ptr = &x; // ptr is a pointer to an integer, storing the address of x
+
+    printf("Value of x: %d\n", x);
+    printf("Address of x: %p\n", &x);                 // address of x
+    printf("Value of ptr (address of x): %p\n", ptr); // format specifier to print a pointer address
+    printf("Value pointed to by ptr: %d\n\n", *ptr);  // dereferencing
+
+    // Naming convention
+    int age = 21;
+    int *pAge = &age;
+    printf("Address: %p\n", pAge);
+
+    // Integers use 4 bytes & pointers use 8 bytes; enough for a hexadecimal address
+    printf("size of age: %zu bytes\n", sizeof(age));
+    printf("size of age pointer(pAge): %zu bytes\n", sizeof(pAge));
+}
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int subtract(int a, int b)
+{
+    return a - b;
+}
+
+int multiply(int a, int b)
+{
+    return a * b;
+}
+
+void main41()
+{
+    printf("\nFunction main41\n\n");
+
+    // txt --> i-15.1
+    // function pointers
+
+    int (*operation)(int, int); // Declare a function pointer
+
+    operation = add;
+    printf("Add: %d\n", operation(5, 3)); // Calls add(5, 3)
+
+    operation = subtract;
+    printf("Subtract: %d\n", operation(5, 3)); // Calls subtract(5, 3)
+
+    operation = multiply;
+    printf("Multiply: %d\n", operation(5, 3)); // Calls multiply(5, 3)
+}
+
+int add_func(int a, int b)
+{
+    return a + b;
+}
+
+int subtract_func(int a, int b)
+{
+    return a - b;
+}
+
+int multiply_func(int a, int b)
+{
+    return a * b;
+}
+
+void main42()
+{
+    // txt --> i-15.2
+    // array of function pointers
+
+    printf("\nFunction main42\n\n");
+    // In C, declaring arrays of function pointers allows you to store multiple functions and call them dynamically, like a menu or a command table.
+
+    // Declare and initialize array of function pointers
+    int (*operations[3])(int, int) = {add_func, subtract_func, multiply_func};
+
+    int a = 10, b = 5;
+
+    printf("Add: %d\n", operations[0](a, b)); // Calls add_func(10, 5)
+    printf("Subtract: %d\n", operations[1](a, b)); // Calls subtract_func(10, 5)
+    printf("Multiply: %d\n", operations[2](a, b)); // Calls multiply_func(10, 5)
+}
+
 int main()
 {
     // main01();
@@ -1378,17 +1471,14 @@ int main()
     // main36();
     // main37();
     // main38();
-    main39();
+    // main39();
+    // main40();
+    // main41();
+    main42();
     return 0; // txt --> 3.1
 }
 
-void main40()
-{
-
-    printf("\nFunction main40\n\n");
-}
-
-void main41()
+void main43()
 {
 
     printf("\nFunction main41\n\n");
