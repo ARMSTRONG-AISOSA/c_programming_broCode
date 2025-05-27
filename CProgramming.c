@@ -1470,6 +1470,27 @@ void main44()
 {
     // Reading files
     printf("\nFunction main44\n\n");
+
+    FILE *pF = fopen("poem.txt", "r");
+    char buffer[255];
+
+    if (pF == NULL) // file not found
+    {
+        printf("Unable to open file!\n");
+    }
+    else
+    {
+        // fgets(buffer, 255, pF); -- gets a line of text
+        // printf("%s", buffer); -- print the retrived line of text
+
+        while (fgets(buffer, 255, pF) != NULL) // run line after line
+        //!= NULL until you see a newline then terminate.
+        {
+            printf("%s", buffer);
+        }
+
+        printf("\n");
+    }
 }
 
 int main()
