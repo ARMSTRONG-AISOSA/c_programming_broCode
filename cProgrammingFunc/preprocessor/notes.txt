@@ -1,0 +1,56 @@
+In C, the preprocessor is a tool that runs before your code is compiled. It processes all lines that start with # (called preprocessor directives) to prepare your code for compilation.
+
+⚙️ Compilation Flow
+    Your Code (.c)
+        ↓ Preprocessor
+    Preprocessed Code
+        ↓ Compiler
+    Machine Code (.o)
+        ↓ Linker
+    Executable
+
+
+🔧 What Does the Preprocessor Do?
+The preprocessor handles things like:
+
+**Directive   	   ** Purpose
+#include    	   -- Adds code from another file (like libraries)
+#define     	   -- Defines macros (constants or functions)
+#undef      	   -- Undefines a previously defined macro
+#ifdef / #ifndef   -- Checks if a macro is defined or not
+#if, #else,	       -- Conditional compilation
+#elif, #endif
+#pragma	           -- Gives special instructions to the compiler
+
+Example
+code:
+    #include <stdio.h>
+    #define PI 3.14
+
+    int main() {
+        printf("Value of PI is: %.2f\n", PI);
+        return 0;
+    }
+
+🔍 What happens step-by-step:
+   * #include <stdio.h>: The preprocessor copies the contents of stdio.h into the file.
+   * #define PI 3.14: It replaces every instance of PI with 3.14.
+   * After preprocessing, the code looks like:
+code:
+    int main() {
+        printf("Value of PI is: %.2f\n", 3.14);
+        return 0;
+    }
+
+🛠 Use Cases
+   -- Including standard libraries (#include)
+   -- Creating constants or macro functions (#define)
+   -- Managing debugging output (#ifdef DEBUG)
+   -- Platform-dependent code (#if defined(_WIN32))
+
+Summary
+   -- The preprocessor:
+   -- Runs before actual compilation
+   -- Handles #-based commands
+   -- Controls what code gets compiled
+   -- Makes code cleaner and more portable

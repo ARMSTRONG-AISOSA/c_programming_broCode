@@ -585,3 +585,27 @@ Notes:
 --"t" for text mode is optional and implicit (e.g., "rt" is same as "r"), but on Windows, it’s sometimes explicitly written.
 --Always close your files using fclose() after you’re done.
 --On Unix/Linux, text and binary modes behave the same, but they differ on Windows (newline translation, EOF handling, etc.).
+
+|
+|
+|
+index 16.1
+code:
+    remove("test_2.txt") == 0
+
+does two things:
+1. Deletes the file test_2.txt
+The remove() function is a standard C library function that:
+    * Deletes the file with the specified name (test_2.txt)
+    * Returns 0 on success
+    * Returns a non-zero value on failure
+
+2. Checks if deletion was successful
+The == 0 part is a comparison:
+    * If the file was deleted successfully, remove(...) == 0 will be true
+    * Otherwise, it’s false
+
+Example @ cProgramming.c --> main43()
+Notes:
+    * remove() works on both files and empty directories.
+    * If the file doesn't exist or is in use, it will fail.

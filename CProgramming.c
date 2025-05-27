@@ -1431,37 +1431,46 @@ void main42()
     printf("Multiply: %d\n", operations[2](a, b)); // Calls multiply_func(10, 5)
 }
 
-void main43()
+int main43()
 {
-    // Writing files
+    // Writing files -- // index 16.0
     printf("\nFunction main43\n\n");
 
-    FILE *ptrFile = fopen("test_1.txt", "a+"); // open stream; append mode
+    FILE *ptrFile = fopen("mediaStorage/test_1.txt", "w"); // open stream; append mode
 
-    fprintf(ptrFile, "Sponge Bob Square Pants\n");
+    if (ptrFile == NULL) // check if the file pointer is NULL
+    {
+        perror("File opening failed");
+        return 1;
+    }
+
+    if (fprintf(ptrFile, "Sponge Bob Square Pants\n"))
+    {
+        printf("File appended to...\n");
+    }
+    else
+    {
+        perror("File not seen!\n");
+    }
 
     fclose(ptrFile); // close stream
 
-    // To delete a file
+    // To delete a file // txt --> 16.1
     if (remove("test_2.txt") == 0)
     {
         printf("The file was deleted successfully\n");
     }
     else
     {
-        printf("file not found!\n");
+        perror("File deletion failed");
     }
 }
-
 
 void main44()
 {
     // Reading files
     printf("\nFunction main44\n\n");
-
-
 }
-
 
 int main()
 {

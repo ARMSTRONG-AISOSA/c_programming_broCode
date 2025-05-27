@@ -1,0 +1,103 @@
+*==== Macro ====*
+In C, a macro is a fragment of code defined using the "#define" preprocessor directive. Macros are used to give names to constant values or pieces of code, and they are expanded by the preprocessor before the program is compiled.
+
+Types of Macros
+1. Object-like Macros
+These replace a name with a constant or expression.
+code:
+    #define PI 3.14159
+    // Later in code
+    float area = PI * r * r;
+
+The preprocessor replaces PI with 3.14159 before compilation.
+
+2. Function-like Macros
+These act like functions but are expanded as raw text.
+code:
+    #define SQUARE(x) ((x) * (x))
+    // Later in code
+    int result = SQUARE(5); // becomes ((5) * (5))
+
+🟡 Be careful with parentheses—if not used properly, unexpected bugs can happen due to operator precedence.
+
+✅ Summary
+Feature 	        Macro
+Defined with	    #define
+Expanded at	        Preprocessing time
+Types	            Object-like & Function-like
+Use cases	        Constants, inline code, conditional compilation
+
+🧰 Why Use Macros?
+Benefit	    --- Description
+Performance	--- No function call overhead (macros are inline text)
+Convenience	--- Shorter and clearer code
+Portability	--- Use macros for platform-specific code or constants
+
+🚫 Limitations of Macros
+    --No type checking (unlike functions)
+    --Can lead to subtle bugs if not carefully written
+    --No scope — they are global throughout the file
+    --Difficult to debug (errors may point to expanded code)
+
+
+
+
+
+
+Two advanced macro types in C
+Variadic Macros & Conditional macros
+
+Type	              -- Use case	                             -- Syntax example
+Variadic macros	      -- Variable argument printing/logging	     -- #define log(fmt, ...) ...
+Conditional macros	  -- Compile certain parts only if needed    -- #ifdef DEBUG ... #endif
+
+
+1. Variadic Macros
+Variadic macros allow you to pass a variable number of arguments—just like functions with ....
+Syntax:
+    #define log(fmt, ...) printf(fmt, __VA_ARGS__)
+
+code:
+    #include <stdio.h>
+
+    #define log(fmt, ...) printf("LOG: " fmt "\n", __VA_ARGS__)
+
+    int main() {
+        log("Hello, %s! You are %d years old.", "Ben", 25);
+        return 0;
+    }
+
+How it works:
+The ... accepts any number of arguments.
+
+__VA_ARGS__ gets replaced with whatever was passed in.
+
+🟡 Note: Always ensure fmt is at least one argument; otherwise, some compilers may warn you.
+
+
+
+2. Conditional Macros (Preprocessor Directives)
+These are used to conditionally compile code depending on whether a macro is defined.
+
+Keywords
+    #ifdef – if defined
+    #ifndef – if not defined
+    #define – define a macro
+    #undef – undefine a macro
+    #if, #elif, #else, #endif – more general conditionals
+
+code:
+    #define DEBUG
+
+#ifdef DEBUG
+    #define log(msg) printf("DEBUG: %s\n", msg)
+#else
+    #define log(msg)
+#endif
+
+int main() {
+    log("This is a debug message");
+    return 0;
+}
+If DEBUG is defined, log() prints the message. If not, it does nothing.
+

@@ -1,0 +1,47 @@
+CODE:
+    #define MKDIR(path) mkdir(path, 0777)
+
+Part        --	Meaning
+#define     --	Preprocessor macro definition
+MKDIR(path) --	Macro name with parameter
+mkdir()     --	System call to make a directory
+0777        --  UNIX permission bits (full access for everyone)
+
+
+1. #define – Macro Definition
+#define is a preprocessor directive that tells the compiler to replace all instances of a name (MKDIR(path) in this case) with the corresponding replacement code (mkdir(path, 0777)) before compilation begins.
+
+
+2. MKDIR(path) – Macro Name with a Parameter
+This defines a macro function called MKDIR that takes one parameter: path.
+Whenever you write MKDIR("some/folder") in your code, the preprocessor replaces it with mkdir("some/folder", 0777).
+So it's like a shorthand for calling the mkdir() function with a default permission mode.
+
+
+3. mkdir(path, 0777) – Make Directory with Permissions
+The macro expands to a call to the mkdir() function:
+code:
+    int mkdir(const char *pathname, mode_t mode);
+
+What it does:
+    Creates a new directory with the name specified in path
+    The second argument (0777) sets the permissions of the new directory
+
+
+4. 0777 – File Permissions
+0777 is an octal (base-8) number that defines UNIX file permissions.
+
+It means:
+
+Who	Permissions	Value
+Owner	rwx	7
+Group	rwx	7
+Others	rwx	7
+
+So 0777 means:
+
+Read--write--execute permissions for everyone (owner, group, others)
+
+It's the most permissive setting
+🛑 Not always safe for production; for private directories, something like 0700 (owner-only access) is safer.
+

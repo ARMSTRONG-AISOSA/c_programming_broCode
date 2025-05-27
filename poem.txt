@@ -1,0 +1,9 @@
+A language of power, concise and keen,
+Where pointers dance and structures convene.
+From system's core to applications bright,
+C offers control, with all of its might.
+
+Though memory's touch demands a steady hand,
+Its speed and its reach across the land,
+Make C a foundation, strong and so true,
+For much of the software we daily pursue.

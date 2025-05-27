@@ -69,8 +69,9 @@ The most reliable way is to Manually implement them
 ps:char* strlwr(char* str) { }
     Declares a function strlwr that takes a pointer to a char (i.e., a string) and returns a pointer to a char (the same string).
 
-    
- 
+
+
+
 
 *==== 🧩 malloc() — Memory Allocation ====*
 malloc() (short for memory allocation) is used to dynamically allocate memory at runtime.
@@ -136,3 +137,49 @@ Use prefixes/suffixes when needed for clarity:
 code:
     int* user_ptr; // or pUser
 Stick to one convention throughout your project (e.g., snake_case for all variables and functions).
+
+
+*==== NULL in C ====*
+In C, NULL is a special macro that represents a null pointer, which means it points to nothing (no memory address).
+
+code:
+    #define NULL ((void*)0)
+This means:
+   * NULL is a pointer (of type void *) with the value 0.
+   * It is used to indicate that the pointer does not point to a valid object.
+
+
+----When to Use NULL----
+1. Initializing pointers:
+code:
+    int *ptr = NULL;  // ptr doesn't point anywhere yet
+
+2. Checking if a pointer is valid before use:
+code:
+    if (ptr != NULL) {
+        // Safe to use ptr
+    }
+
+
+3. Returned by functions to signal error or "not found":
+code:
+    char *result = strchr("hello", 'z');
+    if (result == NULL) {
+        printf("Character not found\n");
+    }
+
+
+
+Why Use NULL Instead of 0?
+In C, NULL is more readable and self-explanatory than just writing 0, especially when working with pointers.
+code:
+// Less readable
+    if (ptr == 0)
+// More readable
+    if (ptr == NULL)
+
+Both mean the same thing when comparing pointers, but NULL makes the intent clearer.
+
+Important Notes
+NULL is only for pointers. It should not be used for integers or arrays.
+Dereferencing a NULL pointer (*ptr) causes a segmentation fault (crash).
