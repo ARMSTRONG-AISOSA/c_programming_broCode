@@ -183,3 +183,7 @@ Both mean the same thing when comparing pointers, but NULL makes the intent clea
 Important Notes
 NULL is only for pointers. It should not be used for integers or arrays.
 Dereferencing a NULL pointer (*ptr) causes a segmentation fault (crash).
+
+
+----PC Terminal Shortcut----
+Shift + Ctrl + C ==> Open Terminal of current vscode file loaction on PC

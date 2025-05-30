@@ -1,0 +1,44 @@
+Sure! Here's a detailed explanation of the line:
+code:
+    while ((c = getchar()) != '\n' && c != EOF);
+psuedocode:
+    while ((if c is not a new line)  && (c is not end of line));
+    continue loop
+This is useful when:
+    --You entered invalid input (e.g., letters when scanf("%d") expected a number), and the rest of the input (like abcd\n) needs to be discarded.
+    --You want to flush out the input buffer before accepting new input.
+
+
+
+
+code:
+    while ((c = getchar()) != '\n' && c != EOF);
+
+This is a loop used to clear the input buffer, often placed in a helper function like clearInputBuffer(). Let’s break it down step by step.
+
+getchar()
+    --getchar() reads one character at a time from standard input (stdin).
+    --Each time it’s called, it returns the next character that the user typed (including things like letters, numbers, spaces, and the newline character \n).
+
+(c = getchar())
+    --This assigns the return value of getchar() to the variable c.
+    --c is usually declared as an int to handle all possible character values plus the special value EOF (end-of-file).
+
+!= '\n' && c != EOF
+The loop continues as long as:
+    --The character is not the newline character ('\n'), and
+    --The character is not end-of-file (EOF), which can occur, for example, when input is redirected from a file.
+
+Purpose of the whole line
+This loop keeps reading and discarding characters until it finds a newline (\n) or EOF.
+This is useful when:
+    --You entered invalid input (e.g., letters when scanf("%d") expected a number), and the rest of the input (like abcd\n) needs to be discarded.
+    --You want to flush out the input buffer before accepting new input.
+
+🧠 Summary
+Part	        -* Meaning
+getchar()	    -- Reads one char from input
+c = getchar()	-- Stores char in c
+!= '\n'	        -- Keeps reading until newline
+!= EOF	        -- Stops if input ends unexpectedly
+while (...) ;	-- Repeats until a full line is cleared
