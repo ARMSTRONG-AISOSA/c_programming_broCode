@@ -1,0 +1,74 @@
+
+*==== System buffering in C ====*
+
+System buffering in C refers to the temporary storage mechanism that the operating system and C standard library use to optimize input/output operations. Instead of immediately writing data to or reading from devices (like the terminal, files, or network), the system stores data in memory buffers first.
+
+*---- How Buffering Works ----*
+When you call functions like printf(), putchar(), or fwrite(), the data doesn't immediately appear on screen or get written to disk. Instead, it's stored in a buffer (a memory area) until:
+   1. The buffer becomes full
+   2. A newline character is encountered (for line buffering)
+   3. The program terminates
+   4. You explicitly flush the buffer
+   5. The buffer is closed
+
+Types of Buffering
+* Full Buffering:
+    --Data is written when the buffer is completely full
+    --Common with file operations
+    --Most efficient for large data transfers
+
+* Line Buffering:
+    --Data is written when a newline (\n) is encountered
+    --Default for terminal output (stdout)
+    --Good balance between efficiency and responsiveness
+
+* No Buffering:
+    --Data is written immediately
+    --Used for error streams (stderr)
+    --Less efficient but ensures immediate output
+
+Why Buffering Exists
+Buffering improves performance because:
+   * "System calls are expensive" - each write to disk/terminal requires OS intervention
+   * "Batching is more efficient" - writing 1000 characters at once is faster than 1000 separate writes
+   * "Reduces hardware wear" - fewer physical operations on storage devices
+
+Common Buffering Issues
+code:
+    // This might not appear immediately:
+    printf("Loading");
+    // User sees nothing until buffer flushes
+
+    // This appears right away (newline triggers flush):
+    printf("Loading...\n");
+
+    // This forces immediate output:
+    printf("Loading");
+    fflush(stdout);
+
+Buffer Control Functions
+   * "fflush(stdout)" - Forces output buffer to flush
+   * "fflush(NULL)" - Flushes all output buffers
+   * "setvbuf()" - Controls buffering behavior
+   * "setbuf()" - Sets buffer size
+
+Practical Example
+code:
+    #include <stdio.h>
+    #include <unistd.h>
+
+    int main() {
+        // Without fflush - you might not see this for a while
+        printf("Processing");
+        
+        sleep(3); // Simulate work
+        
+        // Force the output to appear
+        fflush(stdout);
+        
+        printf(" - Done!\n"); // Newline triggers flush anyway
+        
+        return 0;
+    }
+
+    check code --> system_buffer1.txt

@@ -1,5 +1,5 @@
-//pauseprogram.h
-#ifndef PAUSEPROGRAM_H // Include guard to prevent multiple inclusions 
+// pauseprogram.h
+#ifndef PAUSEPROGRAM_H // Include guard to prevent multiple inclusions
 #define PAUSEPROGRAM_H
 
 #include <stdio.h>

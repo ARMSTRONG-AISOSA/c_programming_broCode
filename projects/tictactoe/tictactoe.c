@@ -37,6 +37,9 @@ int main()
 
         while (winner == ' ' && checkFreeSpaces() != 0) // continues to run while both conditions are true. i.e while there is no winner and there are free space
         {
+            printf("\033[1;36m\n🎮 Tic-Tac-Toe Starts Now 🎮\n\033[0m");
+            printf("\033[34m=============================\033[0m\n\n");
+
             printBoard(); // print our board
 
             // Player move
@@ -47,10 +50,8 @@ int main()
                 break; // end code
             }
 
-            printf("computer turn\n");
             // Computer move
             computerMove();
-            printf("check computer winner\n");
             winner = checkWinner();
             if (winner != ' ' || checkFreeSpaces() == 0)
             {
@@ -62,13 +63,13 @@ int main()
         printWinner(winner);
 
         // Play again ?
-        printf("Would you like to play again? (Y/N): ");
+        printf("\n\033[33mWould you like to play again? (Y/N): \033[0m");
         scanf("%c", &flush); // clear (new line) buffer
         scanf("%c", &response);
         response = toupper(response);
     } while (response == 'Y');
 
-    printf("Thanks for playing!\n");
+    printf("\nThanks for playing!\n\033[0m");
 
     return 0;
 }
@@ -133,7 +134,7 @@ void playerMove()
         // Validate row number
         do
         {
-            printf("Enter row number #(1-3): ");
+            printf("\nEnter row number #(1-3): ");
             valid = scanf("%d", &x); // returns 1 only if a valid integer was entered
 
             if (valid != 1 || x < 1 || x > 3) // The expression(code) is true(hence runs) if valid is not 1, or if x is outside the range of [1, 3] (inclusive).
@@ -149,7 +150,7 @@ void playerMove()
         // Validate column number
         do
         {
-            printf("Enter column number #(1-3): ");
+            printf("\nEnter column number #(1-3): ");
             valid = scanf("%d", &y);
 
             if (valid != 1 || y < 1 || y > 3)
@@ -243,14 +244,14 @@ void printWinner(char winner)
 {
     if (winner == PLAYER)
     {
-        printf("YOU WIN!!!\n");
+        printf("\n\033[1;32mYOU WIN!!!\033[0m\n");
     }
     else if (winner == COMPUTER)
     {
-        printf("YOU LOSE!\n");
+        printf("\n\033[1;31mYOU LOSE!\033[0m\n");
     }
     else
     {
-        printf("IT'S A TIE\n");
+        printf("\n\033[1;33mIT'S A TIE\033[0m\n");
     }
 };

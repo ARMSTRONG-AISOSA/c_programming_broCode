@@ -5,7 +5,7 @@ int main() {
     int *p = NULL;
 
     if (p == NULL) {
-        printf("Pointer is NULL — it doesn’t point to anything.\n");
+        printf("Pointer is NULL — it doesn't point to anything.\n");
     }
 
     // Allocate memory
