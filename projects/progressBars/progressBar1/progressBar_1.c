@@ -49,4 +49,6 @@ int main()
     printf("\r\033[1mDownload Completed!\033[0m");
 
     printf("\n\n");
+
+    return 0;
 }

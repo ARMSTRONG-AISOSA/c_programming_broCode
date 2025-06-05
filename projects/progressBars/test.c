@@ -1,58 +1,14 @@
 #include <stdio.h>
 #include <unistd.h>
 
-
-void showProgressWithShading(int percent)
-{
-    int bars = percent / 4; // 25 character bar for more granular shading
-    printf("\rProcessing: [");
-
-    for (int i = 0; i < 25; i++)
-    {
-        if (i < bars)
-        {
-            printf("█"); // Full block
-        }
-        else if (i == bars)
-        {
-            // Partial block based on remainder
-            int remainder = percent % 4;
-            if (remainder == 1)
-                printf("▏");
-            else if (remainder == 2)
-                printf("▎");
-            else if (remainder == 3)
-                printf("▍");
-            else
-                printf(" ");
-        }
-        else
-        {
-            printf(" ");
-        }
-    }
-    printf("] %3d%%", percent);
-    fflush(stdout);
-}
-
 int main()
 {
-    printf("ASCII Progress Bar Examples\n");
     printf("===========================\n\n");
 
-
-
-    // Example 4: Shaded progress bar (more granular)
-    printf("4. Shaded Progress Bar:\n");
-    for (int i = 0; i <= 100; i += 3)
-    {
-        showProgressWithShading(i);
-        usleep(50000); // 0.05 seconds delay
-    }
-    printf("\n\n");
+    int counter;
 
     // Example 5: Multi-task progress simulation
-    printf("5. Multi-task Simulation:\n");
+    printf("5. Multi-task Simulation:\n\n");
 
     char tasks[][20] = {
         "Initializing",
@@ -63,26 +19,28 @@ int main()
 
     for (int task = 0; task < 5; task++)
     {
-        printf("%s:\n", tasks[task]);
-        for (int i = 0; i <= 100; i += 5)
+        counter++;
+        printf("\033[1mStage %d.\033[0m\n", counter); // add "\n" to flush immediately
+
+        for (int i = 0; i <= 100; i += 2.5)
         {
-            printf("\r%s: [", tasks[task]);
-            int bars = i / 5;
-            for (int j = 0; j < 20; j++)
+            printf("\r%s:   [", tasks[task]);
+            int bars = i / 2.5; // 40 bars
+            for (int j = 0; j < 40; j++)
             {
                 if (j < bars)
-                    printf("█");
+                    printf("\033[35m█\033[0m");
                 else
-                    printf("░");
+                    printf("\033[35m░\033[0m");
             }
-            printf("] %3d%%", i);
+            printf("] %d%%", i);
             fflush(stdout);
-            usleep(30000); // 0.03 seconds
+            usleep(40000); // 0.04 seconds
         }
-        printf(" ✓\n");
+        printf(" ✓\n\n");
     }
 
-    printf("\nAll tasks completed!\n");
+    printf("\nAll processes completed!\n");
 
     return 0;
 }

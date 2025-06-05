@@ -51,4 +51,6 @@ int main()
     printf("\r\033[1mTransmission Completed!\033[0m");
 
     printf("\n\n");
+
+    return 0;
 }
