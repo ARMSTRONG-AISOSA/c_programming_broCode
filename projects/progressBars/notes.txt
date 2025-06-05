@@ -1,0 +1,22 @@
+Showing different styles of ASCII progress bars in C. The code demonstrates:
+
+Key Features:
+1. Basic Progress Bar - Uses filled blocks (█) and spaces
+2. Dot Style - Uses filled (●) and empty (○) circles
+3. Equals Style - Classic [====>-----] format with arrow
+4. Shaded Progress - Uses partial block characters for smoother animation
+5. Multi-task Simulation - Shows how to use progress bars for different operations
+
+Important Technical Details:
+
+\r (carriage return) - Moves cursor to beginning of line to overwrite
+fflush(stdout) - Forces immediate display (overcomes buffering)
+usleep() - Creates delays for animation effect
+Percentage calculation - percent / 5 gives us 20-character bars (100% ÷ 5 = 20)
+
+Different Character Options:
+
+Blocks: █, ▌, ▍, ▎, ▏ (different fill levels)
+Simple: =, -, >, #, *
+Dots: ●, ○, •, ∘
+Shading: ░, ▒, ▓, █
