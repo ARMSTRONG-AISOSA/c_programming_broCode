@@ -12,9 +12,9 @@ index 1.0
 <string.h>: allows us work with strings
 <math.h>: allows us to use math functions
 <ctype.h>: allows us to work with string functions
-<stdlib.h>: allows memory allocation & deallocation
-<time.h>: to get current time
-<unistd.h>: 
+<stdlib.h>: allows memory allocation & deallocation; system("clear")
+<time.h>: to get current time;time, localtime, asctime
+<unistd.h>: Unix Standard; sleep()
 
 ||
 ||

@@ -1,0 +1,27 @@
+ASCII art in C involves using printable ASCII characters to create visual designs, pictures, or text effects. It's a popular way to add visual appeal to console applications since terminals can only display text characters.
+
+Common ASCII Characters for Art
+    -Lines: |, -, /, \, _
+    -Corners: +, ┌, ┐, └, ┘
+    -Shading: ., :, *, #, @
+    -Special: ~, ^, <, >, (), {}
+
+
+Basic ASCII Art Techniques
+Simple Text Art:
+code:
+    #include <stdio.h>
+
+    int main() {
+        printf("  /\\_/\\  \n");
+        printf(" ( o.o ) \n");
+        printf("  > ^ <  \n");
+        printf("  Cat!   \n");
+        return 0;
+    }
+    
+Box Drawing:
+    cprintf("┌─────────────┐\n");
+    printf("│   Welcome   │\n");
+    printf("│   to C!     │\n");
+    printf("└─────────────┘\n");
