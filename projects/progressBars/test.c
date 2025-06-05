@@ -1,49 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void showProgressWithDots(int percent)
-{
-    int bars = percent / 5; // 20 character bar
-    printf("\rLoading: [");
-
-    for (int i = 0; i < 20; i++)
-    {
-        if (i < bars)
-        {
-            printf("●"); // Filled dot
-        }
-        else
-        {
-            printf("○"); // Empty dot
-        }
-    }
-    printf("] %3d%%", percent);
-    fflush(stdout);
-}
-
-void showProgressWithEquals(int percent)
-{
-    int bars = percent / 5; // 20 character bar
-    printf("\rDownload: [");
-
-    for (int i = 0; i < 20; i++)
-    {
-        if (i < bars)
-        {
-            printf("="); // Equals sign
-        }
-        else if (i == bars && percent < 100)
-        {
-            printf(">"); // Arrow head for current position
-        }
-        else
-        {
-            printf("-"); // Dash for empty
-        }
-    }
-    printf("] %3d%%", percent);
-    fflush(stdout);
-}
 
 void showProgressWithShading(int percent)
 {
@@ -84,23 +41,6 @@ int main()
     printf("===========================\n\n");
 
 
-    // Example 2: Dot-style progress bar
-    printf("2. Dot-style Progress Bar:\n");
-    for (int i = 0; i <= 100; i += 15)
-    {
-        showProgressWithDots(i);
-        usleep(150000); // 0.15 seconds delay
-    }
-    printf("\n\n");
-
-    // Example 3: Equals-style progress bar
-    printf("3. Equals-style Progress Bar:\n");
-    for (int i = 0; i <= 100; i += 8)
-    {
-        showProgressWithEquals(i);
-        usleep(100000); // 0.1 seconds delay
-    }
-    printf("\n\n");
 
     // Example 4: Shaded progress bar (more granular)
     printf("4. Shaded Progress Bar:\n");

@@ -37,7 +37,7 @@ int main()
     printf("\n\033[1mASCII Progress Bar: (1)\033[0m\n");
     printf("==========================================\n\n");
 
-    printf("Basic progress bar:\n\n");
+    printf("Basic progress bar:\n");
     for (int i = 0; i <= 100; i += 5)
     {
         showProgress(i); // Function call

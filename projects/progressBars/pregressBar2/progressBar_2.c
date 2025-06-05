@@ -18,9 +18,9 @@ void showProgressWithDots(int percent)
     {
         if (i < bars) // Print a progress (filed dot) based on no. of bars
         {
-            printf("\033[32m●\033[0m"); // Filled bar character
+            printf("\033[35m●\033[0m"); // Filled bar character
         } else {
-            printf("○"); // Empty dot: Printed to fill (20 characters - bars) remaining space
+            printf("\033[35m○\033[0m"); // Empty dot: Printed to fill (20 characters - bars) remaining space
         }
     }
 
@@ -35,11 +35,11 @@ int main()
     printf("\n\033[1mASCII Progress Bar: (2)\033[0m\n");
     printf("==========================================\n\n");
 
-    printf("Dot-style progress bar:\n\n");
+    printf("Dot-style progress bar:\n");
     for (int i = 0; i <= 100; i += 2.5)
     {
         showProgressWithDots(i); // Function call
-        usleep(150000);  // 0.15 seconds delay
+        usleep(100000);  // 0.1 seconds delay
     }
 
     printf("\n\n");
