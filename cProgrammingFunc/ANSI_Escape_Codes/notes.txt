@@ -1,0 +1,33 @@
+Explanation of the Code and ANSI Escape Codes:
+
+1. #include <stdio.h>: Necessary for printf and fflush.
+
+2. #define Macros:
+    * We define symbolic constants (macros) for each color and attribute. This makes your code much more readable than embedding raw escape sequences everywhere.
+    * \x1b: This is the hexadecimal representation of the ASCII Escape character (decimal 27, octal \033). It's the standard way to start an ANSI escape sequence.
+    * [: This character follows the escape character to form a Control Sequence Introducer (CSI).
+    * Numbers (e.g., 31, 42, 1): These are numerical codes for specific attributes.
+        ~30-37: Standard foreground colors.
+        ~40-47: Standard background colors.
+        ~90-97: Bright foreground colors.
+        ~100-107: Bright background colors.
+        ~1: Bold/Bright attribute.
+        ~4: Underline attribute.
+    * m: This character terminates the Select Graphic Rendition (SGR) sequence. Any text following this m will have the specified attributes until another SGR sequence changes them or until a reset.
+    * ANSI_RESET (\x1b[0m): This is crucial! It resets all active text attributes (color, bold, underline, etc.) to the terminal's default settings. Always use this after applying colors to prevent your entire subsequent console output from being colored.
+
+3. printf() Usage:
+    * You simply concatenate the ANSI escape code strings with your desired text.
+    * printf(ANSI_COLOR_GREEN "Hello, " ANSI_COLOR_BLUE "World!" ANSI_RESET "\n");
+        * ANSI_COLOR_GREEN is printed first, turning the text green.
+        * "Hello, " is printed in green.
+        * ANSI_COLOR_BLUE is then printed, changing the color to blue.
+        * "World!" is printed in blue.
+        * ANSI_RESET is printed, bringing the color back to default.
+        * \n prints a newline.
+
+4. clearScreenANSI() Function:
+    * \x1b[2J: Clears the entire display.
+    * \x1b[H: Moves the cursor to the "home" position (top-left corner, row 1, column 1).
+    * fflush(stdout): This is important. printf usually buffers output. fflush(stdout) forces the buffer to be sent to the terminal immediately, ensuring the screen clear and color changes happen exactly when you expect them to.
+
