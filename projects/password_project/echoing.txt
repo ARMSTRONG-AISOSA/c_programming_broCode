@@ -1,0 +1,30 @@
+#Echoing to console
+In C programming, "echoing to console" simply means displaying output on the standard output device, which is typically your computer's terminal or command prompt window.
+
+Why is it called "echoing"?
+The term "echo" comes from the idea of something being reflected back. In the context of programming, it's like your program "speaking" or "reflecting" information back to the user through the console. It's a very common and essential aspect of creating interactive or informative C programs.
+
+Here's a breakdown of what that means and how it's done:
+
+Core Concept:
+    * Standard Output: The console is considered the "standard output stream" (often referred to as "stdout"). C provides ways to write data to this stream.
+    * Input/Output (I/O): Echoing is a form of output. The opposite is input, where you read data from the console (standard input, or "stdin"), for example, when a user types something.
+
+Common Functions Used for Echoing to Console in C:
+The most common and fundamental function for echoing to the console in C is:
+
+printf(): This is the workhorse for formatted output. It allows you to display strings, numbers (integers, floats), characters, and other data types, and to control how they are formatted.
+code:
+    #include <stdio.h> // Required for printf()
+
+    int main() {
+        int age = 30;
+        double price = 19.99;
+        char grade = 'A';
+
+        printf("Hello, world!\n"); // Echoing a simple string
+        printf("My age is %d.\n", age); // Echoing an integer
+        printf("The price is %.2f.\n", price); // Echoing a float with 2 decimal places
+        printf("My grade is %c.\n", grade); // Echoing a character
+        return 0;
+    }
