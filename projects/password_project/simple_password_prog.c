@@ -124,7 +124,7 @@ void takepassword(char pwd[50])
             fflush(stdout); // Ensures the asterisk * gets immediately printed to the console.
         }
     }
-    printf("\n"); // New line after password input
+    printf("\n"); // Newline after password input
 }
 
 int main()

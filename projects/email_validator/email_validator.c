@@ -29,8 +29,6 @@ int is_valid_email(const char *email)
         }
         else if (email[i] == '.' && at_found == 1)
         {
-
-            printf("\nWorks\n");
             if (dot_after_at == 1 || i == length - 1)
             {
                 return 0; // multiple dot || dot at the end

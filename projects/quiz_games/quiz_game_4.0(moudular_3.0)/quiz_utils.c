@@ -43,7 +43,7 @@ int load_questions_from_file(QuizStruct quizzes[], const char *filename)
                 return count; // Premature end
             }
 
-            // Remove new line
+            // Remove newline
             quizzes[count].options[i][strcspn(quizzes[count].options[i], "\n")] = '\0';
         }
 

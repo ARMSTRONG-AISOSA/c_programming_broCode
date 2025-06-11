@@ -61,7 +61,7 @@ void test_2()
 
 void test_3()
 {
-    // This is an ascii art using a multiple stored amount of string in char; with multiple new line entry.
+    // This is an ascii art using a multiple stored amount of string in char; with multiple newline entry.
     char art[] =
         "    /\\   /\\\n"
         "   (  . .  )\n"

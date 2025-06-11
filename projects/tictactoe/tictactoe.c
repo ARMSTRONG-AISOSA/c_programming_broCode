@@ -64,7 +64,7 @@ int main()
 
         // Play again ?
         printf("\n\033[33mWould you like to play again? (Y/N): \033[0m");
-        scanf("%c", &flush); // clear (new line) buffer
+        scanf("%c", &flush); // clear (newline) buffer
         scanf("%c", &response);
         response = toupper(response);
     } while (response == 'Y');
@@ -141,7 +141,7 @@ void playerMove()
             {
                 // printf("valid = %d\n", valid);
                 printf("Invalid input. Row number must be between 1 and 3.\n");
-                clearInputBuffer(); // clear leftover input -- letter input adds a new line
+                clearInputBuffer(); // clear leftover input -- letter input adds a newline
                 valid = 0;          // force loop to repeat
                 // Done because a number could be valid but not within 1-3
             }

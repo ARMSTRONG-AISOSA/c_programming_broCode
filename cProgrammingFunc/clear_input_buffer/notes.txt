@@ -2,7 +2,7 @@ Sure! Here's a detailed explanation of the line:
 code:
     while ((c = getchar()) != '\n' && c != EOF);
 psuedocode:
-    while ((if c is not a new line)  && (c is not end of line));
+    while ((if c is not a newline)  && (c is not end of line));
     continue loop
 This is useful when:
     --You entered invalid input (e.g., letters when scanf("%d") expected a number), and the rest of the input (like abcd\n) needs to be discarded.
