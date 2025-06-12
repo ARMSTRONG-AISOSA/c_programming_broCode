@@ -22,6 +22,7 @@ strcspn() stands for "string complement span".
 It returns the number of characters before any of the characters in the second argument ("\n" in this case) appear.
 
 quizzes[count].question[...] = '\0'
+    // Remove one from the last character(newline) from the string and resplace with a null terminator = '\0
 → Once the position of \n is found, it replaces it with '\0', which is the null terminator that ends a C string.
 
 

@@ -1,0 +1,62 @@
+a cross-platform C program that checks if a domain exists (resolves[exist] to an IP address). It works on both Windows and Linux/macOS by detecting the operating system and using the appropriate libraries. It prints whether the domain exists along with any IP addresses it resolves to.
+
+📦 Dependencies
+On Windows:
+    -winsock2.h and ws2tcpip.h (for DNS resolution and socket communication)
+    -Must link with ws2_32.lib (using #pragma comment(lib, "ws2_32.lib"))
+
+On Linux/macOS:
+    -netdb.h for gethostbyname()
+    -arpa/inet.h for IP conversion functions
+    -unistd.h for standard OS functions
+
+🛠 Initialization and Cleanup (Cross-Platform Support)
+initialize_winsock()
+    -Initializes the Winsock API only on Windows. On Unix-like systems, it does nothing.
+    -Windows: Calls WSAStartup() to start the networking subsystem.
+    -Linux/macOS: Returns 0 immediately.
+
+cleanup_winsock()
+Cleans up the Winsock environment only on Windows via WSACleanup().
+
+
+💡 Input and Domain Processing
+main() Function
+1. Prompt User:
+    -Prompts the user to enter a domain (e.g., google.com).
+    -Reads the input using fgets().
+2. Clean Input:
+    -Trims newline (\n) character at the end of the input.
+3. Initialize Network:
+    -Calls initialize_winsock() to ensure Windows sockets are active.
+4. Resolve and Print IPs:
+    -Calls resolve_and_print_ips() to resolve the domain name and print IPs.
+5. Cleanup:
+    -Calls cleanup_winsock() on Windows to release resources.
+
+
+🌐 Domain Resolution
+resolve_and_print_ips(const char *domain)
+✅ Purpose:
+Checks if the given domain exists and prints all associated IPv4 addresses.
+
+🔄 Process:
+1. Calls gethostbyname(domain):
+    -Returns a hostent struct with IP info if successful.
+    -Returns NULL if the domain does not exist or cannot be resolved.
+
+2. If the domain is resolvable:
+    -Prints confirmation message.
+    -Iterates through the list of IP addresses in h_addr_list.
+    -Converts each binary IP address to string using inet_ntoa() and prints it.
+
+3. If resolution fails:
+    -Returns 0.
+
+🔄 Output:
+Returns 1 if the domain resolves; 0 otherwise.
+
+🧵 Limitations
+    -IPv6 addresses are not supported (gethostbyname() returns only IPv4).
+    -It does not validate the format of the domain.
+    -It does not detect if the domain exists but has no A records.

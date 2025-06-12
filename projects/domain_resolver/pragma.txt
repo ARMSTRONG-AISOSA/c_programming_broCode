@@ -1,0 +1,49 @@
+
+Index 1.0
+The #pragma keyword in C and C++ is a compiler-specific directive used to give special instructions to the compiler. It is part of the preprocessor directives (like #include, #define, etc.), but unlike those, #pragma is used to enable or disable certain features or behaviors in a way that’s often unique to a specific compiler.
+
+🔍 General Syntax
+code:
+    #pragma directive-name [optional-parameters]
+
+✅ Example Use Cases
+1. Library Linking in Windows (used in your code)
+code:
+    #pragma comment(lib, "ws2_32.lib")
+   -Tells the MSVC (Microsoft Visual C++) compiler to automatically link the ws2_32.lib Winsock library.
+   -This is helpful to avoid manually adding the .lib file in project settings or command line.
+
+2. Once-Only Header Inclusion
+code:
+    #pragma once
+  -Prevents multiple inclusions of the same header file.
+  -Alternative to #ifndef / #define / #endif guards.
+
+3. Warning Control
+code:
+    #pragma warning(disable : 4996)
+  -Used in Visual Studio to suppress specific compiler warnings (e.g., unsafe function warnings like strcpy()).
+
+4. Packing Structures
+code:
+    #pragma pack(push, 1)
+    struct MyStruct {
+    char a;
+    int b;
+    };
+    #pragma pack(pop)
+  -Controls memory alignment and padding in structs (1-byte alignment in this case).
+  -Useful for network programming or hardware interfacing.
+
+⚠️ Notes
+    * Not portable: Different compilers support different #pragma directives.
+    * Safe to ignore: Unknown pragmas are typically ignored by compilers (per the C standard), but can lead to warnings.
+
+Common compilers like GCC, Clang, and MSVC all support their own #pragma options.
+
+🧠 Summary
+Feature	Description
+#pragma comment(lib, ...)  - Link a library (Windows/MSVC-specific)
+#pragma once	           - Include guard to prevent double-inclusion
+#pragma warning	           - Enable/disable warnings
+#pragma pack	           - Control structure padding/alignment

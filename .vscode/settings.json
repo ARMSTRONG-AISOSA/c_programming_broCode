@@ -8,6 +8,8 @@
         "pauseprogram.h": "c",
         "time.h": "c",
         "quiz_utils.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "netdb.h": "c",
+        "inet.h": "c"
     }
 }

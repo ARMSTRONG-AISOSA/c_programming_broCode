@@ -225,6 +225,7 @@ Remove Trailing newline from fgets
 code:
     fgets(hobbies, 100, stdin);
     hobbies[strlen(hobbies)-1] = '\0';
+        // Remove one from the last character(newline) from the string and resplace with a null terminator = '\0
 
 This gets the length and removes the trailing newline character (\n) that fgets() usually stores at the end of the input string.
     -fgets() reads until a newline (\n) or the character limit is reached.
@@ -245,6 +246,7 @@ code:
         fgets(fullNames[i], sizeof(fullNames[i]), stdin);
         // Remove trailing newline from fgets
         fullNames[i][strcspn(fullNames[i], "\n")] = '\0';
+            // Remove one from the last character(newline) from the string and resplace with a null terminator = '\0
     }
     for (int i = 0; i < 3; i++)
     {
