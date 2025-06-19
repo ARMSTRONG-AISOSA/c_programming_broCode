@@ -1,0 +1,24 @@
+🧪 Sample Signup Flow
+    Enter full name: Ben Tony
+    Enter email: bentony@gmail.com
+    Validate if pre-existing
+    Enter contact no: 08012345678
+    Enter password: ********
+    Confirm password: ********
+    Enter userame: BenTony
+    Validate if pre-existing
+    → Stores in Users.dat
+    → Success message
+
+
+🔐 Sample Login Flow
+    Enter username: bentony
+    Enter password: ********
+    → If matched:
+    Welcome Ben Tony
+    Display details
+    → If incorrect:
+    Show "Invalid Password!"
+
+
+

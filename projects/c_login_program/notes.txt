@@ -1,0 +1,59 @@
+This is a file input function in C that reads binary data from a file.
+
+code:
+    fread(&usr, sizeof(struct user), 1, fp);
+
+Breakdown:
+    fread(destination, size_of_each_item, number_of_items, file_pointer);
+
+
+* `&usr` → Destination: The **memory address** where the data should be stored. In this case, it's the address of a `struct user` variable named `usr`.
+
+* `sizeof(struct user)` → **Size** of each item to read, in **bytes**. This tells `fread` how big each record is.
+
+* `1` → **Number of items** to read. This tells it to read **one full `struct user`.
+
+* `fp` → The **file pointer**, which should point to an open file (in this case, `Users.dat`) opened with read mode (`"r"` or `"rb"`).
+
+
+
+
+📦 What it does:
+
+This line **reads one record (struct user)** from the file into the memory location of `usr`.
+
+If the file contains a list of users saved in binary format (e.g., via `fwrite(&user, sizeof(struct user), 1, fp)`), then this reads one of those user records. And in a while loop it reads its one after another.
+
+---
+✅ Return Value:
+code:
+    size_t result = fread(...);
+
+* It returns the **number of items successfully read**.
+* So if it returns `1`, it means **one full user record was successfully read**.
+
+* If it returns `0`, it could mean:
+  * **End of file** reached
+  * **Error** reading the file
+
+You can check for EOF or errors like so:
+
+code:
+    if (fread(...) != 1) {
+        if (feof(fp)) {
+            // End of file
+        } else {
+            // Some read error occurred
+        }
+    }
+
+
+---
+🧠 Example Analogy:
+
+Imagine `Users.dat` is a box filled with index cards (each representing a user).
+`fread(&usr, sizeof(struct user), 1, fp);` means:
+
+> "Take **1 whole card** (user data) from the box and copy all its info into my `usr` variable."
+
+Let me know if you'd like a visual memory layout example or how to loop through multiple records.

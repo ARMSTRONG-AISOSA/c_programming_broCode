@@ -114,6 +114,7 @@ int main()
 
     // Example 2: Dot-style progress bar
     printf("2. Dot-style Progress Bar:\n");
+    // for (int i = 0; i <= 100; i += 5)
     for (int i = 0; i <= 100; i += 15)
     {
         showProgressWithDots(i);
