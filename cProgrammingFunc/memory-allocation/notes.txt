@@ -1,0 +1,54 @@
+DYNAMIC MEMORY ALLOCATION
+Useful when you need more than just a fixed amount o0f memory, example, you create a program to enter student test scores but don't know how many students will take the test yet.
+
+malloc() : Allocates a block of memory of a given size and returns a pointer to it.
+            Does NOT initialize the memory (it will have garbage values already).
+
+syntax: 
+    ptr = malloc(size_in_bytes);
+    //int = 4bytes
+    int *arr = malloc(5 * sizeof(int)); // allocate memory for 5 ints
+
+
+calloc() : Takes two arguments: number of elements and size of each.
+            Allocates and initializes memory to 0.
+            calloc = “malloc + automatic zeroing.”
+            Good for arrays because it zeroes out all memory.
+
+syntax: 
+    ptr = calloc(num_elements, size_of_each);
+    int *arr = calloc(5, sizeof(int)); // allocate AND initialize 5 ints to 0
+
+
+realloc() : Resizes (expand/shrink) a memory block previously allocated by malloc or calloc.
+
+syntax:
+    ptr = realloc(old_ptr, new_size_in_bytes);
+    arr = realloc(arr, 10 * sizeof(int)); // resize from 5 ints to 10 ints
+
+PS: realloc() might move the memory block to a new location, so you should always assign the result back to the pointer carefully.
+Always store realloc result in a temporary pointer first to avoid memory leaks:
+
+code:
+    int *temp = realloc(arr, new_size);
+    if (temp != NULL) arr = temp;
+
+
+
+free() – Free allocated memory : Releases memory back to the system.
+                                Use it after malloc, calloc, or realloc.
+syntax:
+    void free(void *ptr);
+    free(arr); // arr must be from malloc/calloc/realloc
+    //Best practice: Set pointer to NULL after freeing to avoid dangling pointers.
+    arr = NULL;   // Safe: accessing NULL is predictable (segfault)
+
+A dangling pointer in C is a pointer that still holds the memory address of something that has been freed or is no longer valid.
+
+➡️ In simple terms:
+It’s like having the address of a house that has been demolished — you still have the address, but there’s nothing valid there anymore.
+
+✅ How to AVOID dangling pointers
+✔ 1. Set pointer to NULL after freeing
+✔ 2. Don’t return addresses of local variables
+✔ 3. Carefully manage scope and lifetime of variables
