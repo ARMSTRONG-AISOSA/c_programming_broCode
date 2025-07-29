@@ -1,5 +1,6 @@
 DYNAMIC MEMORY ALLOCATION
 Useful when you need more than just a fixed amount o0f memory, example, you create a program to enter student test scores but don't know how many students will take the test yet.
+This is basciaclly renting memory in the heap.
 
 malloc() : Allocates a block of memory of a given size and returns a pointer to it.
             Does NOT initialize the memory (it will have garbage values already).

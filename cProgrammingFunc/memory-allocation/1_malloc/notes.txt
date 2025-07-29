@@ -6,4 +6,6 @@ malloc: Afunction in C that dynamically allocates a specific number of bytes in 
 
     char *grades = malloc(number_of_entries * sizeof(char));
 
+If address stored within grades is equal to NULL. Dangerous to dereference a null poiter it leads to a Segmentation Fault
+
 Segmentation fault: occurs when a program access a memory location that it is not allowed to access or attempts to access a memory loaction in a way that is not allowed.
