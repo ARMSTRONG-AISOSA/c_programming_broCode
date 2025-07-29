@@ -1342,6 +1342,7 @@ void main40()
 {
     printf("\nFunction main40\n\n"); // txt --> 15.0
 
+    // Pointer
     // Pointers in C are variables(reference) that store/hold the/a memory address(es) of other variable(s).
     // &; address of operator
     // *; in direction operator (value at address)
@@ -1495,6 +1496,7 @@ void main44()
 
 int main()
 {
+    // Uncomment to run a particular function code
     // main01();
     // main02();
     // main03();

@@ -1,0 +1,53 @@
+POINTER: A pointer in C is a variable that stores the memory address of another variable.
+Instead of holding a direct value (like int a = 10;), a pointer holds where that value lives in memory.
+
+🔍 Basic Concept
+Normal variable → stores a value (int a = 10;).
+Pointer → stores an address of a value (int *p = &a).
+
+code:
+    int a = 10;     // x holds the value 10
+    int *p = &a;    // p holds the address of 1
+
+Breakdown:
+1 = 10
+&a = address of a (e.g. 0x7ffee1a4)
+p = pointer to a (stores that address = 0x7ffee1a4)
+*p = dereferences the pointer (gives the value stored at that address → 10)
+
+
+✅ Why are pointers important in C?
+--Memory access – lets you work directly with memory.
+--Efficiency – allows passing large data structures to functions without copying them.
+--Dynamic memory – required when using malloc(), calloc(), free() for runtime memory management.
+--Data structures – used to create linked lists, trees, stacks, etc.
+
+🏷 Declaring a pointer
+code:
+    int *ptr;    // pointer to int
+    char *cptr;  // pointer to char
+    float *fptr; // pointer to float
+
+The * means this variable is a pointer to that type.
+
+
+DEREFENCING: dereferencing means accessing the value stored at a memory address that a pointer is pointing to. To dereference a pointer, you use the * operator in front of the pointer variable.
+
+code:
+    int a = 10;
+    int *ptr = &a;
+
+    printf("%d", *ptr); //Dereference ptr
+    //“Go to the memory address stored inside ptr and get the value stored there.”
+
+✅ Why is dereferencing important?
+--Allows indirect access to variables.
+--Lets you modify values via pointers.
+--Crucial for dynamic memory (e.g. malloc, calloc).
+--Used in arrays, structs, function arguments, etc.
+
+
+🔑 Key terms
+    "&" → Address-of operator (gives the memory address).
+    "*" → Dereference operator (accesses the value stored at the address).
+    "NULL" → A special pointer value meaning “points to nothing”.
