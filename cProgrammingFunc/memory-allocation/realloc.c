@@ -140,7 +140,7 @@ int main02()
 
 int main()
 {
-    // main01(); // Re-enter all prices after reallocation
+    main01(); // Re-enter all prices after reallocation
     main02(); // Price re-entry based on memory reallocation/resize
 
     return 0;

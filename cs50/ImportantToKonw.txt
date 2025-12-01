@@ -1,0 +1,68 @@
+https://github.com/cs50/libcs50 -- git hub page
+https://manual.cs50.io/  -- Manual Pages
+
+
+Setup for my mint
+
+Install it **manually from source**.
+
+# ✅ **Install CS50 Library from Source (works 100% on all Linux)**
+
+Run these commands one by one:
+
+### **1. Install required tools**
+
+```bash
+sudo apt update
+sudo apt install build-essential git
+```
+
+### **2. Clone the CS50 library**
+
+```bash
+git clone https://github.com/cs50/libcs50.git
+cd libcs50
+```
+
+### **3. Build & install it**
+
+```bash
+sudo make install
+```
+
+This will install:
+
+* `cs50.h` → `/usr/local/include/cs50.h`
+* `libcs50.so` → `/usr/local/lib/`
+
+### **4. Update linker cache**
+
+```bash
+sudo ldconfig
+```
+
+---
+
+# ✅ **How to compile your C file with cs50.h**
+
+If your file(name) is `hello.c`:
+
+```bash
+cc hello.c -lcs50
+```
+
+If you want warnings:
+
+```bash
+cc -Wall -Wextra -Werror hello.c -lcs50
+```
+
+Run it:
+
+```bash
+./a.out
+```
+
+---
+-o ==> output
+To define the filname & type --> cc HelloWorld.c -lcs50 -o helloWorld(.exe/.out)
